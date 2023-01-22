@@ -37,7 +37,7 @@ DATABASE SYSTEMS CONCEPTS
 ## Developer
 | Student ID | Name - Surname |  Responsible | Github |
 | :-------- | :-------- | :--------- |:--------- |
-| 64070112 | นางสาวสุธีรา พิทักษ์ผลิน | Ux/Ui design | [SutheeraP](https://github.com/SutheeraP) |
+| 64070112 | นางสาวสุธีรา พิทักษ์ผลิน | UX/UI design | [SutheeraP](https://github.com/SutheeraP) |
 | 64070132 | นายนายจีรวัฒน์ ไม้ไหว| Frontend | [JeerawatM](https://github.com/JeerawatM) |
 | 64070148 | นายณัฐวุฒิ สอนเขียว| Project manager | [NatthawutSK](https://github.com/NatthawutSK) |
 | 64070149 | นางสาวดวงกมล พบสูงเนิน | Frontend | [Dnuangkamon](https://github.com/Dnuangkamon) |
