@@ -1,2 +1,2 @@
-# Database-project-
+# Database-project
 DATABASE SYSTEMS CONCEPTS
