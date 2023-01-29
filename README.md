@@ -34,6 +34,10 @@
 >
 >4.Notion
 
+## Notion
+>**`Notion`**
+**[Click link](https://suthxx.notion.site/suthxx/Filmary-dcf483b4959d4e488ae31d8d7cb12a97)**
+
 ## Developer
 | Student ID | Name - Surname |  Responsible | Github |
 | :-------- | :-------- | :--------- |:--------- |
