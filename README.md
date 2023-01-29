@@ -44,7 +44,7 @@
 | 64070112 | นางสาวสุธีรา พิทักษ์ผลิน | UX/UI Design | [SutheeraP](https://github.com/SutheeraP) |
 | 64070132 | นายนายจีรวัฒน์ ไม้ไหว| Frontend | [JeerawatM](https://github.com/JeerawatM) |
 | 64070148 | นายณัฐวุฒิ สอนเขียว| Project Manager | [NatthawutSK](https://github.com/NatthawutSK) |
-| 64070149 | นางสาวดวงกมล พบสูงเนิน | Frontend | [Dnuangkamon](https://github.com/Dnuangkamon) |
+| 64070149 | นางสาวดวงกมล พบสูงเนิน | Frontend | [DuangkamonPhobsungnoen](https://github.com/DuangkamonPhobsungnoen) |
 | 64070153 | นางสาวทัตพร ตันนารัตน์ | Backend | [Tadphorn](https://github.com/Tadphorn) |
 | 64070167 | นายนนทพัทธ์ จิ๋วน๊อต | Backend | [Squid3rd](https://github.com/Squid3rd) |
 
