@@ -1,0 +1,12 @@
+/* color palette from <https://github.com/vuejs/theme> */
+
+:root {
+    --vt-c-purple: linear-gradient(180deg, #604AEA 0%, #604AEA 0.01%, #290656 31.91%), #210141;
+}
+
+
+/* semantic color variables for this project */
+
+:root {
+    --color-background: var(--vt-c-purple);
+}
