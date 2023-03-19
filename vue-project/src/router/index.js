@@ -13,31 +13,31 @@ const router = createRouter({
             path: '/animesview',
             name: 'animes',
             component: () =>
-                import ('../views/AnimesView.vue')
+                import ('../views/home/AnimesView.vue')
         },
         {
             path: '/moviesview',
             name: 'movies',
             component: () =>
-                import ('../views/MoviesView.vue')
+                import ('../views/home/MoviesView.vue')
         },
         {
             path: '/seriesview',
             name: '/series',
             component: () =>
-                import ('../views/ReviewsView.vue')
+                import ('../views/home/ReviewsView.vue')
         },
         {
             path: '/trendingview',
             name: 'trending',
             component: () =>
-                import ('../views/TrendingView.vue')
+                import ('../views/home/TrendingView.vue')
         },
         {
             path: '/reviewsview',
             name: 'reviews',
             component: () =>
-                import ('../views/ReviewsView.vue')
+                import ('../views/home/ReviewsView.vue')
         },
         {
             path: '/signinview',
