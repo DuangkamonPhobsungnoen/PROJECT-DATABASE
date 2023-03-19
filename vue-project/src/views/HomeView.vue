@@ -2,6 +2,7 @@
 import Home1 from '../components/TestHome/Home1.vue';
 import Home2 from '../components/TestHome/Home2.vue';
 import Home3 from '../components/TestHome/Home3.vue';
+
 </script>
 
 <template>

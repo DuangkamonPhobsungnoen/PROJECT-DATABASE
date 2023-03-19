@@ -1,6 +1,7 @@
 components
     -Navbar
     -Footer
+    -Card
 views
     -HomeView
     -MoviesView
@@ -9,4 +10,8 @@ views
     -TrendingView
     -ReviewsView
     -SigninView
-    -signupView
+    -SignupView
+    -ProfileView
+    -AdminView
+    -SearchView
+    -DetailView
