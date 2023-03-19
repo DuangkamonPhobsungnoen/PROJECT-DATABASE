@@ -1,0 +1,12 @@
+components
+    -Navbar
+    -Footer
+views
+    -HomeView
+    -MoviesView
+    -AnimesView
+    -SeriesView
+    -TrendingView
+    -ReviewsView
+    -SigninView
+    -signupView
