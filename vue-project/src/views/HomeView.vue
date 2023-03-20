@@ -1,12 +1,11 @@
 <script setup>
-import Home1 from '../components/TestHome/Home1.vue';
-import Home2 from '../components/TestHome/Home2.vue';
-import Home3 from '../components/TestHome/Home3.vue';
 
 </script>
 
 <template>
-    <h1 class="is-size-1 ">HomeView<br>
-    
-    </h1>
+    <section class="hero">
+        <div class="hero-body" ALIGN = "MIDDLE">
+            <img src="https://media.discordapp.net/attachments/1087447051387813909/1087464977876668508/poster.png?width=1117&height=537">
+        </div>
+    </section>
 </template>

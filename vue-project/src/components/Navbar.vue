@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar px-6 is-size-5 has-text-white" style="background-color: transparent;" role="navigation"
+  <nav class="navbar px-6 is-size-5 has-text-white" style="background-color: transparent; border-bottom: px solid white;" role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
@@ -40,7 +40,9 @@
         <div class="navbar-item">
           <router-link to="/reviewsview">Reviews</router-link>
         </div>
-      <div class="navbar-end">
+      
+      </div>
+<div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable has-text-centered">
           <a class="navbar-link">
 
@@ -60,8 +62,6 @@
           </div>
         </div>
       </div>
-      </div>
-
     </div>
   </nav>
 </template>
