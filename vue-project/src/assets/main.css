@@ -8,6 +8,7 @@
 body {
     background: var(--color-background-purple);
     font-family: 'Noto Sans Thai', sans-serif;
+    color: white;
 
 }
 a {
@@ -18,6 +19,7 @@ a:hover {
     opacity: 80%;
 }
 
+/* NavbarView */
 .input-search {
     position: relative;
     height: 25px;
@@ -29,7 +31,9 @@ a:hover {
     background-position: 195px;
     
 }
-
-/* .color-background-purple {
-    background: var(--color-background-purple);
-} */
+/* MessTextComponent */
+.messt {
+    display: inline-block;
+    border-radius: 20px;  
+    border : solid white;
+}
