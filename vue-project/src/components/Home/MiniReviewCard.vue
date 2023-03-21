@@ -7,7 +7,7 @@ export default {
 <template>
     <div class="task-container columns is-multiline px-6">
         <div class="column is-4 p-6" v-for="i in 3" :key="i">
-            <div class="card " style="border-radius: 35px; background-color: #452676; color: white;">
+            <div class="card color-background-purple-2 has-text-white" style="border-radius: 35px;">
                 <div class="card-image ">
                     <figure class="image is-4by3">
                         <img src="https://media.discordapp.net/attachments/1087447051387813909/1087667903056318544/poster_1.png?width=310&height=221" alt="Placeholder image">
