@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar px-6 is-size-5 has-text-white" style="background-color: transparent; border-bottom: px solid white;" role="navigation"
+  <nav class="navbar px-6 pb-3 pt-3 is-size-5 has-text-white" style="background-color: transparent; border-bottom: 3px solid white;" role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">

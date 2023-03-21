@@ -19,6 +19,11 @@ a:hover {
     opacity: 80%;
 }
 
+.text_img_center {
+    display: flex;
+    align-items: center;
+}
+
 /* NavbarView */
 .input-search {
     position: relative;
@@ -37,3 +42,4 @@ a:hover {
     border-radius: 20px;  
     border : solid white;
 }
+
