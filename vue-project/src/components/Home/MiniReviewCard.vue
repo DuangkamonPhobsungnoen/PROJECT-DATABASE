@@ -6,11 +6,11 @@ export default {
 
 <template>
     <div class="task-container columns is-multiline px-6">
-        <div class="column is-4 " v-for="i in 3" :key="i">
-            <div class="card" style="border-radius: 20px;">
+        <div class="column is-4 px-6" v-for="i in 3" :key="i">
+            <div class="card" style="border-radius: 35px;">
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                        <img src="https://media.discordapp.net/attachments/1087447051387813909/1087667903056318544/poster_1.png?width=310&height=221" alt="Placeholder image">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -36,6 +36,7 @@ export default {
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 
