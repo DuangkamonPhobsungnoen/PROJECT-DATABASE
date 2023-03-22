@@ -40,6 +40,10 @@
         <div class="navbar-item">
           <router-link to="/reviewsview">Reviews</router-link>
         </div>
+
+        <div class="navbar-item">
+          <router-link to="/adminview">Admin</router-link>
+        </div>
       
       </div>
 <div class="navbar-end">
