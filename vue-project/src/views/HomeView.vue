@@ -14,9 +14,12 @@ import MovieCard from '../components/MovieCard.vue';
     <MiniReviewCard></MiniReviewCard>
     <Recommend></Recommend>
     <MessText message="ANIME"></MessText>
-    <MovieCard></MovieCard>
-    <MessText message="MOVIE"></MessText>   
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    <MessText message="MOVIE"></MessText> 
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>  
     <MessText message="SERIRES"></MessText>
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     <MessText message="TRENDING"></MessText>
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     
 </template>

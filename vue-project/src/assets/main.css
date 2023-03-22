@@ -41,8 +41,8 @@ a:hover {
 /* MessTextComponent */
 .messt {
     display: inline-block;
-    border-radius: 20px;  
-    border : solid white;
+    border-radius: 20px;
+    border: solid white;
 }
 
 /* Recommend  */

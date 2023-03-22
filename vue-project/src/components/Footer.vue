@@ -2,5 +2,5 @@
 </script>
 
 <template>
-    <h1 class="is-size-1">Footer</h1>
+    <div class="pt-6"><h1 class="is-size-4 has-background-black  has-text-centered">Copyright © 2023</h1></div>
 </template>
