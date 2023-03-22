@@ -2,6 +2,7 @@
 import MessText from '../components/MessText.vue';
 import MiniReviewCard from '../components/Home/MiniReviewCard.vue';
 import Recommend from '../components/Home/Recommend.vue';
+import MovieCard from '../components/MovieCard.vue';
 </script>
 
 <template>
@@ -13,7 +14,8 @@ import Recommend from '../components/Home/Recommend.vue';
     <MiniReviewCard></MiniReviewCard>
     <Recommend></Recommend>
     <MessText message="ANIME"></MessText>
-    <MessText message="MOVIE"></MessText>
+    <MovieCard></MovieCard>
+    <MessText message="MOVIE"></MessText>   
     <MessText message="SERIRES"></MessText>
     <MessText message="TRENDING"></MessText>
     

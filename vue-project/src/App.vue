@@ -4,8 +4,8 @@ import NavbarVue from './components/Navbar.vue';
 </script>
 
 <template>
-  <div>
-    <NavbarVue></NavbarVue>
+<NavbarVue></NavbarVue>
+  <div class="container column is-10">
   <RouterView />
   </div>
  
