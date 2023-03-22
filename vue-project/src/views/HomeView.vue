@@ -13,13 +13,13 @@ import MovieCard from '../components/MovieCard.vue';
     <MessText message="Review"></MessText>
     <MiniReviewCard></MiniReviewCard>
     <Recommend></Recommend>
-    <MessText message="ANIME"></MessText>
+    <router-link to="/animesview"><MessText message="ANIME"></MessText></router-link>
     <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
-    <MessText message="MOVIE"></MessText> 
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>  
-    <MessText message="SERIRES"></MessText>
+    <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link>
     <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
-    <MessText message="TRENDING"></MessText>
+    <router-link to="/seriesview"><MessText message="SERIRES"></MessText></router-link>
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    <router-link to="/trendingview"><MessText message="TRENDING"></MessText></router-link>
     <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     
 </template>
