@@ -17,7 +17,7 @@ export default {
                             allowfullscreen></iframe>
                     </div>
                     <div class="column">
-                        <div class="content">
+                        <div class="content pl-6">
                             <div class="is-size-3">
                                 <b>Alchemy of Souls</b>
                             </div>

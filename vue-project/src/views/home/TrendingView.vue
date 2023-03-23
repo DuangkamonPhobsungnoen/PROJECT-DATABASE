@@ -1,6 +1,7 @@
 <script setup>
+import SearchMovie from '../../components/SearchMovie.vue';
 </script>
 
 <template>
-    <h1 class="is-size-1">TrendingView</h1>
+    <SearchMovie></SearchMovie>
 </template>

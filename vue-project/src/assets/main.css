@@ -4,6 +4,7 @@
 :root {
     --color-background-purple: linear-gradient(180deg, #604AEA 0%, #290656 32.07%);
     --color-background-purple-2: #452676;
+    --color-background-purple-3: #604AEA;
 }
 
 body {
@@ -47,6 +48,16 @@ a:hover {
 
 /* Recommend  */
 .color-background-purple-2 {
-    background-color: var(--color-background-purple-2);
+    background: var(--color-background-purple-2);
+}
+
+/* TrendingView */
+.editselect {
+    width: 250px;
+    background: #604AEA;
+}
+
+.color-background-purple-3 {
+    background: var(--color-background-purple-3);
 }
 
