@@ -1,6 +1,12 @@
 <script setup>
+import MovieCard from '../../components/MovieCard.vue';
+import SearchMovie from '../../components/SearchMovie.vue';
 </script>
 
 <template>
-    <h1 class="is-size-1">AnimesView</h1>
+    <SearchMovie></SearchMovie>
+    <router-link to="/detailview">
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    </router-link>
+    
 </template>

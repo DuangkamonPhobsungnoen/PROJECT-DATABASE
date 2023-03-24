@@ -25,7 +25,7 @@ const router = createRouter({
             path: '/seriesview',
             name: '/series',
             component: () =>
-                import ('../views/home/ReviewsView.vue')
+                import ('../views/home/SeriesView.vue')
         },
         {
             path: '/trendingview',
@@ -56,6 +56,12 @@ const router = createRouter({
             name: 'admin',
             component: () =>
                 import ('../views/home/AdminView.vue')
+        },
+        {
+            path: '/detailview',
+            name: 'detail',
+            component: () =>
+                import ('../views/DetailView.vue')
         }
     ]
 })

@@ -5,6 +5,7 @@
     --color-background-purple: linear-gradient(180deg, #604AEA 0%, #290656 32.07%);
     --color-background-purple-2: #452676;
     --color-background-purple-3: #604AEA;
+    --color-background-purple-4: #210141;
 }
 
 body {
@@ -61,3 +62,7 @@ a:hover {
     background: var(--color-background-purple-3);
 }
 
+/* Detail Movie */
+.color-background-purple-4 {
+    background: var(--color-background-purple-4);
+}
