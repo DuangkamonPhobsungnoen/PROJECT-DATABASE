@@ -62,6 +62,18 @@ const router = createRouter({
             name: 'detail',
             component: () =>
                 import ('../views/DetailView.vue')
+        },
+        {
+            path: '/editpeople',
+            name: 'editpeople',
+            component: () =>
+                import ('../views/EditPeople.vue')
+        },
+        {
+            path: '/editfilm',
+            name: 'editfilm',
+            component: () =>
+                import ('../views/EditFilm.vue')
         }
     ]
 })

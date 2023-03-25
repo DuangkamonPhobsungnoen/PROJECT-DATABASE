@@ -44,6 +44,13 @@
         <div class="navbar-item">
           <router-link to="/adminview">Admin</router-link>
         </div>
+        <!-- ใช้แค่ดูตอนทำสักพักก็ลบเลย -->
+        <!-- <div class="navbar-item">
+          <router-link to="/EditPeople">ProFile</router-link>
+        </div>
+        <div class="navbar-item">
+          <router-link to="/EditFilm">หนัง</router-link>
+        </div> -->
       
       </div>
 <div class="navbar-end">
