@@ -4,3 +4,4 @@
 <template>
     <h1 class="is-size-1">SigninView</h1>
 </template>
+ 

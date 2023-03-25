@@ -2,15 +2,15 @@
   <nav class="navbar px-6 pb-3 pt-3 is-size-5 has-text-white" style="background-color: transparent; border-bottom: 3px solid white;" role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <div class="navbar-item">
         <router-link to="/"><b>Filmary</b></router-link>
-      </a>
+      </div>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <div role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a>
+      </div>
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
@@ -47,22 +47,20 @@
       
       </div>
 <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable has-text-centered">
-          <a class="navbar-link">
-
-            <img src="https://media.discordapp.net/attachments/1087447051387813909/1087453743802495016/icons8-user-64-2_1.png?width=53&height=61">
-          </a>
+        <div class="navbar-item has-dropdown is-hoverable has-text-centered ">
+          <div class="navbar-link ">
+            <img src="https://cdn-icons-png.flaticon.com/512/7968/7968662.png">
+          </div>
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              <router-link to="/signinview">
+            <router-link to="/signinview">
+            <div class="navbar-item">
                 <strong>Sign in</strong>
-              </router-link>
-            </a>
-            <a class="navbar-item">
-              <router-link to="/signupview">
+            </div></router-link>
+            <router-link to="/signupview">
+            <div class="navbar-item">
                 <strong>Sign up</strong>
-              </router-link>
-            </a>
+            </div>
+          </router-link>
           </div>
         </div>
       </div>
