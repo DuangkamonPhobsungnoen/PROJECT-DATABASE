@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
 
 :root {
-    --color-background-purple: linear-gradient(180deg, #604AEA 0%, #290656 32.07%);
+    --color-background-purple: linear-gradient(180deg, #604AEA 0%, #604AEA 0.01%, #290656 31.91%), #210141;
     --color-background-purple-2: #452676;
     --color-background-purple-3: #604AEA;
     --color-background-purple-4: #210141;
@@ -65,4 +65,98 @@ a:hover {
 /* Detail Movie */
 .color-background-purple-4 {
     background: var(--color-background-purple-4);
+}
+
+/* SigninView SignupView*/
+.text-signin {
+    background: var(--color-background-purple-2);
+    color: white;
+    padding: 13px;
+    font-size: 1.4rem;
+    border-top-left-radius: 1.3rem;
+    border-top-right-radius: 1.3rem;
+}
+
+.input_username {
+    background: url("https://cdn-icons-png.flaticon.com/512/9439/9439980.png") no-repeat left;
+    background-size: 20px;
+    padding-left: 40px;
+    background-position: 12px;
+    color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+}
+
+.input_password {
+    background: url("https://cdn-icons-png.flaticon.com/512/8875/8875384.png") no-repeat left;
+    background-size: 24px;
+    padding-left: 40px;
+    background-position: 12px;
+    color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+}
+
+.input_phone {
+    background: url("https://media.discordapp.net/attachments/1072181252964233328/1076193459842580571/9751538.png") no-repeat left;
+    background-size: 23px;
+    padding-left: 40px;
+    background-position: 12px;
+    color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+}
+
+.input_email {
+    background: url("https://media.discordapp.net/attachments/1072181252964233328/1076193060255432704/747483.png") no-repeat left;
+    background-size: 24px;
+    padding-left: 40px;
+    background-position: 12px;
+    color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+}
+
+.line {
+    position: relative;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-background-purple-2);
+    opacity: 50%;
+}
+
+.line::before {
+    content: 'or';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EEF3F8;
+    color: var(--color-background-purple-2);
+    padding: 0 8px;
+}
+
+.color_sign_white {
+    color: var(--color-background-purple-2);
+    background-color: white;
+    border-radius: 2rem;
+    border: 2px solid var(--color-background-purple-2);
+    border-color: var(--color-background-purple-2);
+}
+
+.color_sign_purple {
+    color: white;
+    background-color: var(--color-background-purple-2);
+    border-radius: 2rem;
+}
+
+.card1 {
+    border-color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+    border-radius: 1.5rem;
+    width: 305px;
+    background: white;
+}
+
+.card2 {
+    border-color: var(--color-background-purple-2);
+    border: 2px solid var(--color-background-purple-2);
+    border-radius: 1.5rem;
+    width: 450px;
+    background: white;
 }
