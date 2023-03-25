@@ -79,7 +79,7 @@ a:hover {
 
 .input_username {
     background: url("https://cdn-icons-png.flaticon.com/512/9439/9439980.png") no-repeat left;
-    background-size: 20px;
+    background-size: 24px;
     padding-left: 40px;
     background-position: 12px;
     color: var(--color-background-purple-2);
@@ -88,7 +88,7 @@ a:hover {
 
 .input_password {
     background: url("https://cdn-icons-png.flaticon.com/512/8875/8875384.png") no-repeat left;
-    background-size: 24px;
+    background-size: 20px;
     padding-left: 40px;
     background-position: 12px;
     color: var(--color-background-purple-2);
@@ -96,7 +96,7 @@ a:hover {
 }
 
 .input_phone {
-    background: url("https://media.discordapp.net/attachments/1072181252964233328/1076193459842580571/9751538.png") no-repeat left;
+    background: url("https://cdn-icons-png.flaticon.com/512/7344/7344095.png") no-repeat left;
     background-size: 23px;
     padding-left: 40px;
     background-position: 12px;
@@ -105,9 +105,9 @@ a:hover {
 }
 
 .input_email {
-    background: url("https://media.discordapp.net/attachments/1072181252964233328/1076193060255432704/747483.png") no-repeat left;
-    background-size: 24px;
-    padding-left: 40px;
+    background: url("https://cdn-icons-png.flaticon.com/512/10037/10037961.png") no-repeat left;
+    background-size: 28px;
+    padding-left: 45px;
     background-position: 12px;
     color: var(--color-background-purple-2);
     border: 2px solid var(--color-background-purple-2);
