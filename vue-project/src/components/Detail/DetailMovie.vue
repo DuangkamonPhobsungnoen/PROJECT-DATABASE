@@ -22,21 +22,21 @@
 
     <!-- Detail -->
       <div class="column ml-6">
-        <div class="title has-text-white">Avatar: the way of water</div>
-        <div class="my-4">Action , Adventure , Fantasy</div>
+        <h1 class="title has-text-white">Avatar: the way of water</h1>
+        <h3 class="my-4">Action , Adventure , Fantasy</h3>
         <div class="columns my-4">
-          <div class="column is-2">⭐️ 9.5</div>
-          <div class="column is-2">💬 125</div>
-          <div class="column is-2">🎞 watchlist</div>
+          <p class="column is-2">⭐️ 9.5</p>
+          <p class="column is-2">💬 125</p>
+          <p class="column is-2">🎞 watchlist</p>
         </div>
-        <div class="my-4"><b>Director</b> James Cameron</div>
-        <div class="my-4"><b>Actor</b> Samuel Henry J. / Zoe Saldana / Susan Alexandra</div>
-        <div class="my-4">
+        <p class="my-4"><b>Director</b> James Cameron</p>
+        <p class="my-4"><b>Actor</b> Samuel Henry J. / Zoe Saldana / Susan Alexandra</p>
+        <p class="my-4">
           Jake Sully lives with his newfound family formed on the extrasolar
           moon Pandora. Once a familiar threat returns to finish what was
           previously started, Jake must work with Neytiri and the army of the
           Na'vi race to protect their home.
-        </div>
+        </p>
       </div>
     </div>
   </div>

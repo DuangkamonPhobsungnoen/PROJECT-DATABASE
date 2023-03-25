@@ -1,8 +1,8 @@
 <template>
   <div class="my-6">
+
     <div class="box has-text-white color-background-purple-4 p-5">
       <div class="columns">
-        
         <div class="column is-6">
           <p class="text_img_center">
             <img
@@ -19,7 +19,15 @@
         </div>
       </div>
 
-      <textarea class="textarea color-background-purple-2 has-text-white" placeholder="How about this movie?"></textarea>
+      <textarea
+        class="textarea color-background-purple-2 has-text-white"
+        placeholder="How about this movie?"
+      ></textarea>
+      
     </div>
   </div>
 </template>
+
+<script>
+</script>
+
