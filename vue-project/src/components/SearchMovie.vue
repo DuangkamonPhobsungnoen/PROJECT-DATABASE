@@ -1,12 +1,17 @@
 <script>
-export default {};
+export default {
+  name: 'messtext',
+    props: {
+        message: String
+    }
+};
 </script>
 
 <template>
   <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns">
         <div class="column has-text-centered pt-4 is-size-5">
-            <b><p>Trending</p></b>
+            <b><p class="is-size-4">{{message}}</p></b>
         </div>
       <div class="column">
         <div class="select">

@@ -60,7 +60,7 @@
                         <p class="line "></p>
                     </div>
                     <div class="column px-5 ">
-                        <router-link to="/sign_in">
+                        <router-link to="/signinview">
                             <button class="button is-fullwidth color_sign_white ">Sign in</button>
                         </router-link>
                     </div>
@@ -172,7 +172,7 @@ export default {
                 return
             }
             alert('ลงทะเบียนสำเร็จ')
-            location.href = "/signview"
+            location.href = "/signinview"
         },
     },
 }
