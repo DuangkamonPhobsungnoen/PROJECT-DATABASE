@@ -172,7 +172,7 @@ export default {
                 return
             }
             alert('ลงทะเบียนสำเร็จ')
-            location.href = "./sign_in"
+            location.href = "/signview"
         },
     },
 }
