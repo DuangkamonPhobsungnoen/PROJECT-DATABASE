@@ -1,3 +1,20 @@
+<script>
+export default {
+    name: 'detailmess',
+    props: {
+        title: String,
+        trailor: String,
+        poster: String,
+        rating: Number,
+        category: String,
+        rating: Number,
+        review: Number,
+        director: String,
+        actor: String,
+        description: String,
+    }
+}
+</script>
 
 <template>
   <div class="my-6">
@@ -22,21 +39,16 @@
 
     <!-- Detail -->
       <div class="column ml-6">
-        <h1 class="title has-text-white">Avatar: the way of water</h1>
-        <h3 class="my-4">Action , Adventure , Fantasy</h3>
+        <h1 class="title has-text-white">{{title}}</h1>
+        <h3 class="my-4">{{category}}</h3>
         <div class="columns my-4">
-          <p class="column is-2">⭐️ 9.5</p>
-          <p class="column is-2">💬 125</p>
+          <p class="column is-2">⭐️ {{rating}}</p>
+          <p class="column is-2">💬 {{comment}}</p>
           <p class="column is-2">🎞 watchlist</p>
         </div>
-        <p class="my-4"><b>Director</b> James Cameron</p>
-        <p class="my-4"><b>Actor</b> Samuel Henry J. / Zoe Saldana / Susan Alexandra</p>
-        <p class="my-4">
-          Jake Sully lives with his newfound family formed on the extrasolar
-          moon Pandora. Once a familiar threat returns to finish what was
-          previously started, Jake must work with Neytiri and the army of the
-          Na'vi race to protect their home.
-        </p>
+        <p class="my-4"><b>Director</b> {{director}}n</p>
+        <p class="my-4"><b>Actor</b>{{actor}}</p>
+        <p class="my-4">{{description}}</p>
       </div>
     </div>
   </div>
