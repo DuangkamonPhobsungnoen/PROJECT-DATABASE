@@ -74,7 +74,14 @@ const router = createRouter({
             name: 'editfilm',
             component: () =>
                 import ('../views/EditFilm.vue')
-        }
+        },
+        {
+            path: '/profileview',
+            name: 'profile',
+            component: () =>
+                import ('../views/ProfileView.vue')
+        },
+
     ]
 })
 

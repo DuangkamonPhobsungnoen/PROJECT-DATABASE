@@ -3,13 +3,15 @@
     <div class="columns p-5">
       <div class="column is-1"></div>
       <div class="column is-10">
-        <button
+        <!-- <router-link to="/editfilm"> -->
+          <button
           class="button is-medium is-fullwidth"
           style="background-color: rgba(255, 255, 255, 0.1); color: white"
-          @click="addMovie()"
+          @click="movformshow()"
         >
           Add +
         </button>
+        <!-- </router-link> -->
       </div>
       <div class="column is-1"></div>
     </div>
@@ -22,21 +24,19 @@
             style="background-color: rgba(255, 255, 255, 0.1); color: white"
           >
             <div class="columns">
-              <div class="column is-4">{{ item.movname }}</div>
+              <div class="column is-4">{{ item.title }}</div>
               <div class="column is-4 has-text-centered">
                 {{ item.years }}
               </div>
               <div class="column is-4 has-text-right">
+                <!-- <router-link to="/editfilm"> -->
+                  <button class="button has-text-white nonebackbutton" @click="movformshow()">
+                    <div class="fa fa-pencil is-size-2"></div>
+                  </button>
+                <!-- </router-link> -->
                 <button
-                  class="button has-text-white"
-                  style="background-color: transparent; border: none"
-                >
-                  <div class="fa fa-pencil is-size-2"></div>
-                </button>
-                <button
-                  class="button has-text-white"
-                  style="background-color: transparent; border: none"
-                  @click="show_modal_del = !show_modal_del"
+                  class="button has-text-white nonebackbutton"
+                  @click="(show_modal_del = !show_modal_del), (wantdel = index)"
                 >
                   <span><div class="fa fa-trash is-size-2"></div></span>
                 </button>
@@ -54,30 +54,31 @@
     class="modal"
     v-bind:class="{ 'is-active': show_modal_del }"
   >
-    <div
-      class="modal-background"
-      
-    ></div>
+    <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box">
         <div class="has-text-right">
-          <button class="delete"
-          @click="show_modal_del = !show_modal_del"></button>
+          <button
+            class="delete"
+            @click="show_modal_del = !show_modal_del"
+          ></button>
         </div>
 
         <p class="has-text-centered pb-5">Are you sure ?</p>
-          <div class="has-text-centered">
-            <button
-              class="button is-danger mr-3"
-              @click="show_modal_del = !show_modal_del"
-            >
-              Delete
-            </button>
-            <span>
-              <button class="button" @click="show_modal_del = !show_modal_del">
+        <div class="has-text-centered">
+          <button
+            class="button is-danger mr-3"
+            @click="
+              (show_modal_del = !show_modal_del), removeMovie(this.wantdel)
+            "
+          >
+            Delete
+          </button>
+          <span>
+            <button class="button" @click="show_modal_del = !show_modal_del">
               Cancel
             </button>
-            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -85,24 +86,35 @@
 </template>
   
   <script>
+
 export default {
   name: "addmov",
   data() {
     return {
       show_modal_del: false,
-      movie: [],
-      movname: "Titanic",
-      years: "(1991)",
+
+      wantdel: 0,
     };
   },
+
   methods: {
-    addMovie: function () {
-      this.movie.push({
-        movname: this.movname,
-        years: this.years,
-      });
+    // addMovie: function () {
+    //   this.movie.push({
+    //     movname: this.movname,
+    //     years: this.years,
+    //   });
+    // },
+    removeMovie(index) {
+      this.movie.splice(index, 1);
+    },
+    movformshow(){
+      this.$emit('show1', [true, 'film']);
+      // this.$emit('type1', 'film')
     },
   },
+  props: [
+    "movie"
+  ]
 };
 </script>
   

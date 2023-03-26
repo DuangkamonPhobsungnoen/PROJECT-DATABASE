@@ -2,6 +2,7 @@
 </script>
 
 <template>
+  <form action="" @submit.prevent="submitformpeople()">
     <div class="p-6">
       <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit</h1>
       <div class="columns pt-6">
@@ -34,10 +35,10 @@
         </div>
         <div class="column is-5 p-5">
           <div class="mt-3">
-            <div><input class="is-medium mb-5 input" type="text" name="firstname" id="firstname"></div>
-            <div><input class="is-medium mb-5 input" type="text" name="lastname" id="lastname"></div>
-            <div><input class="is-medium mb-5 input" type="text" name="birthday" id="birthday"></div>
-            <div><input class="is-medium mb-5 input" type="text" name="nationality" id="nationality"></div>
+            <div><input class="is-medium mb-5 input" type="text" v-model="movadd.fname" name="firstname" id="firstname"></div>
+            <div><input class="is-medium mb-5 input" type="text" v-model="movadd.lname" name="lastname" id="lastname"></div>
+            <div><input class="is-medium mb-5 input" type="text" v-model="movadd.dob" name="birthday" id="birthday"></div>
+            <div><input class="is-medium mb-5 input" type="text" v-model="movadd.national" name="nationality" id="nationality"></div>
           </div>
         </div>
       </div>
@@ -51,4 +52,35 @@
         </div>
       </div>
     </div>
+  </form>
+    
 </template>
+
+<script>
+export default{
+  name: "editpeople",
+  data(){
+    return{
+      movadd:{
+        fname: "",
+        lname: "",
+        dob: "",
+        national: "",
+      }
+    }
+  },
+  methods:{
+    submitformpeople() {
+      const newpeople={
+        fname: this.movadd.fname,
+        lname: this.movadd.lname,
+        dob: this.movadd.dob,
+        national: this.movadd.national,
+      }
+      this.$emit('save2', [newpeople, false]);
+    },
+  }
+
+
+}
+</script>

@@ -3,7 +3,7 @@
     <div class="columns p-5">
       <div class="column is-1"></div>
       <div class="column is-10">
-        <div class="columns has-text-centered">
+        <div class="columns has-text-centered p-3">
           <div class="column">
             <div class="select">
               <select class="editselect">
@@ -35,13 +35,14 @@
             </div>
           </div>
         </div>
-        <button
-          class="button is-medium is-fullwidth"
-          style="background-color: rgba(255, 255, 255, 0.1); color: white"
-          @click="addPeople()"
-        >
-          Add +
-        </button>
+          <button
+            class="button is-medium is-fullwidth"
+            style="background-color: rgba(255, 255, 255, 0.1); color: white"
+            @click="peopleformshow()"
+          >
+            Add +
+          </button>
+        
       </div>
       <div class="column is-1"></div>
     </div>
@@ -58,16 +59,14 @@
                 {{ item.fname }} {{ item.lname }}
               </div>
               <div class="column has-text-right">
+
+                  <button class="button has-text-white nonebackbutton" @click="peopleformshow()">
+                    <div class="fa fa-pencil is-size-2"></div>
+                  </button>
+
                 <button
-                  class="button has-text-white"
-                  style="background-color: transparent; border: none"
-                >
-                  <div class="fa fa-pencil is-size-2"></div>
-                </button>
-                <button
-                  class="button has-text-white js-modal-trigger"
-                  style="background-color: transparent; border: none"
-                  @click="show_modal_del = !show_modal_del"
+                  class="button has-text-white js-modal-trigger nonebackbutton"
+                  @click="(show_modal_del = !show_modal_del), (wantdel = index)"
                 >
                   <span><div class="fa fa-trash is-size-2"></div></span>
                 </button>
@@ -99,7 +98,9 @@
         <div class="has-text-centered">
           <button
             class="button is-danger mr-3"
-            @click="show_modal_del = !show_modal_del"
+            @click="
+              (show_modal_del = !show_modal_del), removePeople(this.wantdel)
+            "
           >
             Delete
           </button>
@@ -120,19 +121,30 @@ export default {
   data() {
     return {
       show_modal_del: false,
-      people: [],
-      lname: "Peter",
-      fname: "Parker",
+    //   people: [],
+    //   lname: "Peter",
+    //   fname: "Parker",
+      wantdel: 0,
     };
   },
   methods: {
-    addPeople: function () {
-      this.people.push({
-        fname: this.fname,
-        lname: this.lname,
-      });
+    // addPeople: function () {
+    //   this.people.push({
+    //     fname: this.fname,
+    //     lname: this.lname,
+    //   });
+    // },
+    removePeople(index) {
+      this.people.splice(index, 1);
+    },
+    peopleformshow(){
+      this.$emit('show2', [true, 'people']);
+      // this.$emit('type1', 'film')
     },
   },
+  props: [
+    "people"
+  ]
 };
 </script>
 

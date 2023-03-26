@@ -160,3 +160,12 @@ a:hover {
     width: 450px;
     background: white;
 }
+
+.proeditbackground{
+    background: var(--color-background-purple);
+}
+
+.nonebackbutton{
+    background-color: transparent;
+    border: none;
+}
