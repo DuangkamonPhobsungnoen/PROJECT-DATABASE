@@ -20,7 +20,6 @@
             <input class="input input-search"  type="text" placeholder="Search">
           </div>
         </div>
-
         <div class="navbar-item">
           <router-link to="/animesview">Animes</router-link>
         </div>
