@@ -4,16 +4,16 @@ import MiniReviewCard from '../components/Home/MiniReviewCard.vue';
 import Recommend from '../components/Home/Recommend.vue';
 import MovieCard from '../components/MovieCard.vue';
 
-// import { computed, ref, reactive } from "vue";
-// import axios from 'axios';
+import { computed, ref, reactive, onMounted } from "vue";
+import axios from 'axios';
 
-// const test = ref([])
+const test = ref([])
 
-// const fetch = async () => {
-//         const fetchingData = await axios.get('http://localhost:3000')
-//         test.value = fetchingData.data;
-//       }
-
+const fetch = async () => {
+        const fetchingData = await axios.get('http://localhost:3000')
+        test.value = fetchingData.data;
+      }
+      onMounted(fetch)
 </script>
 
 <template>
