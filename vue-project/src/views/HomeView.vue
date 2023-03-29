@@ -15,6 +15,7 @@ onMounted(movieStore.fetchSeries)
 
 <template>
     <div>
+        <h1>demo pull request</h1>
         <!-- <h1>{{ movieStore.test }}</h1> -->
         <div v-for="item in movieStore.dbanime">
             <h1>{{ item.mov_title }}</h1>
