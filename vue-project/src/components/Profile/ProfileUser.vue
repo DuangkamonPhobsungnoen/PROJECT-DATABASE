@@ -1,10 +1,6 @@
 <template>
   <!-- กดปุ่ม edit แล้วเด่ง popup edit -->
-  sadsada
-  <div>
-    <button @click="show_edit = !show_edit">Edit</button>
-  </div>
-
+    <button @click="show_edit = !show_edit" class="button ml-6" style="border-radius:15px;">Edit Profile</button>
   <!-- PopUp Edit -->
   <div
     id="modal-rusure"

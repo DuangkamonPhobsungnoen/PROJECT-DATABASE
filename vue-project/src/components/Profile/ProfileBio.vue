@@ -16,8 +16,8 @@
     </div>
     <div class="column is-5 mt-6">
         <div class="pt-6">
-            <label class="title has-text-white">Jeerawat</label>
-            <button class="button ml-6" style="border-radius:15px;">Edit Profile</button>
+            <label class="title has-text-white">Jeerawat</label> 
+            <Edit/>
         </div>
         <div class="pt-1">
             <label>99</label>
@@ -38,6 +38,11 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import Edit from "../Profile/ProfileUser.vue";
+</script>
+
 
 <script>
 export default {

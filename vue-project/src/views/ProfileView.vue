@@ -1,12 +1,10 @@
 <script setup>
-import Profile1 from "../components/Profile/ProfileUser.vue";
 import Bioview from "../components/Profile/ProfileBio.vue";
 import Review from "../components/Profile/reviews.vue";
 import Watchlist from "../components/Profile/Watchlist.vue";
 </script>
 
 <template>
-  <Profile1 />
   <Bioview />
   <div v-show="is_form == false">
     <div class="has-text-centered">
