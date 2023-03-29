@@ -1,5 +1,5 @@
 <template>
-  <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+  วอชลิส รอเอาจากดาต้าเบส
 </template>
 
 <script setup>
