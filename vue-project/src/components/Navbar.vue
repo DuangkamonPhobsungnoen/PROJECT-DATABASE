@@ -48,6 +48,10 @@
           <router-link to="/profileview">TestProfile</router-link>
         </div>
 
+        <div class="navbar-item">
+          <router-link to="/actorview">ActorV</router-link>
+        </div>
+
 
 
       
