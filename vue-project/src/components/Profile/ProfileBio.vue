@@ -2,16 +2,12 @@
   <div class="columns">
     <div class="column is-3"></div>
     <div class="column is-3 m-5">
-      <div class="mt-5">
-        <div class="card-content">
-          <div class="media">
-            <div class="image media-left">
+          <div class="media mt-6">
+            <div class="image media-left mt-2">
                 <div style="border:5px solid; border-radius:50%;width:200px;" class="">
                     <img style="" src="https://cdn.discordapp.com/attachments/1087447051387813909/1087617962984357918/Ellipse_7.png" alt="">
                 </div>
             </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="column is-5 mt-6">
