@@ -37,33 +37,6 @@
         </div>
     </div>
   </div>
-  <div class="has-text-centered">
-    <button class="m-5 nonebackbutton" @click="is_how = 'REWIEWS'">
-      <a
-        class="is-size-5"
-        v-bind:class="{ 'has-text-warning': is_how == 'REWIEWS' }"
-        >REWIEWS</a
-      >
-      <div
-        style="border-bottom: 3px solid"
-        v-bind:class="{ 'has-text-warning': is_how == 'REWIEWS' }"
-        class="has-text-white"
-      ></div>
-    </button>
-    <button class="m-5 nonebackbutton" @click="is_how = 'WATCHLIST'">
-      <a
-        class="is-size-5"
-        v-bind:class="{ 'has-text-warning': is_how == 'WATCHLIST' }"
-        >WATCHLIST</a
-      >
-      <div
-        style="border-bottom: 3px solid"
-        v-bind:class="{ 'has-text-warning': is_how == 'WATCHLIST' }"
-        class="has-text-white"
-      ></div>
-    </button>
-  </div>
-  <div style="border-bottom: 5px solid gold" class="mb-6"></div>
 </template>
 
 <script>
