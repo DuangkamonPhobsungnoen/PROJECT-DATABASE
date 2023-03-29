@@ -27,7 +27,7 @@ onMounted(movieStore.fetchMovie)
     <Recommend></Recommend>
     <router-link to="/animesview"><MessText message="ANIME"></MessText></router-link>
 
-    <MovieCard v-for='movie in movieStore.test' :movie="movie"></MovieCard>
+    <MovieCard  :movie="movieStore.test"></MovieCard>
     <!-- <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link> -->
 
     <!-- <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
