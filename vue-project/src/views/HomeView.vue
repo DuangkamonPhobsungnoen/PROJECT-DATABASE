@@ -3,22 +3,17 @@ import MessText from '../components/MessText.vue';
 import MiniReviewCard from '../components/Home/MiniReviewCard.vue';
 import Recommend from '../components/Home/Recommend.vue';
 import MovieCard from '../components/MovieCard.vue';
+import { useMovieStore } from "../stores/movie";
 
-// import { computed, ref, reactive } from "vue";
-// import axios from 'axios';
-
-// const test = ref([])
-
-// const fetch = async () => {
-//         const fetchingData = await axios.get('http://localhost:3000')
-//         test.value = fetchingData.data;
-//       }
+import { computed, ref, reactive, onMounted } from "vue";
+const movieStore = useMovieStore()
+onMounted(movieStore.fetchMovie) 
 
 </script>
 
 <template>
     <div>
-        <h1>{{ test }}</h1>
+        <h1>{{ movieStore.test }}</h1>
     </div>
     <section class="hero px-6 py-6">
         <img
