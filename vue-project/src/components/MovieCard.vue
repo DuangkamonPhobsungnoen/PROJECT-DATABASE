@@ -1,11 +1,11 @@
 <script setup>
 defineProps({
-    movie:Object
+    movie:Array
 })
 </script>
 <template>
      <div class="task-container columns is-multiline px-6 py-6">
-        <div class="column is-3 px-5" >
+        <div class="column is-3 px-5" v-for="item in movie " >
             <div class="card color-background-purple-2 has-text-white" style="border-radius: 30px;">
                 <div class="card-image ">
                     <figure class="image is-4by5">
@@ -15,7 +15,7 @@ defineProps({
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
-                            <p class="is-size-6 ">{{movie.mov_title}}</p>
+                            <p class="is-size-6 ">{{item.mov_title}}</p>
                             <p class="text_img_center pt-5">
                             <img src="https://media.discordapp.net/attachments/1087447051387813909/1087616553777897552/Star.png?width=20&height=20">
                             <!-- <span>{{rating}}</span> -->

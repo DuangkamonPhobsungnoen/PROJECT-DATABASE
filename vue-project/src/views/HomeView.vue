@@ -7,6 +7,8 @@ import { useMovieStore } from "../stores/movie";
 import { computed, ref, reactive, onMounted } from "vue";
 const movieStore = useMovieStore()
 onMounted(movieStore.fetchMovie)
+onMounted(movieStore.fetchAnime)
+onMounted(movieStore.fetchSeries)
 // import axios from 'axios';
 
 </script>
@@ -14,7 +16,7 @@ onMounted(movieStore.fetchMovie)
 <template>
     <div>
         <!-- <h1>{{ movieStore.test }}</h1> -->
-        <div v-for="item in movieStore.test">
+        <div v-for="item in movieStore.dbanime">
             <h1>{{ item.mov_title }}</h1>
         </div>
     </div>
@@ -25,15 +27,17 @@ onMounted(movieStore.fetchMovie)
     <MessText message="Review"></MessText>
     <MiniReviewCard></MiniReviewCard>
     <Recommend></Recommend>
+    
     <router-link to="/animesview"><MessText message="ANIME"></MessText></router-link>
+    <MovieCard  :movie="movieStore.dbanime"></MovieCard>
 
-    <MovieCard v-for='movie in movieStore.test' :movie="movie"></MovieCard>
-    <!-- <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link> -->
+    <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link>
+     <MovieCard :movie="movieStore.dbmovie"></MovieCard>
 
-    <!-- <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     <router-link to="/seriesview"><MessText message="SERIRES"></MessText></router-link>
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    <MovieCard :movie="movieStore.dbseries"></MovieCard>
     <router-link to="/trendingview"><MessText message="TRENDING"></MessText></router-link>
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard> -->
+    
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     
 </template>
