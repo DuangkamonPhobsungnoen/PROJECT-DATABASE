@@ -26,12 +26,14 @@ onMounted(movieStore.fetchMovie)
     <MiniReviewCard></MiniReviewCard>
     <Recommend></Recommend>
     <router-link to="/animesview"><MessText message="ANIME"></MessText></router-link>
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
-    <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link>
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+
+    <MovieCard v-for='movie in movieStore.test' :movie="movie"></MovieCard>
+    <!-- <router-link to="/moviesview"><MessText message="MOVIE"></MessText> </router-link> -->
+
+    <!-- <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     <router-link to="/seriesview"><MessText message="SERIRES"></MessText></router-link>
     <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
     <router-link to="/trendingview"><MessText message="TRENDING"></MessText></router-link>
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard> -->
     
 </template>
