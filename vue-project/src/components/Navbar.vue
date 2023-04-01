@@ -16,9 +16,19 @@
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item px-4">
-          <div class="control ">
-            <input class="input input-search"  type="text" placeholder="Search">
-          </div>
+          <form action="">
+            <p class="control has-icons-right">
+              <input class="input input-search" type="text" placeholder="Search" v-model="whatsearch">
+              <span class="icon is-right">
+                <router-link to="/searchview">
+                  <button class="button nonebackbutton">
+                    <i class="fa fa-search has-text-black" aria-hidden="true"></i>
+                  </button>
+                </router-link>
+
+              </span>
+            </p>
+          </form>
         </div>
         <div class="navbar-item">
           <router-link to="/animesview">Animes</router-link>
@@ -77,3 +87,15 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  name: "navbar",
+  data(){
+    return{
+      whatsearch: ""
+    }
+  },
+
+}
+</script>
