@@ -9,11 +9,14 @@ app.use(cors())
 // routers
 const indexRouter = require('./routes/index')
 const regisRouter = require('./routes/registration')
+const movieRouter = require('./routes/movie')
+const reviewRouter = require('./routes/review')
 // const commentRouter = require('./routes/comment')
 
 app.use(indexRouter.router)
 app.use(regisRouter.router)
-// app.use(commentRouter.router)
+app.use(movieRouter.router)
+app.use(reviewRouter.router)
 
 app.listen(3000, () => {
   console.log(`Example app listening at http://localhost:3000`)

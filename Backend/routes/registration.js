@@ -5,20 +5,6 @@ const saltRounds = 10;
 router = express.Router();
 
 
-// router.get("/register", async function (req, res, next) {
-//     try {
-//         const {u_fname, u_lname, u_user_name} = req.body
-
-//         const [rows, fields] = await pool.query('insert into user(u_fname, u_lname, u_user_name, u_bio) values (?,?,?,?) ',
-//         [u_fname, u_lname, u_user_name, u_pass]);
-//         return res.json(rows)
-        
-//     } catch (error) {
-//         next(err)
-//     }
-    
-//   });
-
   router.post("/register", async function  (req, res, next) {
     const {u_fname, u_lname, u_user_name, u_pass} = req.body
     bcrypt.hash(u_pass, saltRounds, async function(err, hash){
@@ -44,6 +30,36 @@ router = express.Router();
     })
 });
 
+
+router.post('/login', async (req,res,next) =>{
+    const {u_user_name, pass} = req.body
+    try {
+        const [rows, fields] = await pool.query('SELECT * FROM user WHERE u_user_name = ?',
+        [u_user_name])
+        if(rows.length == 0){
+            return res.json({status: "error", message: "user not found"})
+            
+        }else {
+            console.log(pass);
+            console.log(rows[0].u_password);
+            bcrypt.compare(pass, rows[0].u_password, function(err,isLogin){
+                // res.json(isLogin)
+                // console.log(isLogin);
+                if(isLogin){
+                    res.json({status:'ok', user: rows[0]})
+                }
+                else{
+                    res.json({status: 'Invalid Password', err: err})
+                }
+            })
+        }  
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+
+    
+})
   
 
 
