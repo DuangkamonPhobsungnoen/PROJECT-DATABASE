@@ -3,6 +3,7 @@
   <div v-show="is_form == false">
     <SearchA />
     <div class="has-text-centered">
+
       <button class="m-5 nonebackbutton" @click="is_how = 'film'">
         <a
           class="is-size-5"
@@ -15,6 +16,7 @@
           class="has-text-white"
         ></div>
       </button>
+
       <button class="m-5 nonebackbutton" @click="is_how = 'people'">
         <a
           class="is-size-5"
@@ -27,8 +29,10 @@
           class="has-text-white"
         ></div>
       </button>
+      
     </div>
     <div style="border-bottom: 5px solid gold"></div>
+
     <div v-show="is_how == 'film'">
       <AddMov @show1="is_form = $event[0], editselect = $event[1]" :movie="movie1" />
     </div>

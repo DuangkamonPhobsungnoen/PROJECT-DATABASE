@@ -31,9 +31,9 @@ a:hover {
 /* NavbarView */
 .input-search {
     position: relative;
-    height: 25px;
+    height: 40px;
     border-radius: 20px;
-    background: url('https://cdn.discordapp.com/attachments/1087447051387813909/1087447341205831791/image_27.png') no-repeat left;
+    /* background: url('https://cdn.discordapp.com/attachments/1087447051387813909/1087447341205831791/image_27.png') no-repeat left; */
     border-width: 1px;
     background-color: white;
     font-family: 'Noto Sans Thai', sans-serif;

@@ -16,8 +16,8 @@
     </div>
     <div class="column is-5 mt-6">
         <div class="pt-6">
-            <label class="title has-text-white">Jeerawat</label>
-            <button class="button ml-6" style="border-radius:15px;">Edit Profile</button>
+            <label class="title has-text-white">Jeerawat</label> 
+            <Edit/>
         </div>
         <div class="pt-1">
             <label>99</label>
@@ -37,34 +37,12 @@
         </div>
     </div>
   </div>
-  <div class="has-text-centered">
-    <button class="m-5 nonebackbutton" @click="is_how = 'REWIEWS'">
-      <a
-        class="is-size-5"
-        v-bind:class="{ 'has-text-warning': is_how == 'REWIEWS' }"
-        >REWIEWS</a
-      >
-      <div
-        style="border-bottom: 3px solid"
-        v-bind:class="{ 'has-text-warning': is_how == 'REWIEWS' }"
-        class="has-text-white"
-      ></div>
-    </button>
-    <button class="m-5 nonebackbutton" @click="is_how = 'WATCHLIST'">
-      <a
-        class="is-size-5"
-        v-bind:class="{ 'has-text-warning': is_how == 'WATCHLIST' }"
-        >WATCHLIST</a
-      >
-      <div
-        style="border-bottom: 3px solid"
-        v-bind:class="{ 'has-text-warning': is_how == 'WATCHLIST' }"
-        class="has-text-white"
-      ></div>
-    </button>
-  </div>
-  <div style="border-bottom: 5px solid gold" class="mb-6"></div>
 </template>
+
+<script setup>
+import Edit from "../Profile/ProfileUser.vue";
+</script>
+
 
 <script>
 export default {

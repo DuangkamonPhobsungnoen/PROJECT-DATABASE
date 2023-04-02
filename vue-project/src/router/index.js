@@ -81,6 +81,18 @@ const router = createRouter({
         component: () =>
             import('../views/ProfileView.vue')
     },
+    {
+        path: '/actorview',
+        name: 'actor',
+        component: () =>
+            import('../views/ActorView.vue')
+    },
+    {
+        path: '/searchview',
+        name: 'search',
+        component: () =>
+            import('../views/SearchView.vue')
+    },
 
     ]
 })
