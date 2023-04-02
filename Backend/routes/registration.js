@@ -29,7 +29,7 @@ router = express.Router();
             [u_user_name])
             console.log(rows1.length);
             if(rows1.length == 0){
-                const [rows, fields1] = await pool.query('INSERT INTO user(u_fname,u_lname,u_user_name,u_pass) VALUES(?,?,?,?)',
+                const [rows, fields1] = await pool.query('INSERT INTO user(u_fname,u_lname,u_user_name,u_password) VALUES(?,?,?,?)',
                 [u_fname, u_lname, u_user_name, hash])
                 return res.json(rows)
             }
