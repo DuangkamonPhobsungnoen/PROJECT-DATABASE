@@ -11,11 +11,12 @@ router = express.Router();
         try {
             console.log(hash);
             console.log(u_pass);
-            const [rows1, fields] = await pool.query('select u_user_name from user where u_user_name = ?',
+            const [rows1, fields1] = await pool.query('select u_user_name from user where u_user_name = ?',
             [u_user_name])
-            console.log(rows1.length);
+            // console.log(rows1.length);
             if(rows1.length == 0){
-                const [rows, fields1] = await pool.query('INSERT INTO user(u_fname,u_lname,u_user_name,u_password) VALUES(?,?,?,?)',
+                
+                const [rows, fields] = await pool.query('INSERT INTO user(u_fname,u_lname,u_user_name,u_password) VALUES(?,?,?,?)',
                 [u_fname, u_lname, u_user_name, hash])
                 return res.json(rows)
             }
@@ -32,19 +33,15 @@ router = express.Router();
 
 
 router.post('/login', async (req,res,next) =>{
-    const {u_user_name, pass} = req.body
+    const {username, password} = req.body
     try {
         const [rows, fields] = await pool.query('SELECT * FROM user WHERE u_user_name = ?',
-        [u_user_name])
+        [username])
         if(rows.length == 0){
             return res.json({status: "error", message: "user not found"})
-            
+    
         }else {
-            console.log(pass);
-            console.log(rows[0].u_password);
-            bcrypt.compare(pass, rows[0].u_password, function(err,isLogin){
-                // res.json(isLogin)
-                // console.log(isLogin);
+            bcrypt.compare(password, rows[0].u_password, function(err,isLogin){
                 if(isLogin){
                     res.json({status:'ok', user: rows[0]})
                 }
@@ -62,8 +59,5 @@ router.post('/login', async (req,res,next) =>{
 })
   
 
-
-
-  
 
 exports.router = router;
