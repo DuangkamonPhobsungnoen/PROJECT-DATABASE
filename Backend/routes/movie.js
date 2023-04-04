@@ -3,13 +3,17 @@ const pool = require('../config.js')
 
 router = express.Router();
 
+
   // add
   router.post("/movie/add", async function (req, res, next) {
     const {title, summary, year, time, type} = req.body
+    console.log({title, summary, year, time, type})
     try{
         const [rows, fields] = await pool.query("INSERT INTO movie (mov_title, mov_summary, mov_year, mov_time, mov_type) value(?, ?, ?, ?, ?)", 
         [title, summary, year, time, type]);
+          alert("A new movie is added")
           return res.json({"message":`A new movie is added`});
+         
       } catch (err) {
           console.log(err)
           return next(err);
@@ -18,6 +22,7 @@ router = express.Router();
 
   // delete
   router.delete("/movie/delete/:movId", async function (req, res, next) {
+    console.log(req.params.movId)
     // Your code here
     try{
       // console.log(req.params.movId);

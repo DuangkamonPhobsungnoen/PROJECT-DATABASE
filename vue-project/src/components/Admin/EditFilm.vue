@@ -1,18 +1,22 @@
 <script setup>
-// function readURL(input) {
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
+import { usecrudMovieStore } from "../../stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
 
-//     reader.onload = function (e) {
-//       $("#pullphoto").attr("src", e.target.result).width(150).height(200);
-//     };
+const crudMovStore = usecrudMovieStore();
 
-//     reader.readAsDataURL(input.files[0]);
-//   }
-// }
+const filmadd = ref({
+        title: "",
+        trailer: "",
+        director: "",
+        years: "",
+        // actor: "",
+        story: "",
+        sort1: "",
+        sort2: "",
+      })
 </script>
 <template>
-  <form action="" @submit.prevent="submitformfilm()">
+  <form action="" @submit.prevent="crudMovStore.submitformfilm(filmadd)">
     <div class="p-2">
       <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit</h1>
       <div class="columns">
@@ -145,13 +149,13 @@
               />
             </div>
             <div>
-              <input
+              <!-- <input
                 class="mb-5 input"
                 type="text"
                 name="actor"
                 id="actor"
                 v-model="filmadd.actor"
-              />
+              /> -->
             </div>
           </div>
         </div>
@@ -198,7 +202,7 @@
   </form>
 </template>
 
-<script>
+<!-- <script>
 export default {
   name: "editfilm",
   data() {
@@ -231,4 +235,4 @@ export default {
     },
   },
 };
-</script>
+</script> -->

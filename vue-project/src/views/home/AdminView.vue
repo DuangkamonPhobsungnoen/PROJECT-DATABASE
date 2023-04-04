@@ -1,9 +1,37 @@
+<script setup>
+import AddMov from "../../components/Admin/AddMov.vue";
+import AddPeople from "../../components/Admin/AddPeople.vue";
+import EditPeople from "../../components/Admin/EditPeople.vue";
+import EditFilm from "../../components/Admin/EditFilm.vue";
+
+import SearchA from "../../components/Admin/SearchAdmin.vue";
+import { usecrudMovieStore } from "../../stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
+
+const crudMovStore = usecrudMovieStore();
+onMounted(crudMovStore.fetchAll);
+
+const is_form = ref(false);
+const editselect = ref("film");
+const is_how = ref("film");
+const movie1 = ref([]);
+const people1 = ref([]);
+
+function insertmov(data) {
+  movie1.push(data[0]);
+  is_form = false;
+}
+function insertpeople(data) {
+  people1.push(data[0]);
+  is_form = false;
+}
+</script>
 <template>
+  <h1>{{ crudMovStore.allmov }}</h1>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
   <div v-show="is_form == false">
     <SearchA />
     <div class="has-text-centered">
-
       <button class="m-5 nonebackbutton" @click="is_how = 'film'">
         <a
           class="is-size-5"
@@ -29,15 +57,20 @@
           class="has-text-white"
         ></div>
       </button>
-      
     </div>
     <div style="border-bottom: 5px solid gold"></div>
 
     <div v-show="is_how == 'film'">
-      <AddMov @show1="is_form = $event[0], editselect = $event[1]" :movie="movie1" />
+      <AddMov
+        @show1="(is_form = $event[0]), (editselect = $event[1])"
+        :movie="crudMovStore.allmov"
+      />
     </div>
     <div v-show="is_how == 'people'">
-      <AddPeople @show2="is_form = $event[0], editselect = $event[1]" :people="people1" />
+      <AddPeople
+        @show2="(is_form = $event[0]), (editselect = $event[1])"
+        :people="people1"
+      />
     </div>
   </div>
   <div v-show="is_form == true">
@@ -50,12 +83,7 @@
   </div>
 </template>
 
-<script setup>
-import SearchA from "../../components/Admin/SearchAdmin.vue";
-
-</script>
-
-<script>
+<!-- <script>
 import AddMov from "../../components/Admin/AddMov.vue";
 import AddPeople from "../../components/Admin/AddPeople.vue";
 import EditPeople from "../../components/Admin/EditPeople.vue";
@@ -87,7 +115,6 @@ export default {
     }
   }
 };
-</script>
+</script> -->
 
-<style>
-</style>
+<style></style>

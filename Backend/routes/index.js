@@ -15,6 +15,16 @@ router.get("/tag", async function (req, res, next) {
     
   });
 
+  router.get("/all", async function (req, res, next) {
+    try {
+        const [rows, fields] = await pool.query('SELECT * FROM movie')
+        return res.json(rows)
+    } catch (error) {
+        console.log(err);
+        next(err)
+    }
+    
+  });
   
   router.get("/anime", async function (req, res, next) {
     try {

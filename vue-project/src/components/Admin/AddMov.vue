@@ -1,4 +1,13 @@
+<!-- <script setup>
+import { usecrudMovieStore } from "../../stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
+
+const show_modal_del =  false
+const wantdel = 0
+
+</script> -->
 <template>
+  <h1>{{ crudMovStore.test }}</h1>
   <div>
     <div class="columns p-5">
       <div class="column is-1"></div>
@@ -16,6 +25,7 @@
       <div class="column is-1"></div>
     </div>
     <div v-for="(item, index) in movie">
+      <!-- <h1>{{ item.mov_id }}</h1> -->
       <div class="columns p-3">
         <div class="column is-1"></div>
         <div class="column is-10">
@@ -24,9 +34,9 @@
             style="background-color: rgba(255, 255, 255, 0.1); color: white"
           >
             <div class="columns">
-              <div class="column is-4">{{ item.title }}</div>
+              <div class="column is-4">{{ item.mov_title }}</div>
               <div class="column is-4 has-text-centered">
-                {{ item.years }}
+                {{ item.mov_year }}
               </div>
               <div class="column is-4 has-text-right">
                 <!-- <router-link to="/editfilm"> -->
@@ -38,7 +48,8 @@
                   class="button has-text-white nonebackbutton"
                   @click="(show_modal_del = !show_modal_del), (wantdel = index)"
                 >
-                  <span><div class="fa fa-trash is-size-2"></div></span>
+                <!-- delete btn -->
+                  <span><div class="fa fa-trash is-size-2" @click="crudMovStore.removeMovie(item.mov_id)"></div></span>
                 </button>
               </div>
             </div>
@@ -49,7 +60,7 @@
     </div>
   </div>
 
-  <div
+  <!-- <div
     id="modal-rusure"
     class="modal"
     v-bind:class="{ 'is-active': show_modal_del }"
@@ -66,10 +77,11 @@
 
         <p class="has-text-centered pb-5">Are you sure ?</p>
         <div class="has-text-centered">
+         
           <button
             class="button is-danger mr-3"
             @click="
-              (show_modal_del = !show_modal_del), removeMovie(this.wantdel)
+              (show_modal_del = !show_modal_del), crudMovStore.removeMovie(item.mov_id)
             "
           >
             Delete
@@ -82,31 +94,37 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
   
   <script>
+import { usecrudMovieStore } from "../../stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
+
+// const crudMovStore = usecrudMovieStore()
+// onMounted(crudMovStore.fetchAll)
+
 
 export default {
   name: "addmov",
   data() {
     return {
       show_modal_del: false,
-
       wantdel: 0,
+      crudMovStore: usecrudMovieStore()
     };
   },
 
   methods: {
-    // addMovie: function () {
-    //   this.movie.push({
-    //     movname: this.movname,
-    //     years: this.years,
-    //   });
-    // },
-    removeMovie(index) {
-      this.movie.splice(index, 1);
+    addMovie: function () {
+      this.movie.push({
+        movname: this.movname,
+        years: this.years,
+      });
     },
+    // removeMovie(index) {
+    //   this.movie.splice(index, 1);
+    // },
     movformshow(){
       this.$emit('show1', [true, 'film']);
       // this.$emit('type1', 'film')
