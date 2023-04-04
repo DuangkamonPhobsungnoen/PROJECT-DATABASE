@@ -10,7 +10,12 @@ router = express.Router();
     try{
         const [rows, fields] = await pool.query("INSERT INTO review (rev_text, rev_rate, u_id, mov_id) value (?, ?, ?, ?) " ,
         [rev_text, rev_rate, u_id, mov_id]);
-          return res.json({"message":`A new review is added`});
+        const insertId = rows.insertId
+        // console.log(insertId);
+          const [rows1, fields1] = await pool.query("SELECT * FROM review WHERE rev_id = ?",
+           [insertId]);
+  
+          return res.json(rows1)
       } catch (err) {
           console.log(err)
           return next(err);

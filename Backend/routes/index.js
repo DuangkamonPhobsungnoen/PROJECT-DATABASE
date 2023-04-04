@@ -16,9 +16,9 @@ router.get("/tag", async function (req, res, next) {
   });
 
   
-  router.get("/", async function (req, res, next) {
+  router.get("/anime", async function (req, res, next) {
     try {
-        const [rows, fields] = await pool.query('SELECT * FROM movie')
+        const [rows, fields] = await pool.query('SELECT * FROM movie where mov_type = "anime"')
         return res.json(rows)
     } catch (error) {
         console.log(err);
@@ -26,5 +26,29 @@ router.get("/tag", async function (req, res, next) {
     }
     
   });
+  router.get("/movie", async function (req, res, next) {
+    try {
+        const [rows, fields] = await pool.query('SELECT * FROM movie where mov_type = "movie"')
+        return res.json(rows)
+    } catch (error) {
+        console.log(err);
+        next(err)
+    }
+    
+  });
+
+  router.get("/series", async function (req, res, next) {
+    try {
+        const [rows, fields] = await pool.query('SELECT * FROM movie where mov_type = "series"')
+        return res.json(rows)
+    } catch (error) {
+        console.log(err);
+        next(err)
+    }
+    
+  });
+
+
+  
 
 exports.router = router;
