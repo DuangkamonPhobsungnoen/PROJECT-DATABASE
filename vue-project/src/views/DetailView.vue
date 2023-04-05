@@ -6,8 +6,10 @@ import { useRoute } from "vue-router";
 import { useMovieStore } from "../stores/movie";
 import { useReviewStore } from "../stores/review";
 import { onMounted, } from "vue";
+import { useSignInStore } from "../stores/signin";
 const movieStore = useMovieStore()
 const reviewStore = useReviewStore()
+const signInStore = useSignInStore()
 const route = useRoute()
 const {id} = route.params
 onMounted(async () => {
@@ -34,8 +36,9 @@ onMounted(async () => {
           previously started, Jake must work with Neytiri and the army of the
           Na'vi race to protect their home.">
   </DetailMovie>
-  
-  <Comment></Comment>
+  <!-- <h1>{{  JSON.stringify(signInStore.logingUser) === '{}' }}</h1>
+  <h1>{{ signInStore.logingUser }}</h1> -->
+  <Comment v-if="JSON.stringify(signInStore.logingUser) !== '{}'"></Comment>
 
 <!-- <h1>{{ movieStore.rev_Movie }}</h1> -->
   <Review  v-for="item in reviewStore.rev_Movie" :item="item"></Review>
