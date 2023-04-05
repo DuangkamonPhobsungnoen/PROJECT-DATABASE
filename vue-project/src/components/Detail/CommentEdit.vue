@@ -2,11 +2,10 @@
 import { useReviewStore } from "@/stores/review";
 import { useSignInStore } from "@/stores/signin";
 import { useRoute } from "vue-router";
-const route = useRoute()
-const {id} = route.params
-const reviewStore = useReviewStore()
-const signInStore = useSignInStore()
-
+const route = useRoute();
+const { id } = route.params;
+const reviewStore = useReviewStore();
+const signInStore = useSignInStore();
 </script>
 
 <template>
@@ -23,7 +22,17 @@ const signInStore = useSignInStore()
         </div>
         <div class="column">
           <div class="buttons is-right">
-            <a @click="reviewStore.addReview(reviewStore.revData.rev_text, signInStore.logingUser.u_id, parseInt(id) )" class="button is-warning is-outlined">POST</a>
+            <a
+              @click="
+                reviewStore.addReview(
+                  reviewStore.revData.rev_text,
+                  signInStore.logingUser.u_id,
+                  parseInt(id)
+                )
+              "
+              class="button is-warning is-outlined"
+              >POST</a
+            >
           </div>
         </div>
       </div>
@@ -32,10 +41,35 @@ const signInStore = useSignInStore()
         placeholder="How about this movie?"
         v-model="reviewStore.revData.rev_text"
       ></textarea>
-      
+
+      <nav class="navbar">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="button">
+ปุ่ม
+            </div>
+            <star-rating :star-size="30"></star-rating>
+          </div>
+        </div>
+      </nav>
+
+      <div class="is-align-content-center">
+        <star-rating :star-size="30"></star-rating>
+      </div>
     </div>
   </div>
 </template>
+
+<script>
+import StarRating from "vue-star-rating";
+
+export default {
+  components: {
+    StarRating,
+  },
+};
+</script>
+
 
 
 
