@@ -1,6 +1,12 @@
+<script setup>
+  import { useSignInStore } from "../stores/signin";
+  const signInStore  = useSignInStore()
+
+</script>
+
 <template>
-  <nav class="navbar px-6 pb-3 pt-3 is-size-5 has-text-white" style="background-color: transparent; border-bottom: 3px solid white;" role="navigation"
-    aria-label="main navigation">
+  <nav class="navbar px-6 pb-3 pt-3 is-size-5 has-text-white"
+    style="background-color: transparent; border-bottom: 3px solid white;" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
         <router-link to="/"><b>Filmary</b></router-link>
@@ -17,7 +23,7 @@
       <div class="navbar-start">
         <div class="navbar-item px-4">
           <div class="control ">
-            <input class="input input-search"  type="text" placeholder="Search">
+            <input class="input input-search" type="text" placeholder="Search">
           </div>
         </div>
         <div class="navbar-item">
@@ -55,23 +61,27 @@
         <div class="navbar-item">
           <router-link to="/EditFilm">หนัง</router-link>
         </div> -->
-      
+
       </div>
-<div class="navbar-end">
+      <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable has-text-centered ">
           <div class="navbar-link ">
             <img src="https://cdn-icons-png.flaticon.com/512/7968/7968662.png">
           </div>
           <div class="navbar-dropdown">
             <router-link to="/signinview">
-            <div class="navbar-item">
+              <div class="navbar-item">
                 <strong>Sign in</strong>
-            </div></router-link>
+              </div>
+            </router-link>
             <router-link to="/signupview">
-            <div class="navbar-item">
+              <div class="navbar-item">
                 <strong>Sign up</strong>
+              </div>
+            </router-link>
+            <div @click="signInStore.logout" class="navbar-item button">
+              <small>Log Out</small>
             </div>
-          </router-link>
           </div>
         </div>
       </div>

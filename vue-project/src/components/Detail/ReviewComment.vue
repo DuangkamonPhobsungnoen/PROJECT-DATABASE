@@ -1,14 +1,8 @@
-<script>
-export default {
-    name: 'commentmess',
-    props: {
-        profilepic : String,
-        username : String,
-        comment : String,
-        rating : Number,
-        like : Number
-    }
-}
+<script setup>
+defineProps({
+    item: Object
+})
+
 </script>
 
 <template>
@@ -19,14 +13,14 @@ export default {
         <img
           src="https://media.discordapp.net/attachments/1087447051387813909/1087617962984357918/Ellipse_7.png?width=43&height=43 "
         />
-        <span class="pl-2">{{username}}</span>
+        <span class="pl-2">{{item.u_user_name}}</span>
       </p>
 
-      <p class="my-5">{{comment}}</p>
+      <p class="my-5">{{item.rev_text}}</p>
 
       <div class="columns">
-        <div class="column is-6">⭐️ {{rating}}</div>
-        <div class="column has-text-right">{{like}} 🤍</div>
+        <div class="column is-6">⭐️ {{item.rev_rate}}</div>
+        <div class="column has-text-right">{{item.rev_like}} 🤍</div>
       </div>
     </div>
   </div>

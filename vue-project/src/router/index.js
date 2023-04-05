@@ -58,7 +58,7 @@ const router = createRouter({
                 import ('../views/home/AdminView.vue')
         },
         {
-            path: '/detailview',
+            path: '/detailview/:id',
             name: 'detail',
             component: () =>
                 import ('../views/DetailView.vue')

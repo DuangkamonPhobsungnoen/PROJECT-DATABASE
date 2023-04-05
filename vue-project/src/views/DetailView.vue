@@ -2,9 +2,24 @@
 import DetailMovie from "../components/Detail/DetailMovie.vue";
 import Comment from "../components/Detail/CommentEdit.vue";
 import Review from "../components/Detail/ReviewComment.vue";
+import { useRoute } from "vue-router";
+import { useMovieStore } from "../stores/movie";
+import { useReviewStore } from "../stores/review";
+import { onMounted, } from "vue";
+const movieStore = useMovieStore()
+const reviewStore = useReviewStore()
+const route = useRoute()
+const {id} = route.params
+onMounted(async () => {
+  movieStore.singleMovie = await movieStore.fetchSingleMovie(id)
+  reviewStore.rev_Movie = await reviewStore.fetchReview(id)
+
+})
 </script>
 
 <template>
+  <h1>{{id}}</h1>
+  <h1>{{ movieStore.singleMovie }}</h1>
   <DetailMovie 
   title="Avatar: the way of water" 
   trailor="https://www.youtube.com/embed/d9MyW72ELq0"
@@ -22,16 +37,6 @@ import Review from "../components/Detail/ReviewComment.vue";
   
   <Comment></Comment>
 
-  <Review
-  profilepic="https://media.discordapp.net/attachments/1087447051387813909/1087617962984357918/Ellipse_7.png?width=43&height=43 "
-  username="dkm_ch"
-  comment="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-        totam cum sit doloribus aliquid laboriosam, saepe excepturi dolorem eius
-        molestiae neque culpa accusamus quam quas tempore reiciendis quis
-        eligendi similique inventore tenetur maxime eveniet! Totam pariatur
-        aperiam tenetur at corporis tempore inventore omnis nobis, quidem neque,
-        rerum, a voluptatum. Labore."
-  rating=9.5
-  like=22>
-  </Review>
+<!-- <h1>{{ movieStore.rev_Movie }}</h1> -->
+  <Review  v-for="item in reviewStore.rev_Movie" :item="item"></Review>
 </template>
