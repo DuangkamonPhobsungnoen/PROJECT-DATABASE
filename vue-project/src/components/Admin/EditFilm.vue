@@ -101,9 +101,9 @@
             <div class="ml-3" style="margin-bottom: 40px">
               <label for="">Year</label>
             </div>
-            <div class="ml-3" style="margin-bottom: 40px">
+            <!-- <div class="ml-3" style="margin-bottom: 40px">
               <label for="">Actor</label>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="column is-5">
