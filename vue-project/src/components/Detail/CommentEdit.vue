@@ -42,22 +42,18 @@ const signInStore = useSignInStore();
         v-model="reviewStore.revData.rev_text"
       ></textarea>
 
-      <nav class="navbar">
+
+      <nav class="navbar color-background-purple-4 mt-4">
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="button">
-ปุ่ม
-            </div>
-            <star-rating :star-size="30"></star-rating>
+            <star-rating :star-size="30" :show-rating="false"></star-rating>
           </div>
         </div>
       </nav>
 
-      <div class="is-align-content-center">
-        <star-rating :star-size="30"></star-rating>
-      </div>
     </div>
   </div>
+
 </template>
 
 <script>
