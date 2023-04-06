@@ -1,11 +1,17 @@
 <script setup>
+import StarRating from "vue-star-rating";
 import { useReviewStore } from "@/stores/review";
 import { useSignInStore } from "@/stores/signin";
 import { useRoute } from "vue-router";
+import { computed, ref, reactive, onMounted } from "vue";
 const route = useRoute();
 const { id } = route.params;
 const reviewStore = useReviewStore();
 const signInStore = useSignInStore();
+// const raingtest = ref(0)
+// function setRating(rating){
+//   raingtest.value = rating
+// }
 </script>
 
 <template>
@@ -46,8 +52,15 @@ const signInStore = useSignInStore();
       <nav class="navbar color-background-purple-4 mt-4">
         <div class="navbar-end">
           <div class="navbar-item">
-            <star-rating :star-size="30" :show-rating="false"></star-rating>
+            <!-- <star-rating :star-size="30"
+             :show-rating="false" 
+             active-on-click="false"
+             @update:rating ="setRating"
+             ></star-rating> -->
+             <star-rating  @update:rating ="reviewStore.setRating" :rounded-corners="true" :border-width="6"></star-rating>
+             <!-- <star-rating @update:rating ="setRating"></star-rating> -->
           </div>
+          <h1>{{reviewStore.UserRating}}</h1>
         </div>
       </nav>
 
@@ -56,15 +69,25 @@ const signInStore = useSignInStore();
 
 </template>
 
-<script>
+<!-- <script>
 import StarRating from "vue-star-rating";
 
 export default {
   components: {
     StarRating,
   },
+  methods: {
+    setRating(rating){
+      this.rating= rating;
+    }
+  },
+  data() {
+    return {
+      rating:0
+    };
+  }
 };
-</script>
+</script> -->
 
 
 

@@ -11,6 +11,11 @@ export const useReviewStore = defineStore('review', () => {
         // rev_rate: 5
     })
 
+    const UserRating = ref(0)
+    function setRating(rating){
+        UserRating.value = rating
+    }
+
 
     const fetchReview = async (id) => {
         return (await axios.get(`http://localhost:3000/rev/${id}`)).data
@@ -31,7 +36,9 @@ export const useReviewStore = defineStore('review', () => {
         fetchReview,
         rev_Movie,
         revData,
-        addReview
+        addReview,
+        UserRating,
+        setRating
 
 
     }
