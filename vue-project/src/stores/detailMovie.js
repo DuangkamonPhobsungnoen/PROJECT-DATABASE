@@ -5,6 +5,14 @@ export const useDetailMovieStore = defineStore('detailMovie', () => {
 
     const checkAdd = ref({})
 
+    const arrWatch = ref([])
+    const getWatchList = async (u_id) => {
+        // console.log(u_id, mov_id);
+        const fetchingData = await axios.get(`http://localhost:3000/watch/${u_id}`)
+        arrWatch.value = fetchingData.data
+     }
+
+    // const checkState = 
     const addWatchList = async (u_id, mov_id) => {
         // console.log(u_id, mov_id);
         const fetchingData = await axios.post(`http://localhost:3000/watch/add`,
@@ -12,7 +20,7 @@ export const useDetailMovieStore = defineStore('detailMovie', () => {
             u_id:u_id,
             mov_id:mov_id
         })
-        // checkAdd.value.state = 
+        // checkAdd.value = false
      }
 
      const delWatchList = async (u_id, mov_id) => {
@@ -22,6 +30,7 @@ export const useDetailMovieStore = defineStore('detailMovie', () => {
             u_id:u_id,
             mov_id:mov_id
         })
+        // checkAdd.value = true
         // checkAdd.value.state = checkStateWatch(u_id, mov_id)
      }
 
@@ -47,7 +56,9 @@ export const useDetailMovieStore = defineStore('detailMovie', () => {
         addWatchList,
         checkStateWatch,
         checkAdd,
-        delWatchList
+        delWatchList,
+        getWatchList,
+        arrWatch
 
     }
 })

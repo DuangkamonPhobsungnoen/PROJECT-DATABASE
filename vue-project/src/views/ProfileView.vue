@@ -1,6 +1,6 @@
 <script setup>
 import Bioview from "../components/Profile/ProfileBio.vue";
-import Review from "../components/Profile/reviews.vue";
+import Review from "../components/Profile/Reviews.vue";
 import Watchlist from "../components/Profile/Watchlist.vue";
 </script>
 

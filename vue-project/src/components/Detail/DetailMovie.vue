@@ -10,21 +10,8 @@ const {id} = route.params
 defineProps({
     checkState: Boolean
 })
-// export default {
-//     name: 'detailmess',
-//     props: {
-//         title: String,
-//         trailor: String,
-//         poster: String,
-//         rating: Number,
-//         category: String,
-//         rating: Number,
-//         review: Number,
-//         director: String,
-//         actor: String,
-//         description: String,
-//     }
-// }
+// const toggle = checkState;
+
 </script>
 
 <template>
@@ -56,8 +43,8 @@ defineProps({
           <p class="column is-2">⭐️ rating</p>
           <p class="column is-2">💬 comment</p>
           <!-- watch list -->
-          <p v-if="!checkState" @click="detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
-          <p v-else @click="detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>
+          <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
+          <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>
         </div>
         <p class="my-4"><b>Director</b> director</p>
         <p class="my-4"><b>Actor</b>actor</p>

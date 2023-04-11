@@ -3,6 +3,17 @@ const pool = require('../config.js')
 
 router = express.Router();
 
+// get
+router.get("/watch/:userId", async function (req, res, next) {
+    try {
+        const [rows, fields] = await pool.query("select * from watch_list where u_id = ? ",
+            [req.params.userId]);
+    } catch (err) {
+        console.log(err)
+        return next(err);
+    }
+});
+
 // check
 router.post("/watch/check", async function (req, res, next) {
     const { u_id, mov_id } = req.body
