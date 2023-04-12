@@ -6,6 +6,6 @@ import SearchMovie from '../../components/SearchMovie.vue';
 <template>
     <SearchMovie message="Movies"></SearchMovie>
     <router-link to="/detailview">
-    <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard>
+    <!-- <MovieCard title="The Grand Budapest Hotel" rating="9.5"></MovieCard> -->
     </router-link>
 </template>

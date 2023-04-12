@@ -8,13 +8,15 @@ const route = useRoute()
 const {id} = route.params
 
 defineProps({
-    checkState: Boolean
+    checkState: Boolean,
+    singleMov: Object
 })
 // const toggle = checkState;
 
 </script>
 
 <template>
+  <!-- <h1>{{singleMov}}555</h1> -->
   <div class="my-6">
     <iframe
       width="560"
@@ -37,7 +39,7 @@ defineProps({
 
     <!-- Detail -->
       <div class="column ml-6">
-        <h1 class="title has-text-white">title</h1>
+        <h1 class="title has-text-white">{{ singleMov.mov_title }}</h1>
         <h3 class="my-4">category</h3>
         <div class="columns my-4">
           <p class="column is-2">⭐️ rating</p>

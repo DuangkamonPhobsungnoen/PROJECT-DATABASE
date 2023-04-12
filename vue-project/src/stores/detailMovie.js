@@ -8,8 +8,10 @@ export const useDetailMovieStore = defineStore('detailMovie', () => {
     const arrWatch = ref([])
     const getWatchList = async (u_id) => {
         // console.log(u_id, mov_id);
-        const fetchingData = await axios.get(`http://localhost:3000/watch/${u_id}`)
-        arrWatch.value = fetchingData.data
+        return (await axios.get(`http://localhost:3000/watch/${u_id}`)).data
+        // const fetchingData = await axios.get(`http://localhost:3000/watch/${u_id}`)
+        // console.log(fetchingData.data);
+        // arrWatch.value = fetchingData.data
      }
 
     // const checkState = 

@@ -6,8 +6,9 @@ router = express.Router();
 // get
 router.get("/watch/:userId", async function (req, res, next) {
     try {
-        const [rows, fields] = await pool.query("select * from watch_list where u_id = ? ",
+        const [rows, fields] = await pool.query("select *  from watch_list join movie using(mov_id) where u_id = ?",
             [req.params.userId]);
+            res.json(rows)
     } catch (err) {
         console.log(err)
         return next(err);

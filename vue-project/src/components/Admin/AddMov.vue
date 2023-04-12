@@ -92,7 +92,6 @@ export default {
   data() {
     return {
       show_modal_del: false,
-
       wantdel: 0,
     };
   },
