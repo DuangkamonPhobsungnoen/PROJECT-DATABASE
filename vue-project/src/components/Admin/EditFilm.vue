@@ -1,4 +1,5 @@
 <script setup>
+import EditPeople from "../../components/Admin/EditPeople.vue";
 // function readURL(input) {
 //   if (input.files && input.files[0]) {
 //     var reader = new FileReader();
@@ -12,190 +13,219 @@
 // }
 </script>
 <template>
-  <form action="" @submit.prevent="submitformfilm()">
-    <div class="p-2">
-      <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit</h1>
-      <div class="columns">
-        <div class="column is-offset-1">
-          <div class="select" style="width: 85%">
-            <select
-              name="sort1"
-              id=""
-              style="width: 100%"
-              class=""
-              v-model="filmadd.sort1"
-              required
-            >
-              <option value="000">All</option>
-              <option value="drama">drama</option>
-              <option value="romantic">romantic</option>
-              <option value="comedy">comedy</option>
-              <option value="anime">anime</option>
-              <option value="series">series</option>
-            </select>
-          </div>
-        </div>
-        <div class="column">
-          <div class="select" style="width: 85%">
-            <select
-              name="sort2"
-              id=""
-              style="width: 100%"
-              class=""
-              v-model="filmadd.sort2"
-              required
-            >
-              <option value="000">Genres</option>
-              <option value="drama">drama</option>
-              <option value="romantic">romantic</option>
-              <option value="comedy">comedy</option>
-              <option value="anime">anime</option>
-              <option value="series">series</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="columns pt-6">
-        <div class="column is-3 is-offset-1">
-          <div
-            class="is-align-items-center is-justify-content-center file"
-            style="display: flex"
+  <div class="p-2">
+    <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit</h1>
+    <div class="columns">
+      <div class="column is-offset-1">
+        <div class="select" style="width: 85%">
+          <select
+            name="sort1"
+            id=""
+            style="width: 100%"
+            class=""
+            v-model="filmadd.sort1"
+            required
           >
-            <div class="file-label">
-              <img
-                id="pullphoto"
-                src="#"
-                style="
-                  width: 260px;
-                  height: 300px;
-                  border-radius: 8px;
-                  border: 1px solid #fff
-                "
-              />
-              <label
-                class="is-size-3"
-                style="position: absolute; left: 40px; top: 110px"
-              >
-                + Addphoto
-              </label>
-              <input
-                class="file-input"
-                onchange="readURL(this);"
-                type="file"
-                name="resume"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="column p-5 is-2 is-offset-0">
-          <div class="subtitle is-5 has-text-white">
-            <div class="ml-3" style="margin-bottom: 40px">
-              <label for="">Title</label>
-            </div>
-            <div class="ml-3" style="margin-bottom: 40px">
-              <label for="">Trailer</label>
-            </div>
-            <div class="ml-3" style="margin-bottom: 40px">
-              <label for="">Director</label>
-            </div>
-            <div class="ml-3" style="margin-bottom: 40px">
-              <label for="">Year</label>
-            </div>
-            <!-- <div class="ml-3" style="margin-bottom: 40px">
-              <label for="">Actor</label>
-            </div> -->
-          </div>
-        </div>
-        <div class="column is-5">
-          <div class="">
-            <div>
-              <input
-                class="mb-5 input"
-                type="text"
-                name="title"
-                id="title"
-                v-model="filmadd.title"
-              />
-            </div>
-            <div>
-              <input
-                class="mb-5 input"
-                type="text"
-                name="trailer"
-                id="trailer"
-                v-model="filmadd.trailer"
-              />
-            </div>
-            <div>
-              <input
-                class="mb-5 input"
-                type="text"
-                name="director"
-                id="director"
-                v-model="filmadd.director"
-              />
-            </div>
-            <div>
-              <input
-                class="mb-5 input"
-                type="text"
-                name="year"
-                id="year"
-                v-model="filmadd.years"
-              />
-            </div>
-            <div>
-              <input
-                class="mb-5 input"
-                type="text"
-                name="actor"
-                id="actor"
-                v-model="filmadd.actor"
-              />
-            </div>
-          </div>
+            <option value="000">All</option>
+            <option value="drama">drama</option>
+            <option value="romantic">romantic</option>
+            <option value="comedy">comedy</option>
+            <option value="anime">anime</option>
+            <option value="series">series</option>
+          </select>
         </div>
       </div>
-      <div class="columns">
-        <div class="column is-10 is-offset-1">
-          <h1 class="title has-text-white">Story</h1>
-          <textarea
-            name="story"
-            id="story"
-            class="textarea"
-            rows="10"
-            v-model="filmadd.story"
-          ></textarea>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column has-text-centered">
-          <!-- <router-link to="/adminview"> -->
-            <button
-              style="width: 90%"
-              class="button subtitle is-5"
-              type="cancel"
-            >
-              CANCEL
-            </button>
-          <!-- </router-link> -->
-        </div>
-
-        <div class="column has-text-centered">
-          <!-- <router-link to="/adminview"> -->
-            <button
-              type="submit"
-              style="width: 90%"
-              class="button subtitle is-5 is-primary is-outlined"
-             
-            >
-              CONFIRM
-            </button>
-          <!-- </router-link> -->
+      <div class="column">
+        <div class="select" style="width: 85%">
+          <select
+            name="sort2"
+            id=""
+            style="width: 100%"
+            class=""
+            v-model="filmadd.sort2"
+            required
+          >
+            <option value="000">Genres</option>
+            <option value="drama">drama</option>
+            <option value="romantic">romantic</option>
+            <option value="comedy">comedy</option>
+            <option value="anime">anime</option>
+            <option value="series">series</option>
+          </select>
         </div>
       </div>
     </div>
-  </form>
+    <div class="columns pt-6">
+      <div class="column is-3 is-offset-1">
+        <div
+          class="is-align-items-center is-justify-content-center file"
+          style="display: flex"
+        >
+          <div class="file-label">
+            <img
+              id="pullphoto"
+              src="#"
+              style="
+                width: 260px;
+                height: 300px;
+                border-radius: 8px;
+                border: 1px solid #fff;
+              "
+            />
+            <label
+              class="is-size-3"
+              style="position: absolute; left: 40px; top: 110px"
+            >
+              + Addphoto
+            </label>
+            <input
+              class="file-input"
+              onchange="readURL(this);"
+              type="file"
+              name="resume"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column p-5 is-2 is-offset-0">
+        <div class="subtitle is-5 has-text-white">
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Title</label>
+          </div>
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Trailer</label>
+          </div>
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Director</label>
+          </div>
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Year</label>
+          </div>
+        </div>
+      </div>
+      <div class="column is-5">
+        <div class="">
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="title"
+              id="title"
+              v-model="filmadd.title"
+            />
+          </div>
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="trailer"
+              id="trailer"
+              v-model="filmadd.trailer"
+            />
+          </div>
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="director"
+              id="director"
+              v-model="filmadd.director"
+            />
+          </div>
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="year"
+              id="year"
+              v-model="filmadd.years"
+            />
+          </div>
+          <div>
+            <!-- <div v-show="is_form == true">
+                <div v-show="editselect == 'people'">
+                  <EditPeople @save2="insertpeople" />
+                </div>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <h1 class="title has-text-white">actor</h1>
+        <div class="table-container">
+          <table class="table is-bordered">
+            <thead width="50px">
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Gender</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input class="input" type="text" name="firstname" id="FirstName" /></td>
+                <td><input class="input" type="text" name="lastname" id="LastName" /></td>
+                <td><input class="input" type="text" name="gender" id="Gender" /></td>
+                <td>
+                  <button class="button is-success is-hovered" type="submit">Add</button>
+                </td>
+              </tr>
+              <tr v-for="i in 3" :key="3">
+                <td>
+                  <p></p>
+                </td>
+                <td>
+                  <p></p>
+                </td>
+                <td>
+                  <p></p>
+                </td>
+                <td>
+                  <button class="button is-warning is-hovered" type="">Update</button>
+                  <button class="button is-danger is-hovered ml-2"  type="">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <h1 class="title has-text-white">Story</h1>
+        <textarea
+          name="story"
+          id="story"
+          class="textarea"
+          rows="10"
+          v-model="filmadd.story"
+        ></textarea>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <!-- <router-link to="/adminview"> -->
+        <button style="width: 90%" class="button subtitle is-5" type="cancel">
+          CANCEL
+        </button>
+        <!-- </router-link> -->
+      </div>
+
+      <div class="column has-text-centered">
+        <!-- <router-link to="/adminview"> -->
+        <button
+          type="submit"
+          style="width: 90%"
+          class="button subtitle is-5 is-primary is-outlined"
+          @click="submitformfilm()"
+        >
+          CONFIRM
+        </button>
+        <!-- </router-link> -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -203,6 +233,8 @@ export default {
   name: "editfilm",
   data() {
     return {
+      is_form: false,
+      editselect: "people",
       filmadd: {
         title: "",
         trailer: "",
@@ -217,7 +249,7 @@ export default {
   },
   methods: {
     submitformfilm() {
-      const newfilm={
+      const newfilm = {
         title: this.filmadd.title,
         trailer: this.filmadd.trailer,
         director: this.filmadd.director,
@@ -226,8 +258,16 @@ export default {
         story: this.filmadd.story,
         sort1: this.filmadd.sort1,
         sort2: this.filmadd.sort2,
-      }
-      this.$emit('save1', [newfilm, false]);
+      };
+      this.$emit("save1", [newfilm, false]);
+    },
+    gotopeople() {
+      this.$emit("topeople", [true, "people"]);
+      // this.$emit('type1', 'film')
+    },
+    insertpeople(data) {
+      this.people1.push(data[0]);
+      this.is_form = false;
     },
   },
 };
