@@ -48,14 +48,16 @@ const filmadd = ref({
             v-model="filmadd.sort2"
             required
           >
-            <option value="000">Genres</option>
-            <option value="Drama">drama</option>
-            <option value="Romance">romance</option>
-            <option value="Thriller">thriller</option>
-            <option value="Adventure">adventure</option>
-            <option value="Action">action</option>
-            <option value="Series">sci-fi</option>
-            <option value="Horror">horror</option>
+            <option value="2">drama</option>
+            <option value="5">romance</option>
+            <option value="3">thriller</option>
+            <option value="6">adventure</option>
+            <option value="7">action</option>
+            <option value="8">sci-fi</option>
+            <option value="9">horror</option>
+            <option value="1">comedy</option>
+            <option value="4">fantasy</option>
+            
           </select>
         </div>
       </div>
