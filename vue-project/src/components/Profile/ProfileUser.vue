@@ -1,6 +1,5 @@
 <template>
   <!-- กดปุ่ม edit แล้วเด่ง popup edit -->
-  sadsada
   <div>
     <button @click="show_edit = !show_edit">Edit</button>
   </div>
@@ -11,6 +10,7 @@
     class="modal"
     v-bind:class="{ 'is-active': show_edit }"
   >
+  <!-- <h1>{{ editUser }}</h1> -->
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="box proeditbackground p-6">
@@ -52,7 +52,7 @@
 
             <div class="field">
               <div class="control">
-                <input class="input" type="text" :value="fname" disabled />
+                <input class="input" type="text" :value="fname"  />
               </div>
             </div>
 
@@ -61,12 +61,12 @@
                 <input
                   class="input"
                   type="text"
-                  :value="lname" disabled
+                  :value="lname" 
                 />
               </div>
             </div>
 
-            <div class="field">
+            <!-- <div class="field">
               <div class="control">
                 <input
                   class="input"
@@ -74,9 +74,9 @@
                   :value="phone" disabled
                 />
               </div>
-            </div>
+            </div> -->
 
-            <div class="field">
+            <!-- <div class="field">
               <div class="control">
                 <input
                   class="input"
@@ -85,7 +85,7 @@
                   :value="name"
                 />
               </div>
-            </div>
+            </div> -->
 
             <div class="field">
               <div class="control">
@@ -98,11 +98,12 @@
               </div>
             </div>
 
-            <div class="field">
+            <!-- <h1>{{ editUser }}</h1> -->
+            <!-- <div class="field">
               <div class="control">
                 <textarea class='textarea' name="bio" rows="4" cols="50" placeholder="Bio" :value="bio"></textarea>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -117,16 +118,21 @@ export default {
   data() {
     return {
       show_edit: false,
-      fname: 'Peter',
-      lname: 'Parker',
-      phone: '999-999-9999',
-      name: 'Mario',
-      username: 'mario_maulao',
-      bio: "Because I'm happy - Clap along if you feel like a room without a roof",
+      fname: this.editUser.u_fname,
+      lname: this.editUser.u_lname,
+      username: this.editUser.u_user_name,
+
     };
   },
+  props: ['editUser']
 };
 </script>
+
+<!-- <script setup>
+defineProps({
+  editUser: Object
+})
+</script> -->
 
 <style>
 </style>

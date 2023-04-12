@@ -1,4 +1,5 @@
 <template>
+  <!-- {{ user }} -->
   <div class="columns">
     <div class="column is-3"></div>
     <div class="column is-3 m-5">
@@ -15,9 +16,10 @@
       </div>
     </div>
     <div class="column is-5 mt-6">
+      
         <div class="pt-6">
-            <label class="title has-text-white">Jeerawat</label> 
-            <Edit/>
+            <label class="title has-text-white">{{user.u_user_name}}</label> 
+            <Edit :editUser="user"/>
         </div>
         <div class="pt-1">
             <label>99</label>
@@ -41,6 +43,10 @@
 
 <script setup>
 import Edit from "../Profile/ProfileUser.vue";
+defineProps({
+    user: Object
+})
+
 </script>
 
 
