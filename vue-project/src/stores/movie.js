@@ -19,6 +19,7 @@ export const useMovieStore = defineStore('movie', () => {
       const fetchMovie = async () => {
         const fetchingData = await axios.get('http://localhost:3000/movie')
         dbmovie.value = fetchingData.data;
+
       }
 
       const fetchSeries = async () => {
@@ -36,7 +37,6 @@ export const useMovieStore = defineStore('movie', () => {
       // const fetchReview = async (id) => {
       //   return (await axios.get(`http://localhost:3000/rev/${id}`)).data
       //  }
-
   return { 
     fetchMovie,
     fetchAnime,
