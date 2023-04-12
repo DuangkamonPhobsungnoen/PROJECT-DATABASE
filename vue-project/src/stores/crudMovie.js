@@ -11,15 +11,15 @@ export const usecrudMovieStore = defineStore('movie', () => {
     }
 
     const submitformfilm = async (filmadd) => {
-        console.log(filmadd)
+        console.log(filmadd.sort1)
         const fetchingData = await axios.post('http://localhost:3000/movie/add', {
             title: filmadd.title ,
             summary: filmadd.story,
             year: filmadd.year,
             time: 150,
-            type: filmadd.type
+            type: filmadd.sort1
         })
-        window.location('/adminview')
+        
 
     };
 

@@ -1,20 +1,25 @@
 <script setup>
-import EditPeople from "../../components/Admin/EditPeople.vue";
-// function readURL(input) {
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
+import { usecrudMovieStore } from "../../stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
 
-//     reader.onload = function (e) {
-//       $("#pullphoto").attr("src", e.target.result).width(150).height(200);
-//     };
+const crudMovStore = usecrudMovieStore();
 
-//     reader.readAsDataURL(input.files[0]);
-//   }
-// }
+const filmadd = ref({
+        title: "",
+        trailer: "",
+        director: "",
+        year: "",
+        // actor: "",
+        story: "",
+        sort1: "",
+        sort2: "",
+        time: 0,
+      })
 </script>
+
 <template>
   <div class="p-2">
-    <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit</h1>
+    <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit Movie</h1>
     <div class="columns">
       <div class="column is-offset-1">
         <div class="select" style="width: 85%">
@@ -27,9 +32,7 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
             required
           >
             <option value="000">All</option>
-            <option value="drama">drama</option>
-            <option value="romantic">romantic</option>
-            <option value="comedy">comedy</option>
+            <option value="movie">movie</option>
             <option value="anime">anime</option>
             <option value="series">series</option>
           </select>
@@ -46,11 +49,13 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
             required
           >
             <option value="000">Genres</option>
-            <option value="drama">drama</option>
-            <option value="romantic">romantic</option>
-            <option value="comedy">comedy</option>
-            <option value="anime">anime</option>
-            <option value="series">series</option>
+            <option value="Drama">drama</option>
+            <option value="Romance">romance</option>
+            <option value="Thriller">thriller</option>
+            <option value="Adventure">adventure</option>
+            <option value="Action">action</option>
+            <option value="Series">sci-fi</option>
+            <option value="Horror">horror</option>
           </select>
         </div>
       </div>
@@ -101,6 +106,9 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Year</label>
           </div>
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Time</label>
+          </div>
         </div>
       </div>
       <div class="column is-5">
@@ -138,7 +146,16 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
               type="text"
               name="year"
               id="year"
-              v-model="filmadd.years"
+              v-model="filmadd.year"
+            />
+          </div>
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="year"
+              id="year"
+              v-model="filmadd.time"
             />
           </div>
           <div>
@@ -252,7 +269,7 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
           type="submit"
           style="width: 90%"
           class="button subtitle is-5 is-primary is-outlined"
-          @click="submitformfilm()"
+          @click="crudMovStore.submitformfilm(filmadd)"
         >
           CONFIRM
         </button>
@@ -264,45 +281,45 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
 
 <script>
 export default {
-  name: "editfilm",
-  data() {
-    return {
-      is_form: false,
-      editselect: "people",
-      filmadd: {
-        title: "",
-        trailer: "",
-        director: "",
-        years: "",
-        actor: "",
-        story: "",
-        sort1: "",
-        sort2: "",
-      },
-    };
-  },
-  methods: {
-    submitformfilm() {
-      const newfilm = {
-        title: this.filmadd.title,
-        trailer: this.filmadd.trailer,
-        director: this.filmadd.director,
-        years: this.filmadd.years,
-        actor: this.filmadd.actor,
-        story: this.filmadd.story,
-        sort1: this.filmadd.sort1,
-        sort2: this.filmadd.sort2,
-      };
-      this.$emit("save1", [newfilm, false]);
-    },
-    gotopeople() {
-      this.$emit("topeople", [true, "people"]);
-      // this.$emit('type1', 'film')
-    },
-    insertpeople(data) {
-      this.people1.push(data[0]);
-      this.is_form = false;
-    },
-  },
+  // name: "editfilm",
+  // data() {
+  //   return {
+  //     is_form: false,
+  //     editselect: "people",
+  //     filmadd: {
+  //       title: "",
+  //       trailer: "",
+  //       director: "",
+  //       years: "",
+  //       actor: "",
+  //       story: "",
+  //       sort1: "",
+  //       sort2: "",
+  //     },
+  //   };
+  // },
+  // methods: {
+    // submitformfilm() {
+    //   const newfilm = {
+    //     title: this.filmadd.title,
+    //     trailer: this.filmadd.trailer,
+    //     director: this.filmadd.director,
+    //     years: this.filmadd.years,
+    //     actor: this.filmadd.actor,
+    //     story: this.filmadd.story,
+    //     sort1: this.filmadd.sort1,
+    //     sort2: this.filmadd.sort2,
+    //   };
+    //   this.$emit("save1", [newfilm, false]);
+    // },
+    // gotopeople() {
+    //   this.$emit("topeople", [true, "people"]);
+    //   // this.$emit('type1', 'film')
+    // },
+    // insertpeople(data) {
+    //   this.people1.push(data[0]);
+    //   this.is_form = false;
+    // },
+  // },
 };
 </script>
