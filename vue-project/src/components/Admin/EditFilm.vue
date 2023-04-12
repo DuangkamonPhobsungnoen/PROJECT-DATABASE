@@ -160,15 +160,42 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
               <th>FirstName</th>
               <th>LastName</th>
               <th>Gender</th>
+              <th>Photo</th>
               <th></th>
             </thead>
             <tbody>
               <tr>
-                <td><input class="input" type="text" name="firstname" id="FirstName" /></td>
-                <td><input class="input" type="text" name="lastname" id="LastName" /></td>
-                <td><input class="input" type="text" name="gender" id="Gender" /></td>
                 <td>
-                  <button class="button is-success is-hovered" type="submit">Add</button>
+                  <input
+                    class="input"
+                    type="text"
+                    name="firstname"
+                    id="FirstName"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="input"
+                    type="text"
+                    name="lastname"
+                    id="LastName"
+                  />
+                </td>
+                <td>
+                  <div class="select">
+                  <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+                </td>
+                <td><input type="file" name="picture" id="Photo" /></td>
+                <td>
+                  <div class="has-text-centered">
+                  <button class="button is-success is-hovered" type="submit">
+                    Add
+                  </button>
+                  </div>
                 </td>
               </tr>
               <tr v-for="i in 3" :key="3">
@@ -181,9 +208,16 @@ import EditPeople from "../../components/Admin/EditPeople.vue";
                 <td>
                   <p></p>
                 </td>
+                <td></td>
                 <td>
-                  <button class="button is-warning is-hovered" type="">Update</button>
-                  <button class="button is-danger is-hovered ml-2"  type="">Delete</button>
+                  <div class="has-text-centered">
+                    <button class="button is-warning is-hovered mb-2" type="">
+                      Update
+                    </button>
+                    <button class="button is-danger is-hovered" type="">
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             </tbody>
