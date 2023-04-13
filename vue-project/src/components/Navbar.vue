@@ -51,7 +51,7 @@
         </div>
 
         <div class="navbar-item">
-          <router-link to="/profileview">TestProfile</router-link>
+          <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser.u_id) } }">TestProfile</router-link>
         </div>
 
         <!-- ใช้แค่ดูตอนทำสักพักก็ลบเลย -->

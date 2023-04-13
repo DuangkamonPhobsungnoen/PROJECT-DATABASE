@@ -6,7 +6,7 @@ router = express.Router();
   // add
   router.post("/rev/add", async function (req, res, next) {
     const {rev_text, rev_rate, u_id, mov_id} = req.body
-    // console.log(rev_text, rev_rate, u_id, mov_id);
+    console.log(rev_text, rev_rate, u_id, mov_id);
     try{
         const [rows, fields] = await pool.query("INSERT INTO review (rev_text, rev_rate, u_id, mov_id) value (?, ?, ?, ?) " ,
         [rev_text, rev_rate, u_id, mov_id]);

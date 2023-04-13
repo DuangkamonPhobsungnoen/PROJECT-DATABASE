@@ -1,11 +1,22 @@
 <script setup>
 import Bioview from "../components/Profile/ProfileBio.vue";
-import Review from "../components/Profile/reviews.vue";
+import Review from "../components/Profile/Reviews.vue";
 import Watchlist from "../components/Profile/Watchlist.vue";
+import { useSignInStore } from "../stores/signin";
+import { useDetailMovieStore } from "../stores/detailMovie";
+import { onMounted, } from "vue";
+const signInStore = useSignInStore()
+const detailStore = useDetailMovieStore()
+onMounted(async () => {
+  detailStore.arrWatch = await detailStore.getWatchList(signInStore.logingUser.u_id)
+
+})
 </script>
 
 <template>
-  <Bioview />
+  <h1>{{ signInStore.logingUser }}</h1>
+  <h1>{{ detailStore.arrWatch }}</h1>
+  <Bioview :user="signInStore.logingUser" />
   <div v-show="is_form == false">
     <div class="has-text-centered">
 
@@ -40,12 +51,12 @@ import Watchlist from "../components/Profile/Watchlist.vue";
 
     <div v-show="is_how == 'review'">
       <Review
-        @show1="(is_form = $event[0]), (editselect = $event[1])"
+        
       />
     </div>
     <div v-show="is_how == 'watchlist'">
       <Watchlist
-        @show2="(is_form = $event[0]), (editselect = $event[1])"
+        :list="detailStore.arrWatch"
       />
     </div>
   </div>

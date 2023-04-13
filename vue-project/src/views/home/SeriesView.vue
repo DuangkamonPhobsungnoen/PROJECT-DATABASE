@@ -10,8 +10,10 @@ onMounted(movieStore.fetchSeries);
 <template>
     <SearchMovie message="Movies"></SearchMovie>
     <router-link to="/detailview">
+
         <div class="task-container columns is-multiline px-6 py-6">
     <MovieCard v-for="item in movieStore.dbseries" :item="item" ></MovieCard>
   </div>
+
     </router-link>
 </template>

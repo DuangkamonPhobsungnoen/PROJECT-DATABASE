@@ -1,22 +1,23 @@
-<script>
-export default {
-    name: 'detailmess',
-    props: {
-        title: String,
-        trailor: String,
-        poster: String,
-        rating: Number,
-        category: String,
-        rating: Number,
-        review: Number,
-        director: String,
-        actor: String,
-        description: String,
-    }
-}
+<script setup>
+import { useDetailMovieStore } from "@/stores/detailMovie";
+import { useSignInStore } from "@/stores/signin";
+import { useRoute } from "vue-router";
+const signInStore = useSignInStore()
+const detailStore = useDetailMovieStore()
+const route = useRoute()
+const {id} = route.params
+
+defineProps({
+    checkState: Boolean,
+    singleMov: Object
+})
+// const toggle = checkState;
+
 </script>
 
 <template>
+  <h1>{{ typeof checkState }}</h1>
+  <!-- <h1>{{singleMov}}555</h1> -->
   <div class="my-6">
     <iframe
       width="560"
@@ -39,16 +40,18 @@ export default {
 
     <!-- Detail -->
       <div class="column ml-6">
-        <h1 class="title has-text-white">{{title}}</h1>
-        <h3 class="my-4">{{category}}</h3>
+        <h1 class="title has-text-white">{{ singleMov.mov_title }}</h1>
+        <h3 class="my-4">category</h3>
         <div class="columns my-4">
-          <p class="column is-2">⭐️ {{rating}}</p>
-          <p class="column is-2">💬 {{comment}}</p>
-          <p class="column is-2">🎞 watchlist</p>
+          <p class="column is-2">⭐️ rating</p>
+          <p class="column is-2">💬 comment</p>
+          <!-- watch list -->
+          <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
+          <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>
         </div>
-        <p class="my-4"><b>Director</b> {{director}}n</p>
-        <p class="my-4"><b>Actor</b>{{actor}}</p>
-        <p class="my-4">{{description}}</p>
+        <p class="my-4"><b>Director</b> director</p>
+        <p class="my-4"><b>Actor</b>actor</p>
+        <p class="my-4">description</p>
       </div>
     </div>
   </div>

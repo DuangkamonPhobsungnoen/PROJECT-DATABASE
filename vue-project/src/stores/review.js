@@ -24,7 +24,7 @@ export const useReviewStore = defineStore('review', () => {
     const addReview = async (content, user_id, movie_id) => {
         await axios.post('http://localhost:3000/rev/add', {
             rev_text: content,
-            rev_rate: 5,
+            rev_rate: UserRating.value, // ข้อมูล rating ที่เชื่อม ไปทำ bqckend
             u_id: user_id,
             mov_id: movie_id
         })

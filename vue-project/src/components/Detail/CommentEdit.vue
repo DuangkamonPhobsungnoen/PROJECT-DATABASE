@@ -52,15 +52,15 @@ const signInStore = useSignInStore();
       <nav class="navbar color-background-purple-4 mt-4">
         <div class="navbar-end">
           <div class="navbar-item">
-            <!-- <star-rating :star-size="30"
+            <star-rating :star-size="30"
              :show-rating="false" 
+             :increment="0.5"
              active-on-click="false"
-             @update:rating ="setRating"
-             ></star-rating> -->
-             <star-rating  @update:rating ="reviewStore.setRating" :rounded-corners="true" :border-width="6"></star-rating>
-             <!-- <star-rating @update:rating ="setRating"></star-rating> -->
+             @update:rating ="reviewStore.setRating"
+             ></star-rating>
+             <h1 class="ml-3 has-text-warning">{{reviewStore.UserRating}} STAR</h1>
           </div>
-          <h1>{{reviewStore.UserRating}}</h1>
+          <!-- <h1>{{reviewStore.UserRating}}</h1> -->
         </div>
       </nav>
 
