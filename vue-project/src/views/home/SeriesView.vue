@@ -1,6 +1,6 @@
 <script setup>
 import MovieCard from '../../components/MovieCard.vue';
-import SearchMovie from '../../components/SearchMovie.vue';
+import SearchMovie from '../../components/SelectMovie.vue';
 import { useMovieStore } from "../../stores/movie";
 import { computed, ref, reactive, onMounted } from "vue";
 const movieStore = useMovieStore();
