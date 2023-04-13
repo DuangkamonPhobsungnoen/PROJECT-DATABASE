@@ -16,6 +16,7 @@ defineProps({
 </script>
 
 <template>
+  <h1>{{ typeof checkState }}</h1>
   <!-- <h1>{{singleMov}}555</h1> -->
   <div class="my-6">
     <iframe

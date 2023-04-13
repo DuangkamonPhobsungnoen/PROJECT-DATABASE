@@ -16,7 +16,7 @@ const route = useRoute()
 const {id} = route.params
 onMounted(async () => {
   movieStore.singleMovie = await movieStore.fetchSingleMovie(id)
-  detailStore.arrWatch = await detailStore.getWatchList(signInStore.logingUser.u_id)
+  // detailStore.arrWatch = await detailStore.getWatchList(signInStore.logingUser.u_id)
   reviewStore.rev_Movie = await reviewStore.fetchReview(id),
   detailStore.checkAdd = await detailStore.checkStateWatch(signInStore.logingUser.u_id, parseInt(id))
 
@@ -25,7 +25,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>{{ detailStore.arrWatch }}</h1>
+  <!-- <h1>{{ detailStore.arrWatch }}</h1> -->
   <!-- <div @click="detailStore.getWatchList(signInStore.logingUser.u_id)" class="button">click show wathclist</div> -->
   <h1>{{id}}</h1>
   <h1>{{ movieStore.singleMovie }}</h1>
