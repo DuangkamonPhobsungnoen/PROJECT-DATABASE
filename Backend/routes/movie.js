@@ -1,20 +1,41 @@
 const express = require('express');
 const pool = require('../config.js')
+// const path = require("path")
 
 router = express.Router();
 
+// Require multer for file upload
+// const multer = require('multer')
+// // SET STORAGE
+// var storage = multer.diskStorage({
+//   destination: function (req, file, callback) {
+//     callback(null, './static/uploads')
+//   },
+//   filename: function (req, file, callback) {
+//     callback(null, file.fieldname+ '-' + Date.now() + path.extname(file.originalname))
+//   }
+// })
+// const upload = multer({ storage: storage })
+
   // add
   router.post("/movie/add", async function (req, res, next) {
-    const {title, summary, year, time, type} = req.body
+    const {title, story, year, time, sort1, sort2, director} = req.body
+    console.log(title, story, year, time, sort1, sort2, director)
     try{
         const [rows, fields] = await pool.query("INSERT INTO movie (mov_title, mov_summary, mov_year, mov_time, mov_type) value(?, ?, ?, ?, ?)", 
-        [title, summary, year, time, type]);
+        [title, story, year, time, sort1]);
+
+        const movId = rows.insertId
+        console.log(movId)
+
+        const [rows1, fields1] = await pool.query("INSERT INTO movie_genres (mov_id, gen_id) value(?, ?)", 
+        [movId, parseInt(sort2)]);
           return res.json({"message":`A new movie is added`});
       } catch (err) {
           console.log(err)
           return next(err);
       }
-  });
+   });
 
   // delete
   router.delete("/movie/delete/:movId", async function (req, res, next) {

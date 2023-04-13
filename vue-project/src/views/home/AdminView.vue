@@ -38,12 +38,14 @@
   </div>
   <div v-show="is_form == true">
     <div v-show="editselect == 'film'">
+      <!-- <router-link to="/movie/add"> Add + </router-link> -->
       <EditFilm @save1="insertmov" />
     </div>
     <div v-show="editselect == 'people'">
       <EditPeople @save2="insertpeople" />
     </div>
   </div>
+  
 </template>
 
 <script setup>
