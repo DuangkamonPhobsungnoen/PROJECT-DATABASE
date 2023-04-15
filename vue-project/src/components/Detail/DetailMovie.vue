@@ -41,17 +41,17 @@ defineProps({
     <!-- Detail -->
       <div class="column ml-6">
         <h1 class="title has-text-white">{{ singleMov.mov_title }}</h1>
-        <h3 class="my-4">category</h3>
+        <h3 class="my-4">{{ singleMov.mov_type }}</h3>
         <div class="columns my-4">
-          <p class="column is-2">⭐️ rating</p>
+          <p class="column is-2">⭐️ {{ singleMov.rating }}</p>
           <p class="column is-2">💬 comment</p>
           <!-- watch list -->
           <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
           <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>
         </div>
         <p class="my-4"><b>Director</b> director</p>
-        <p class="my-4"><b>Actor</b>actor</p>
-        <p class="my-4">description</p>
+        <p class="my-4"><b>Actor</b> actor</p>
+        <p class="my-4">{{ singleMov.mov_summary }}</p>
       </div>
     </div>
   </div>
