@@ -22,7 +22,7 @@ defineProps({
     <iframe
       width="560"
       height="315"
-      src="https://www.youtube.com/embed/d9MyW72ELq0"
+      :src="singleMov.mov_trailer"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -33,7 +33,7 @@ defineProps({
     <div class="columns my-6">
       <div class="column is-3">
         <img
-          src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61O8usiIS7L.jpg"
+          :src="singleMov.mov_pic"
           alt=""
         />
       </div>
