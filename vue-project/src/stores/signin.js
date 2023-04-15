@@ -65,6 +65,7 @@ export const useSignInStore = defineStore('signin', () => {
 
   function logout(){
     logingUser.value = null
+    window.location.href = '/'
   }
 
   return {

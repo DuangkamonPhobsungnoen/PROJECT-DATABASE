@@ -12,9 +12,9 @@ export const useReviewStore = defineStore('review', () => {
     })
 
     const UserRating = ref(0)
-    function setRating(rating){
-        UserRating.value = rating
-    }
+    // function setRating(rating){
+    //     UserRating.value = rating
+    // }
 
 
     const fetchReview = async (id) => {
@@ -22,14 +22,22 @@ export const useReviewStore = defineStore('review', () => {
     }
 
     const addReview = async (content, user_id, movie_id) => {
-        await axios.post('http://localhost:3000/rev/add', {
+        const fetchData = await axios.post('http://localhost:3000/rev/add', {
             rev_text: content,
             rev_rate: UserRating.value, // ข้อมูล rating ที่เชื่อม ไปทำ bqckend
             u_id: user_id,
             mov_id: movie_id
         })
-        rev_Movie.value = await fetchReview(movie_id)
-        revData.rev_text = ''
+        if(fetchData.data.status == 'error'){
+            alert(fetchData.data.message)
+            revData.rev_text = ''
+            UserRating.value = 0
+        }else{
+            rev_Movie.value = await fetchReview(movie_id)
+            revData.rev_text = ''
+            UserRating.value = 0
+        }
+        
         
     }
     return {
@@ -38,7 +46,7 @@ export const useReviewStore = defineStore('review', () => {
         revData,
         addReview,
         UserRating,
-        setRating
+        // setRating
 
 
     }

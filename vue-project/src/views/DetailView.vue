@@ -30,7 +30,7 @@ onMounted(async () => {
   <h1>{{id}}</h1>
   <h1>{{ movieStore.singleMovie }}</h1>
 
-  <h1>{{ signInStore.logingUser.u_id }} id user jaa</h1>
+  <h1>{{ signInStore.logingUser?.u_id }} id user jaa</h1>
 
   <h1>test check {{ detailStore.checkAdd}}</h1>
   <DetailMovie 

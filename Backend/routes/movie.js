@@ -20,7 +20,7 @@ router = express.Router();
   // add
   router.post("/movie/add", async function (req, res, next) {
     const {title, story, year, time, sort1, sort2, director} = req.body
-    console.log(title, story, year, time, sort1, sort2, director)
+    // console.log(title, story, year, time, sort1, sort2, director)
     try{
         const [rows, fields] = await pool.query("INSERT INTO movie (mov_title, mov_summary, mov_year, mov_time, mov_type) value(?, ?, ?, ?, ?)", 
         [title, story, year, time, sort1]);

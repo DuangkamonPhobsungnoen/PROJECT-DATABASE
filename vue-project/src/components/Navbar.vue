@@ -50,8 +50,8 @@
           <router-link to="/adminview">Admin</router-link>
         </div>
 
-        <div class="navbar-item">
-          <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser.u_id) } }">TestProfile</router-link>
+        <div v-if="JSON.stringify(signInStore.logingUser) !== '{}'"  class="navbar-item">
+          <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser?.u_id) } }">Profile</router-link>
         </div>
 
         <!-- ใช้แค่ดูตอนทำสักพักก็ลบเลย -->
@@ -79,9 +79,14 @@
                 <strong>Sign up</strong>
               </div>
             </router-link>
-            <div @click="signInStore.logout" class="navbar-item button">
+            <router-link to="/">
+              <div @click="signInStore.logout" class="navbar-item">
+                <strong>Logout</strong>
+              </div>
+            </router-link>
+            <!-- <div @click="signInStore.logout" class="navbar-item button">
               <small>Log Out</small>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

@@ -33,21 +33,21 @@ onMounted(movieStore.fetchSeries);
     <MessText message="ANIME"></MessText>
   </router-link>
   <div class="task-container columns is-multiline px-6 py-6">
-    <MovieCard v-for="item in movieStore.dbanime.slice(0,4)" :item="item" ></MovieCard>
+    <MovieCard v-for="item in movieStore.dbanime?.slice(0,4)" :item="item" ></MovieCard>
   </div>
 
   <router-link to="/moviesview">
     <MessText message="MOVIE"></MessText>
   </router-link>
   <div class="task-container columns is-multiline px-6 py-6">
-    <MovieCard v-for="item in movieStore.dbmovie.slice(0,4)" :item="item"></MovieCard>
+    <MovieCard v-for="item in movieStore.dbmovie?.slice(0,4)" :item="item"></MovieCard>
   </div>
 
   <router-link to="/seriesview">
     <MessText message="SERIRES"></MessText>
   </router-link>
   <div class="task-container columns is-multiline px-6 py-6">
-    <MovieCard v-for="item in movieStore.dbseries.slice(0,4)" :item="item"></MovieCard>
+    <MovieCard v-for="item in movieStore.dbseries?.slice(0,4)" :item="item"></MovieCard>
   </div>
 
   <!-- <router-link to="/trendingview"><MessText message="TRENDING"></MessText></router-link>
