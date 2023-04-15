@@ -23,7 +23,7 @@ const signInStore = useSignInStore();
             <img
               src="https://media.discordapp.net/attachments/1087447051387813909/1087617962984357918/Ellipse_7.png?width=43&height=43 "
             />
-            <span class="pl-2">{{ signInStore.logingUser.u_user_name }}</span>
+            <span class="pl-2">{{ signInStore.logingUser?.u_user_name }}</span>
           </p>
         </div>
         <div class="column">
@@ -56,7 +56,8 @@ const signInStore = useSignInStore();
              :show-rating="false" 
              :increment="0.5"
              active-on-click="false"
-             @update:rating ="reviewStore.setRating"
+             v-model:rating="reviewStore.UserRating"
+             
              ></star-rating>
              <h1 class="ml-3 has-text-warning">{{reviewStore.UserRating}} STAR</h1>
           </div>
