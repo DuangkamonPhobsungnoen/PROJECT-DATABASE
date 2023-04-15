@@ -34,6 +34,7 @@ onMounted(async () => {
 
   <h1>test check {{ detailStore.checkAdd}}</h1>
   <DetailMovie 
+  :cntRev="reviewStore.rev_Movie"
   :checkState="detailStore.checkAdd"
   :singleMov="movieStore.singleMovie">
   </DetailMovie>

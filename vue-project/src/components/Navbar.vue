@@ -46,11 +46,11 @@
           <router-link to="/reviewsview">Reviews</router-link>
         </div>
 
-        <div class="navbar-item">
+        <div v-if="signInStore.logingUser?.role == 'admin'" class="navbar-item">
           <router-link to="/adminview">Admin</router-link>
         </div>
 
-        <div v-if="JSON.stringify(signInStore.logingUser) !== '{}'"  class="navbar-item">
+        <div v-if="JSON.stringify(signInStore.logingUser) !== '{}' && signInStore.logingUser?.role != 'admin'"  class="navbar-item">
           <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser?.u_id) } }">Profile</router-link>
         </div>
 
@@ -69,12 +69,12 @@
             <img src="https://cdn-icons-png.flaticon.com/512/7968/7968662.png">
           </div>
           <div class="navbar-dropdown">
-            <router-link to="/signinview">
+            <router-link v-if="JSON.stringify(signInStore.logingUser) == '{}'" to="/signinview">
               <div class="navbar-item">
                 <strong>Sign in</strong>
               </div>
             </router-link>
-            <router-link to="/signupview">
+            <router-link v-if="JSON.stringify(signInStore.logingUser) == '{}'" to="/signupview">
               <div class="navbar-item">
                 <strong>Sign up</strong>
               </div>

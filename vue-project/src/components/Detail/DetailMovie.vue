@@ -9,7 +9,8 @@ const {id} = route.params
 
 defineProps({
     checkState: Boolean,
-    singleMov: Object
+    singleMov: Object,
+    cntRev: Array
 })
 // const toggle = checkState;
 
@@ -44,7 +45,7 @@ defineProps({
         <h3 class="my-4">{{ singleMov.mov_type }}</h3>
         <div class="columns my-4">
           <p class="column is-2">⭐️ {{ singleMov.rating }}</p>
-          <p class="column is-2">💬 comment</p>
+          <p class="column is-2">💬 {{ cntRev.length }}  comment</p>
           <!-- watch list -->
           <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
           <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>

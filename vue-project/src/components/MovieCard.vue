@@ -24,8 +24,8 @@ defineProps({
                             <p class="text_img_center pt-5">
                                 <img
                                     src="https://media.discordapp.net/attachments/1087447051387813909/1087616553777897552/Star.png?width=20&height=20">
-                                <span>{{ item.rating }}</span>
-                                <span>{{ item.mov_id }}</span>
+                                <span>{{ item.mov_rate }}</span>
+                                <!-- <span>{{ item.mov_id }}</span> -->
 
                             </p>
                         </div>
