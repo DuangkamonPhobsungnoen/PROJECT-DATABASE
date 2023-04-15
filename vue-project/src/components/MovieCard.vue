@@ -13,7 +13,7 @@ defineProps({
             <div class="card color-background-purple-2 has-text-white" style="border-radius: 30px;">
                 <div class="card-image ">
                     <figure class="image is-4by5">
-                        <img src="https://media.discordapp.net/attachments/1087447051387813909/1088044869982883920/poster.png?width=248&height=307"
+                        <img :src="item.mov_pic"
                             alt="Placeholder image">
                     </figure>
                 </div>

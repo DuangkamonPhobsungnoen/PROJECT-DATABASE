@@ -12,10 +12,16 @@ export const useReviewStore = defineStore('review', () => {
     })
 
     const UserRating = ref(0)
-    // function setRating(rating){
-    //     UserRating.value = rating
-    // }
+    
+    const addLike = async (item) => {
+        // console.log(item);
+        const fetchingData = await axios.put(`http://localhost:3000/rev/addLike/${item.rev_id}`,
+        {
+            user: item.u_id
+        })
+        item.rev_like = fetchingData.data.likeNum
 
+     }
 
     const fetchReview = async (id) => {
         return (await axios.get(`http://localhost:3000/rev/${id}`)).data
@@ -46,6 +52,7 @@ export const useReviewStore = defineStore('review', () => {
         revData,
         addReview,
         UserRating,
+        addLike
         // setRating
 
 

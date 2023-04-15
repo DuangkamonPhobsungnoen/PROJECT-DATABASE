@@ -24,6 +24,7 @@ onMounted(movieStore.fetchSeries);
 
         <h1>{{ movieStore.dbmovie }}</h1>
     </div> -->
+    <!-- <h1>{{ movieStore.dbanime }}</h1> -->
   <Banner class="py-6"></Banner>
   <MessText message="Review"></MessText>
   <MiniReviewCard></MiniReviewCard>

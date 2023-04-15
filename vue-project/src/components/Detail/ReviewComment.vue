@@ -1,4 +1,7 @@
 <script setup>
+import { useReviewStore } from "@/stores/review";
+const reviewStore = useReviewStore()
+
 defineProps({
     item: Object
 })
@@ -6,6 +9,7 @@ defineProps({
 </script>
 
 <template>
+  <!-- <h1>{{ item.rev_id}}</h1> -->
   <div class="my-6">
     <div class="box has-text-white color-background-purple-4 p-5">
 
@@ -20,7 +24,7 @@ defineProps({
 
       <div class="columns">
         <div class="column is-6">⭐️ {{item.rev_rate}}</div>
-        <div class="column has-text-right">{{item.rev_like}} 🤍</div>
+        <div class=" column has-text-right"><button @click="reviewStore.addLike(item)">{{item.rev_like}} 🤍</button> </div>
       </div>
     </div>
   </div>
