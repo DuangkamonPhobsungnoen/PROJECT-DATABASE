@@ -8,12 +8,10 @@ onMounted(movieStore.fetchSeries);
 </script>
 
 <template>
-    <SearchMovie message="Movies"></SearchMovie>
-    <router-link to="/detailview">
+  <SearchMovie message="Movies"></SearchMovie>
 
-        <div class="task-container columns is-multiline px-6 py-6">
-    <MovieCard v-for="item in movieStore.dbseries" :item="item" ></MovieCard>
+
+  <div class="task-container columns is-multiline px-6 py-6">
+    <MovieCard v-for="item in movieStore.dbseries" :item="item"></MovieCard>
   </div>
-
-    </router-link>
 </template>
