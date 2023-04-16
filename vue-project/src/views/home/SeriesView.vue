@@ -1,6 +1,6 @@
 <script setup>
 import MovieCard from '../../components/MovieCard.vue';
-import SearchMovie from '../../components/SelectMovie.vue';
+import SelectMovie from '../../components/SelectMovie.vue';
 import { useMovieStore } from "../../stores/movie";
 import { computed, ref, reactive, onMounted } from "vue";
 const movieStore = useMovieStore();
@@ -8,7 +8,7 @@ onMounted(movieStore.fetchSeries);
 </script>
 
 <template>
-  <SearchMovie message="Movies"></SearchMovie>
+  <SelectMovie message="Movies"></SelectMovie>
 
 
   <div class="task-container columns is-multiline px-6 py-6">

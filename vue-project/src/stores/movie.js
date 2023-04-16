@@ -38,6 +38,7 @@ export const useMovieStore = defineStore('movie', () => {
     const fetchAnime = async () => {
         const fetchingData = await axios.get('http://localhost:3000/anime')
         dbanime.value = fetchingData.data;
+        filAnime.value = fetchingData.data;
       }
     
       const fetchMovie = async () => {
@@ -62,6 +63,14 @@ export const useMovieStore = defineStore('movie', () => {
       // const fetchReview = async (id) => {
       //   return (await axios.get(`http://localhost:3000/rev/${id}`)).data
       //  }
+      const filAnime = ref([])
+      function filtermov(genId){
+        console.log(genId)
+        filAnime.value = dbanime.value.filter((mov) => mov.gen_id == genId);
+        console.log(filAnime.value)
+      }
+      
+
   return { 
     fetchMovie,
     fetchAnime,
@@ -75,7 +84,9 @@ export const useMovieStore = defineStore('movie', () => {
     fetchTrending,
     allTrending,
     selectTrend,
-    fetchSelectTrend
+    fetchSelectTrend,
+    filtermov,
+    filAnime
 
 
 }
