@@ -63,14 +63,23 @@ export const useMovieStore = defineStore('movie', () => {
       // const fetchReview = async (id) => {
       //   return (await axios.get(`http://localhost:3000/rev/${id}`)).data
       //  }
-      const filAnime = ref([])
-      function filtermov(genId){
-        console.log(genId)
-        filAnime.value = dbanime.value.filter((mov) => mov.gen_id == genId);
-        console.log(filAnime.value)
+      const filAnime = ref([]) 
+      let text = ref('')
+      function filteranime(genId){
+        if (genId != 'Genres') {
+          filAnime.value = dbanime.value.filter((anime) => anime.gen_title == genId);
+          console.log('filAnime.value.length', filAnime.value.length)
+          if(filAnime.value.length == 0) {
+             text.value = 'Not found anime in ' + genId
+          }
+          else {
+            text.value = ''
+          }
+        }
+        else {
+          filAnime.value = dbanime.value
+        }
       }
-      
-
   return { 
     fetchMovie,
     fetchAnime,
@@ -85,9 +94,9 @@ export const useMovieStore = defineStore('movie', () => {
     allTrending,
     selectTrend,
     fetchSelectTrend,
-    filtermov,
-    filAnime
-
+    filteranime,
+    filAnime,
+    text,
 
 }
 })

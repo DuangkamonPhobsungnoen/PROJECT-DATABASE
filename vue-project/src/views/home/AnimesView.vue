@@ -9,8 +9,9 @@ onMounted(movieStore.fetchAnime);
 
 <template>
     <!-- <h1>{{ movieStore.dbanime[0].gen_title }}</h1> -->
-    <SelectMovie message="Movies"></SelectMovie>
     
+    <SelectMovie message="Movies"></SelectMovie>
+        <h1 class="has-text-centered is-size-4 p-6">{{movieStore.text}}</h1>
         <div class="task-container columns is-multiline px-6 py-6">
             <MovieCard v-for="item in movieStore.filAnime" :item="item" ></MovieCard>
         </div>

@@ -3,7 +3,7 @@ import { useMovieStore } from "@/stores/movie";
 import { computed, ref, reactive, onMounted } from "vue";
 const movieStore = useMovieStore();
 
-const genId = ref(0)
+const genId = ref('')
 
 </script>
 
@@ -17,16 +17,16 @@ const genId = ref(0)
       <div class="column">
         <div class="select">
           <select class="editselect" v-model="genId">
-            <option value="0">Genres</option>
-            <option value="2">Drama</option>
-            <option value="5">Romance</option>
-            <option value="3">Thriller</option>
-            <option value="6">Adventure</option>
-            <option value="7">Action</option>
-            <option value="8">Sci-fi</option>
-            <option value="9">Horror</option>
-            <option value="1">Comedy</option>
-            <option value="4">Fantasy</option>
+            <option value="Genres">Genres</option>
+            <option value="Drama">Drama</option>
+            <option value="Romance">Romance</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action">Action</option>
+            <option value="Sci-fi">Sci-fi</option>
+            <option value="Horror">Horror</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Fantasy">Fantasy</option>
           </select>
         </div>
       </div>
@@ -41,7 +41,7 @@ const genId = ref(0)
         </div>
       </div>
       <div class="column">
-        <button class="button color-background-purple-3 has-text-white" @click="movieStore.filtermov(parseInt(genId))">
+        <button class="button color-background-purple-3 has-text-white" @click="movieStore.filteranime(genId)">
           CHECK
         </button>
       </div>
