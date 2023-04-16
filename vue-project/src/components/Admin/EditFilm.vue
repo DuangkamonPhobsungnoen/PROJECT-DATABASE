@@ -19,7 +19,7 @@ const filmadd = ref({
 
 <template>
   <div class="p-2">
-    <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit Movie</h1>
+    <h1 class="has-text-centered is-size-1 pb-6 pt-4">Addmovie</h1>
     <div class="columns">
       <div class="column is-offset-1">
         <div class="select" style="width: 85%">
@@ -63,39 +63,8 @@ const filmadd = ref({
       </div>
     </div>
     <div class="columns pt-6">
-      <div class="column is-3 is-offset-1">
-        <div
-          class="is-align-items-center is-justify-content-center file"
-          style="display: flex"
-        >
-          <div class="file-label">
-            <img
-              id="pullphoto"
-              src="#"
-              style="
-                width: 260px;
-                height: 300px;
-                border-radius: 8px;
-                border: 1px solid #fff;
-              "
-            />
-            <label
-              class="is-size-3"
-              style="position: absolute; left: 40px; top: 110px"
-            >
-              + Addphoto
-            </label>
-            <input
-              class="file-input"
-              onchange="readURL(this);"
-              type="file"
-              name="resume"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="column p-5 is-2 is-offset-0">
-        <div class="subtitle is-5 has-text-white">
+      <div class="column p-5 is-2 is-offset-1">
+        <div class="subtitle is-4 has-text-white">
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Title</label>
           </div>
@@ -110,10 +79,11 @@ const filmadd = ref({
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Time</label>
+            <label for="">Story</label>
           </div>
         </div>
       </div>
-      <div class="column is-5">
+      <div class="column is-8 m-3">
         <div class="">
           <div>
             <input
@@ -161,25 +131,36 @@ const filmadd = ref({
             />
           </div>
           <div>
-            <!-- <div v-show="is_form == true">
-                <div v-show="editselect == 'people'">
-                  <EditPeople @save2="insertpeople" />
-                </div>
-              </div> -->
+            <div>
+              <textarea
+                name="story"
+                id="story"
+                class="textarea"
+                rows="10"
+                v-model="filmadd.story"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="columns m-3">
+      <div class="column is-2 is-offset-1">
+        <p class="subtitle is-4 has-text-white">Photo</p>
+      </div>
+      <div class="column is-9">
+        <input class="input" style="width:92%" type="text" name="picture" id="picture">
+      </div>
+    </div>
     <div class="columns">
-      <div class="column is-10 is-offset-1">
+      <div class="column is-10 is-offset-2">
         <h1 class="title has-text-white">actor</h1>
-        <div class="table-container">
+        <div class="table-container m-6">
           <table class="table is-bordered">
-            <thead width="50px">
+            <thead width="">
               <th>FirstName</th>
               <th>LastName</th>
               <th>Gender</th>
-              <th>Photo</th>
               <th></th>
             </thead>
             <tbody>
@@ -202,18 +183,17 @@ const filmadd = ref({
                 </td>
                 <td>
                   <div class="select">
-                  <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
-                </div>
+                    <select>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                  </div>
                 </td>
-                <td><input type="file" name="picture" id="Photo" /></td>
                 <td>
                   <div class="has-text-centered">
-                  <button class="button is-success is-hovered" type="submit">
-                    Add
-                  </button>
+                    <button class="button is-success is-hovered" type="submit">
+                      Add
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -227,7 +207,6 @@ const filmadd = ref({
                 <td>
                   <p></p>
                 </td>
-                <td></td>
                 <td>
                   <div class="has-text-centered">
                     <button class="button is-warning is-hovered mb-2" type="">
@@ -242,18 +221,6 @@ const filmadd = ref({
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column is-10 is-offset-1">
-        <h1 class="title has-text-white">Story</h1>
-        <textarea
-          name="story"
-          id="story"
-          class="textarea"
-          rows="10"
-          v-model="filmadd.story"
-        ></textarea>
       </div>
     </div>
     <div class="columns">
