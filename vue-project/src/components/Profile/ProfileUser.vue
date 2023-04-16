@@ -58,7 +58,7 @@
                 <input class="input" 
                 type="text" 
                 :value="fname"
-                v-model="fname"  
+                
                 />
               </div>
             </div>
@@ -69,7 +69,7 @@
                   class="input"
                   type="text"
                   :value="lname" 
-                  v-model="lname"
+                  
                 />
               </div>
             </div>
@@ -83,7 +83,7 @@
                   type="text"
                   placeholder="Username"
                   :value="username"
-                  v-model="username"
+                  
                 />
               </div>
             </div>
@@ -95,7 +95,7 @@
                   type="text"
                   placeholder="picture"
                   :value="pic"
-                  v-model="pic"
+                  
                 />
               </div>
             </div>
