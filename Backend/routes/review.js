@@ -3,6 +3,20 @@ const pool = require('../config.js')
 
 router = express.Router();
 
+router.get("/rev/show", async function (req, res, next) {
+  // Your code here
+  try {
+
+    const [rows, fields] = await pool.query("select r.rev_id, r.rev_like, u.u_user_name, r.create_at, m.mov_title, m.mov_rate, m.mov_pic, r.rev_text from review r join user u on(u.u_id = r.u_id) join movie m on(r.mov_id = m.mov_id) order by rev_like desc limit 10");
+// console.log("555");
+    return res.json(rows);
+
+  } catch (err) {
+      console.log(err)
+      return next(err);
+  }
+});
+
 // add
 router.post("/rev/add", async function (req, res, next) {
   const { rev_text, rev_rate, u_id, mov_id } = req.body
@@ -128,6 +142,8 @@ router.get("/rev/:movId", async function (req, res, next) {
     return next(err);
   }
 });
+
+
 
 
 

@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <!-- <h1>{{ item.rev_id}}</h1> -->
+  <!-- <h1>{{ reviewStore.convertTime(item.create_at)}}</h1> -->
   <div class="my-6">
     <div class="box has-text-white color-background-purple-4 p-5">
 
@@ -21,6 +21,7 @@ defineProps({
       </p>
 
       <p class="my-5">{{item.rev_text}}</p>
+      <small class="my-5">{{ reviewStore.convertTime(item.create_at) }}</small>
 
       <div class="columns">
         <div class="column is-6">⭐️ {{item.rev_rate}}</div>

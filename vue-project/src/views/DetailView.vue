@@ -43,5 +43,5 @@ onMounted(async () => {
   <Comment v-if="JSON.stringify(signInStore.logingUser) !== '{}'"></Comment>
 
 <!-- <h1>{{ movieStore.rev_Movie }}</h1> -->
-  <Review  v-for="item in reviewStore.rev_Movie" :item="item"></Review>
+  <Review  v-for="item in reviewStore.rev_Movie.reverse()" :item="item"></Review>
 </template>

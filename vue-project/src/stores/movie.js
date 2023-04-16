@@ -11,6 +11,30 @@ export const useMovieStore = defineStore('movie', () => {
     const dbmovie = ref([])
     const dbseries = ref([])
 
+    const allTrending = ref([])
+    const fetchTrending = async () => {
+      const fetchingData = await axios.get('http://localhost:3000/trending')
+      allTrending.value = fetchingData.data
+    }
+
+    const selectTrend = ref("")
+    const fetchSelectTrend = async () => {
+      // console.log(selectTrend.value);
+      if(selectTrend.value == "All"){
+        fetchTrending()
+      }
+      else{
+        const fetchingData = await axios.post('http://localhost:3000/trending',
+        {
+          type:selectTrend.value
+        })
+        allTrending.value = fetchingData.data
+      }
+      
+      
+    }
+
+
     const fetchAnime = async () => {
         const fetchingData = await axios.get('http://localhost:3000/anime')
         dbanime.value = fetchingData.data;
@@ -26,6 +50,7 @@ export const useMovieStore = defineStore('movie', () => {
         const fetchingData = await axios.get('http://localhost:3000/series')
         dbseries.value = fetchingData.data;
       }
+
 
       const fetchSingleMovie = async (id) => {
         return (await axios.get(`http://localhost:3000/movie/${id}`)).data[0]
@@ -47,6 +72,10 @@ export const useMovieStore = defineStore('movie', () => {
     // fetchSingleMovieData,
     fetchSingleMovie,
     singleMovie,
+    fetchTrending,
+    allTrending,
+    selectTrend,
+    fetchSelectTrend
 
 
 }

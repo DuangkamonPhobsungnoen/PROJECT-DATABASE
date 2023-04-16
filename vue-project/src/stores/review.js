@@ -10,9 +10,33 @@ export const useReviewStore = defineStore('review', () => {
         rev_text: '',
         // rev_rate: 5
     })
-
+    const revShow = ref([])
     const UserRating = ref(0)
     
+    function convertTime(time){
+        const dateObj = new Date(time);
+
+        const options = { 
+            month: 'short', 
+            day: '2-digit', 
+            year: 'numeric', 
+            hour: 'numeric', 
+            minute: '2-digit', 
+            hour12: true 
+        };
+        return dateObj.toLocaleString('en-US', options);
+    }
+
+
+    const reviewShow = async () => {
+        const fetchingData = await axios.get(`http://localhost:3000/rev/show`)
+        revShow.value = fetchingData.data
+
+     }
+
+
+
+
     const addLike = async (item) => {
         // console.log(item);
         const fetchingData = await axios.put(`http://localhost:3000/rev/addLike/${item.rev_id}`,
@@ -52,7 +76,10 @@ export const useReviewStore = defineStore('review', () => {
         revData,
         addReview,
         UserRating,
-        addLike
+        addLike,
+        convertTime,
+        reviewShow,
+        revShow
         // setRating
 
 
