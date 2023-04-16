@@ -21,22 +21,19 @@
             <label class="title has-text-white">{{user.u_user_name}}</label> 
             <Edit :editUser="user"/>
         </div>
-        <div class="pt-1">
-            <label>99</label>
+        <div class="pt-5">
+            <label>0</label>
             <img style="max-width:30px; position:relative; top:10px;" class="" src="https://cdn.discordapp.com/attachments/986617972544139337/1089986748387434677/Pngtreeheart_8bit_icon_3986608.png" alt="">
             <p>Like</p>
             
         </div>
-        <div style="position:relative; left:120px; bottom:62.5px;">
-            <label>725</label>
+        <div style="position:relative; left:120px; bottom:48px;">
+            <label>2</label>
             <img style="max-width:30px; position:relative; top:10px;" class="" src="https://cdn.discordapp.com/attachments/986617972544139337/1089986748387434677/Pngtreeheart_8bit_icon_3986608.png" alt="">
             <p>Comment</p>
             
         </div>
-        <div class="is-relative" style="bottom:30px;">
-            <p id="Name" name="name">เหงา หาเพื่อนดูหนัง ณ เขตลาดหน้า</p>
-            <p id="description" name="description">Ig:สักกะวาล้าหลังผนังชนฝา</p>
-        </div>
+        
     </div>
   </div>
 </template>

@@ -136,7 +136,7 @@ const filmadd = ref({
                 name="story"
                 id="story"
                 class="textarea"
-                rows="10"
+                rows="3"
                 v-model="filmadd.story"
               ></textarea>
             </div>
@@ -209,10 +209,10 @@ const filmadd = ref({
                 </td>
                 <td>
                   <div class="has-text-centered">
-                    <button class="button is-warning is-hovered mb-2" type="">
+                    <button class="button is-warning is-hovered mb-2 " type="">
                       Update
                     </button>
-                    <button class="button is-danger is-hovered" type="">
+                    <button class="button is-danger is-hovered " type="">
                       Delete
                     </button>
                   </div>

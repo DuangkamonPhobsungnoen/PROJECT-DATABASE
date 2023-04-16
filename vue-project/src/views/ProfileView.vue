@@ -14,8 +14,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>{{ signInStore.logingUser }}</h1>
-  <h1>{{ detailStore.arrWatch }}</h1>
+  <!-- <h1>{{ signInStore.logingUser }}</h1>
+  <h1>{{ detailStore.arrWatch }}</h1> -->
   <Bioview :user="signInStore.logingUser" />
   <div v-show="is_form == false">
     <div class="has-text-centered">

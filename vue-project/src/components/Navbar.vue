@@ -80,7 +80,7 @@
               </div>
             </router-link>
             <router-link to="/">
-              <div @click="signInStore.logout" class="navbar-item">
+              <div v-if="JSON.stringify(signInStore.logingUser) != '{}'" @click="signInStore.logout" class="navbar-item">
                 <strong>Logout</strong>
               </div>
             </router-link>
