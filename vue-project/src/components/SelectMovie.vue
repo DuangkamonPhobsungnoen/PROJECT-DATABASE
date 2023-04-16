@@ -16,7 +16,7 @@ export default {
       <div class="column">
         <div class="select">
           <select class="editselect">
-            <option>All</option>
+            <option>Genres</option>
             <option value="2">Drama</option>
             <option value="5">Romance</option>
             <option value="3">Thriller</option>
@@ -32,7 +32,7 @@ export default {
       <div class="column">
         <div class="select">
           <select class="editselect">
-            <option>Genres</option>
+            <option>Sort</option>
             <option>A-Z</option>
             <option>Year</option>
             <option>Rating</option>
