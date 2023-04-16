@@ -27,9 +27,15 @@ export default {
         <div class="select">
           <select class="editselect">
             <option>Genres</option>
-            <option>Action</option>
-            <option>Comedy</option>
-            <option>Horror</option>
+            <option value="2">Drama</option>
+            <option value="5">Romance</option>
+            <option value="3">Thriller</option>
+            <option value="6">Adventure</option>
+            <option value="7">Action</option>
+            <option value="8">Sci-fi</option>
+            <option value="9">Horror</option>
+            <option value="1">Comedy</option>
+            <option value="4">Fantasy</option>
           </select>
         </div>
       </div>
