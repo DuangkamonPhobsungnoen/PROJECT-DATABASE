@@ -25,7 +25,12 @@ router = express.Router();
 
         const [rows1, fields1] = await pool.query('insert into movie_cast(mov_id, act_id) values (?,?)',
         [movId, actId])
-        return res.json({message:`added actor_id ${actId} in mov_id ${movId}`})
+
+        const [rows2, fields2] = await pool.query('select * from actor where act_id = ?',
+        [actId])
+
+
+        return res.json({actAdded:rows2[0]})
     } catch (error) {
         console.log(error);
         next(error)

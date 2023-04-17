@@ -20,7 +20,7 @@ router.post("/movie/add", async function (req, res, next) {
 
     //add genres
     const [rows1, fields1] = await conn.query("INSERT INTO movie_genres (mov_id, gen_id) value(?, ?)",
-      [movId, parseInt(genres)]);
+      [movId, genres]);
 
     // director
     const [dir_rows, dir_fields] = await conn.query("SELECT * FROM director where dir_fname = ? and dir_lname = ?",

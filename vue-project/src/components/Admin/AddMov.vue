@@ -103,9 +103,9 @@ export default {
     //     years: this.years,
     //   });
     // },
-    removeMovie(index) {
-      this.movie.splice(index, 1);
-    },
+    // removeMovie(index) {
+    //   this.movie.splice(index, 1);
+    // },
     movformshow(){
       this.$emit('show1', [true, 'film']);
       // this.$emit('type1', 'film')

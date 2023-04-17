@@ -1,16 +1,10 @@
 import { defineStore } from 'pinia'
 import { computed, ref, reactive, onMounted } from "vue";
 import axios from 'axios';
-export const usecrudMovieStore = defineStore('movie', () => {
-
-    const actor = ref({
-        fname: '',
-        lname: '',
-        gender: '',
-    })
+export const usecrudMovieStore = defineStore('crudmovie', () => {
 
 
-
+    const actorAdd = ref([])
     const test = 'hi'
     const allmov = ref([])
     const fetchAll = async () => {
@@ -19,24 +13,26 @@ export const usecrudMovieStore = defineStore('movie', () => {
     }
 
     const movId = ref(0)
+
     const submitformfilm = async (filmadd) => {
         const fetchingData = await axios.post('http://localhost:3000/movie/add', filmadd)
 
         movId.value = fetchingData.data.movId
         console.log(movId.value)
+        console.log(filmadd)
 
     };
 
-    const addActor = async () => {
-        // console.log(movId.value);
-        // console.log(actor.value.fname);
+    const addActor = async (actor) => {
         
         const fetchingData = await axios.post('http://localhost:3000/actor/add',{
-            fname: actor.value.fname,
-            lname: actor.value.lname,
-            gender: actor.value.gender,
+            fname: actor.fname,
+            lname: actor.lname,
+            gender: actor.gender,
             movId: movId.value
         }) 
+        actorAdd.value.push(fetchingData.data.actAdded)
+        console.log(fetchingData.data.actAdded);
 
 
     };
@@ -54,9 +50,10 @@ export const usecrudMovieStore = defineStore('movie', () => {
         submitformfilm,
         test,
         removeMovie,
-        actor,
+        // actor,
         addActor,
-        movId
+        movId,
+        actorAdd
 
     }
 })
