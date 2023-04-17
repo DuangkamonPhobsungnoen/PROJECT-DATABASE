@@ -5,6 +5,7 @@ router = express.Router();
 
   router.post("/actor/add", async function (req, res, next) {
     const {fname, lname, gender, mov_id} = req.body
+    console.log(fname, lname, gender, mov_id)
     // return res.json({fname, lname, gender, mov_id})
 
     try {

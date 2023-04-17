@@ -3,6 +3,14 @@ import { computed, ref, reactive, onMounted } from "vue";
 import axios from 'axios';
 export const usecrudMovieStore = defineStore('movie', () => {
 
+    const actor = ref({
+        fname: '',
+        lname: '',
+        gender: '',
+    })
+
+
+
     const test = 'hi'
     const allmov = ref([])
     const fetchAll = async () => {
@@ -10,24 +18,25 @@ export const usecrudMovieStore = defineStore('movie', () => {
         allmov.value = fetchingData.data;
     }
 
+    const movId = ref(0)
     const submitformfilm = async (filmadd) => {
-        console.log(filmadd.sort1)
-        const fetchingData = await axios.post('http://localhost:3000/movie/add', filmadd
-            // title: filmadd.title ,
-            // summary: filmadd.story,
-            // year: filmadd.year,
-            // time: 150,
-            // type: filmadd.sort1
-            
-        )
-        
+        const fetchingData = await axios.post('http://localhost:3000/movie/add', filmadd)
+
+        movId.value = fetchingData.data.message
+        console.log(movId.value)
+
+    };
+
+    const addActor = async () => {
+        // const fetchingData = await axios.post('http://localhost:3000/actor/add', actor.value) 
+
 
     };
 
     const removeMovie = async (id) => {
         console.log(id)
         const fetchingData = await axios.delete(`http://localhost:3000/movie/delete/${id}`)
-     }
+    }
 
 
 
@@ -36,7 +45,10 @@ export const usecrudMovieStore = defineStore('movie', () => {
         allmov,
         submitformfilm,
         test,
-        removeMovie
+        removeMovie,
+        actor,
+        addActor,
+        movId
 
     }
 })

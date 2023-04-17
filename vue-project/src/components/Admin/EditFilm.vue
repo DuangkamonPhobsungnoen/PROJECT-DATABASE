@@ -214,6 +214,7 @@ const filmadd = ref({
                     type="text"
                     name="firstname"
                     id="FirstName"
+                    v-model="crudMovStore.actor.fname"
                   />
                 </td>
                 <td>
@@ -222,11 +223,12 @@ const filmadd = ref({
                     type="text"
                     name="lastname"
                     id="LastName"
+                    v-model="crudMovStore.actor.lname"
                   />
                 </td>
                 <td>
-                  <div class="select">
-                    <select>
+                  <div class="select" >
+                    <select v-model="crudMovStore.actor.gender">
                       <option>Male</option>
                       <option>Female</option>
                     </select>
@@ -234,7 +236,7 @@ const filmadd = ref({
                 </td>
                 <td>
                   <div class="has-text-centered">
-                    <button class="button is-success is-hovered" type="submit">
+                    <button class="button is-success is-hovered" type="submit" @click="crudMovStore.addActor()">
                       Add
                     </button>
                   </div>
