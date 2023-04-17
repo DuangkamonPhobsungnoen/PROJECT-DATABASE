@@ -47,8 +47,8 @@ defineProps({
           <p class="column is-2">⭐️ {{ singleMov.mov_rate }}</p>
           <p class="column is-2">💬 {{ cntRev.length }}  comment</p>
           <!-- watch list -->
-          <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
-          <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 added</p>
+          <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button is-info is-outlined"><i class="fa fa-solid fa-circle has-text-left" style="color: #e81717;"></i> watchlist</p>
+          <p v-else @click="checkState = !checkState, detailStore.delWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button is-focused is-warning"><i class="fa fa-solid fa-circle has-text-left" style="color: #25e817;"></i> added</p>
         </div>
         <p class="my-4"><b>Director</b> director</p>
         <p class="my-4"><b>Actor</b> actor</p>
