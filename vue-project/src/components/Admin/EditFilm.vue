@@ -7,13 +7,15 @@ const crudMovStore = usecrudMovieStore();
 const filmadd = ref({
         title: "",
         trailer: "",
-        director: "",
+        dir_fname: "",
+        dir_lname: "",
         year: "",
+        poster: "",
         // actor: "",
         story: "",
-        sort1: "",
-        sort2: "",
-        time: 0,
+        type: "",
+        genres: "",
+        time: "",
       })
 </script>
 
@@ -24,11 +26,11 @@ const filmadd = ref({
       <div class="column is-offset-1">
         <div class="select" style="width: 85%">
           <select
-            name="sort1"
+            name="type"
             id=""
             style="width: 100%"
             class=""
-            v-model="filmadd.sort1"
+            v-model="filmadd.type"
             required
           >
             <option value="000">All</option>
@@ -41,11 +43,11 @@ const filmadd = ref({
       <div class="column">
         <div class="select" style="width: 85%">
           <select
-            name="sort2"
+            name="genres"
             id=""
             style="width: 100%"
             class=""
-            v-model="filmadd.sort2"
+            v-model="filmadd.genres"
             required
           >
             <option value="2">drama</option>
@@ -72,15 +74,20 @@ const filmadd = ref({
             <label for="">Trailer</label>
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
-            <label for="">Director</label>
+            <label for="">Director firstname</label>
+          </div>
+          <div class="ml-3" style="margin-bottom: 40px">
+            <label for="">Director lastname</label>
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Year</label>
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
-            <label for="">Time</label>
+            <label for="">Time</label>            
+          </div>        
+          <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Story</label>
-          </div>
+          </div>          
         </div>
       </div>
       <div class="column is-8 m-3">
@@ -92,6 +99,7 @@ const filmadd = ref({
               name="title"
               id="title"
               v-model="filmadd.title"
+              placeholder="title"
             />
           </div>
           <div>
@@ -101,6 +109,7 @@ const filmadd = ref({
               name="trailer"
               id="trailer"
               v-model="filmadd.trailer"
+              placeholder="trailer"
             />
           </div>
           <div>
@@ -109,7 +118,18 @@ const filmadd = ref({
               type="text"
               name="director"
               id="director"
-              v-model="filmadd.director"
+              v-model="filmadd.dir_fname"
+              placeholder="director firstname"
+            />
+          </div>
+          <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="director"
+              id="director"
+              v-model="filmadd.dir_lname"
+              placeholder="director lastname"
             />
           </div>
           <div>
@@ -119,17 +139,28 @@ const filmadd = ref({
               name="year"
               id="year"
               v-model="filmadd.year"
+              placeholder="year"
             />
           </div>
           <div>
             <input
               class="mb-5 input"
               type="text"
-              name="year"
-              id="year"
+              name="time"
+              id="time"
               v-model="filmadd.time"
+              placeholder="time"
             />
           </div>
+          <!-- <div>
+            <input
+              class="mb-5 input"
+              type="text"
+              name="time"
+              id="time"
+              v-model="filmadd.time"
+            />
+          </div> -->
           <div>
             <div>
               <textarea
@@ -138,20 +169,32 @@ const filmadd = ref({
                 class="textarea"
                 rows="3"
                 v-model="filmadd.story"
+                placeholder="story"
               ></textarea>
             </div>
           </div>
         </div>
+        
       </div>
     </div>
     <div class="columns m-3">
       <div class="column is-2 is-offset-1">
-        <p class="subtitle is-4 has-text-white">Photo</p>
+        <p class="subtitle is-4 has-text-white">Poster</p>
       </div>
       <div class="column is-9">
-        <input class="input" style="width:92%" type="text" name="picture" id="picture">
+        <input class="input" style="width:92%" type="text" name="poster" id="poster" placeholder="poster" v-model="filmadd.poster">
       </div>
+     
     </div>
+    <!-- add movie btn -->
+    <button
+          type="submit"
+          style="width: 90%"
+          class="button subtitle is-5 is-primary is-outlined"
+          @click="crudMovStore.submitformfilm(filmadd)"
+        >
+          CONFIRM
+        </button>
     <div class="columns">
       <div class="column is-10 is-offset-2">
         <h1 class="title has-text-white">actor</h1>
@@ -234,61 +277,17 @@ const filmadd = ref({
 
       <div class="column has-text-centered">
         <!-- <router-link to="/adminview"> -->
-        <button
+        <!-- <button
           type="submit"
           style="width: 90%"
           class="button subtitle is-5 is-primary is-outlined"
           @click="crudMovStore.submitformfilm(filmadd)"
         >
           CONFIRM
-        </button>
+        </button> -->
         <!-- </router-link> -->
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  // name: "editfilm",
-  // data() {
-  //   return {
-  //     is_form: false,
-  //     editselect: "people",
-  //     filmadd: {
-  //       title: "",
-  //       trailer: "",
-  //       director: "",
-  //       years: "",
-  //       actor: "",
-  //       story: "",
-  //       sort1: "",
-  //       sort2: "",
-  //     },
-  //   };
-  // },
-  // methods: {
-    // submitformfilm() {
-    //   const newfilm = {
-    //     title: this.filmadd.title,
-    //     trailer: this.filmadd.trailer,
-    //     director: this.filmadd.director,
-    //     years: this.filmadd.years,
-    //     actor: this.filmadd.actor,
-    //     story: this.filmadd.story,
-    //     sort1: this.filmadd.sort1,
-    //     sort2: this.filmadd.sort2,
-    //   };
-    //   this.$emit("save1", [newfilm, false]);
-    // },
-    // gotopeople() {
-    //   this.$emit("topeople", [true, "people"]);
-    //   // this.$emit('type1', 'film')
-    // },
-    // insertpeople(data) {
-    //   this.people1.push(data[0]);
-    //   this.is_form = false;
-    // },
-  // },
-};
-</script>
