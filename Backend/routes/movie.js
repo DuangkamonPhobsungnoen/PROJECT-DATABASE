@@ -16,7 +16,7 @@ router.post("/movie/add", async function (req, res, next) {
       [title, story, year, time, type, poster, trailer]);
 
     const movId = rows.insertId
-    console.log(movId)
+    // console.log(movId)
 
     //add genres
     const [rows1, fields1] = await conn.query("INSERT INTO movie_genres (mov_id, gen_id) value(?, ?)",
@@ -45,7 +45,7 @@ router.post("/movie/add", async function (req, res, next) {
     const [dir_rows2, dir_fields2] = await conn.query("INSERT INTO movie_director(dir_id, mov_id) value(?, ?)",
       [dirId, movId]);
 
-    res.json({ "message": movId });
+    res.json({ movId: parseInt(movId) });
     await conn.commit()
   } catch (err) {
     await conn.rollback();

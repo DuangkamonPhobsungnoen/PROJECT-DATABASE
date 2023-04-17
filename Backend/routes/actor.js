@@ -4,8 +4,8 @@ const pool = require('../config.js')
 router = express.Router();
 
   router.post("/actor/add", async function (req, res, next) {
-    const {fname, lname, gender, mov_id} = req.body
-    console.log(fname, lname, gender, mov_id)
+    const {fname, lname, gender, movId} = req.body
+    // console.log(fname, lname, gender, movId)
     // return res.json({fname, lname, gender, mov_id})
 
     try {
@@ -24,8 +24,8 @@ router = express.Router();
         }
 
         const [rows1, fields1] = await pool.query('insert into movie_cast(mov_id, act_id) values (?,?)',
-        [mov_id, actId])
-        return res.json({message:`added actor_id ${actId} in mov_id ${mov_id}`})
+        [movId, actId])
+        return res.json({message:`added actor_id ${actId} in mov_id ${movId}`})
     } catch (error) {
         console.log(error);
         next(error)

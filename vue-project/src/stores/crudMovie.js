@@ -22,13 +22,21 @@ export const usecrudMovieStore = defineStore('movie', () => {
     const submitformfilm = async (filmadd) => {
         const fetchingData = await axios.post('http://localhost:3000/movie/add', filmadd)
 
-        movId.value = fetchingData.data.message
+        movId.value = fetchingData.data.movId
         console.log(movId.value)
 
     };
 
     const addActor = async () => {
-        // const fetchingData = await axios.post('http://localhost:3000/actor/add', actor.value) 
+        // console.log(movId.value);
+        // console.log(actor.value.fname);
+        
+        const fetchingData = await axios.post('http://localhost:3000/actor/add',{
+            fname: actor.value.fname,
+            lname: actor.value.lname,
+            gender: actor.value.gender,
+            movId: movId.value
+        }) 
 
 
     };
