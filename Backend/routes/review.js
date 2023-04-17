@@ -28,11 +28,10 @@ router.post("/rev/add", async function (req, res, next) {
     if (rows0.length == 0) {
       const [rows, fields] = await pool.query("INSERT INTO review (rev_text, rev_rate, u_id, mov_id) value (?, ?, ?, ?) ",
         [rev_text, rev_rate, u_id, mov_id]);
-      // const insertId = rows.insertId
-      // console.log(insertId);
-      // const [rows1, fields1] = await pool.query("SELECT * FROM review WHERE rev_id = ?",
-      //   [insertId]);
-
+        // average movie rate
+        const [rows2, fields2] = await pool.query("update movie set mov_rate = (select avg(rev_rate) from review where mov_id = ?) where mov_id = ?",
+        [mov_id, mov_id]);
+      
       return res.json({status:"added"})
 
     } else {

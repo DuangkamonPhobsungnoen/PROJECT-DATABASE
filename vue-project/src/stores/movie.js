@@ -30,8 +30,11 @@ export const useMovieStore = defineStore('movie', () => {
         })
         allTrending.value = fetchingData.data
       }
-      
-      
+    }
+
+
+    function refresh(){
+      text.value = ''
     }
 
 
@@ -44,12 +47,13 @@ export const useMovieStore = defineStore('movie', () => {
       const fetchMovie = async () => {
         const fetchingData = await axios.get('http://localhost:3000/movie')
         dbmovie.value = fetchingData.data;
-
+        filmovie.value = fetchingData.data;
       }
 
       const fetchSeries = async () => {
         const fetchingData = await axios.get('http://localhost:3000/series')
         dbseries.value = fetchingData.data;
+        filseries.value = fetchingData.data;
       }
 
 
@@ -77,7 +81,46 @@ export const useMovieStore = defineStore('movie', () => {
           }
         }
         else {
+          text.value = ''
           filAnime.value = dbanime.value
+        }
+      }
+
+      
+      const filmovie = ref([])
+      function filtermovie(genId){
+        if (genId != 'Genres') {
+          filmovie.value = dbmovie.value.filter((movie) => movie.gen_title == genId);
+          console.log('filmovie.value.length', filmovie.value.length)
+          if(filmovie.value.length == 0) {
+             text.value = 'Not found ' + genId +' movie'
+          }
+          else {
+            text.value = ''
+          }
+        }
+        else {
+          text.value = ''
+          filmovie.value = dbmovie.value
+        }
+      }
+
+      
+      const filseries = ref([])
+      function filterseries(genId){
+        if (genId != 'Genres') {
+          filseries.value = dbseries.value.filter((series) => series.gen_title == genId);
+          console.log('filseries.value.length', filseries.value.length)
+          if(filseries.value.length == 0) {
+             text.value = 'Not found ' + genId +' series'
+          }
+          else {
+            text.value = ''
+          }
+        }
+        else {
+          text.value = ''
+          filseries.value = dbseries.value
         }
       }
   return { 
@@ -97,6 +140,11 @@ export const useMovieStore = defineStore('movie', () => {
     filteranime,
     filAnime,
     text,
+    filmovie,
+    filseries,
+    filtermovie,
+    filterseries,
+    refresh
 
 }
 })

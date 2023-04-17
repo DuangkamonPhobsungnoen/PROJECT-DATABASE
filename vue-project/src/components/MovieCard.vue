@@ -24,7 +24,7 @@ defineProps({
                             <p class="text_img_center pt-5">
                                 <img
                                     src="https://media.discordapp.net/attachments/1087447051387813909/1087616553777897552/Star.png?width=20&height=20">
-                                <span>{{ item.mov_rate }}</span><br>
+                                <span>{{ item.mov_rate.toFixed(1) }}</span><br>
                                 
 
                             </p>

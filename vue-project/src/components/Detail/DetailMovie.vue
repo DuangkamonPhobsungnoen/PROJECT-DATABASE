@@ -44,7 +44,7 @@ defineProps({
         <h1 class="title has-text-white">{{ singleMov.mov_title }}</h1>
         <h3 class="my-4">{{ singleMov.mov_type }}</h3>
         <div class="columns my-4">
-          <p class="column is-2">⭐️ {{ singleMov.rating }}</p>
+          <p class="column is-2">⭐️ {{ singleMov.mov_rate }}</p>
           <p class="column is-2">💬 {{ cntRev.length }}  comment</p>
           <!-- watch list -->
           <p v-if="!checkState" @click=" checkState = !checkState, detailStore.addWatchList(signInStore.logingUser.u_id,parseInt(id))" class="column is-2 button">🎞 watchlist</p>
