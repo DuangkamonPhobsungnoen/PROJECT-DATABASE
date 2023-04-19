@@ -20,15 +20,17 @@ defineProps({
   <h1>{{ typeof checkState }}</h1>
   <!-- <h1>{{singleMov}}555</h1> -->
   <div class="my-6">
-    <iframe
-      width="560"
-      height="315"
+    <div class="myiframe"> 
+      <iframe
       :src="singleMov.mov_trailer"
       title="YouTube video player"
-      frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
+      frameborder="0" 
+      allowfullscreen 
+      class="video"
     ></iframe>
+    </div>
+    
 
     <!-- Poster -->
     <div class="columns my-6">
