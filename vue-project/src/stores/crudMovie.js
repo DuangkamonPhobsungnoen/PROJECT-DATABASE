@@ -41,6 +41,7 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
     const removeMovie = async (id) => {
         console.log(id)
         const fetchingData = await axios.delete(`http://localhost:3000/movie/delete/${id}`)
+        fetchAll()
     }
 
 

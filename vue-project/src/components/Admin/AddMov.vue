@@ -39,7 +39,8 @@
                   class="button has-text-white nonebackbutton"
                   @click="(show_modal_del = !show_modal_del), (wantdel = index)"
                 >
-                  <span><div class="fa fa-trash is-size-2"></div></span>
+                <!-- delete real -->
+                  <span><div class="fa fa-trash is-size-2" @click="crudMovStore.removeMovie(item.mov_id)"></div></span>
                 </button>
               </div>
             </div>
@@ -50,7 +51,7 @@
     </div>
   </div>
 
-  <div
+  <!-- <div
     id="modal-rusure"
     class="modal"
     v-bind:class="{ 'is-active': show_modal_del }"
@@ -83,7 +84,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script setup>
 import { usecrudMovieStore } from "@/stores/crudMovie";

@@ -65,7 +65,7 @@ router = express.Router();
 
   router.get("/all", async function (req, res, next) {
     try {
-        const [rows, fields] = await pool.query('SELECT mov_title, mov_year  FROM movie ')
+        const [rows, fields] = await pool.query('SELECT mov_title, mov_year, mov_id  FROM movie ')
         return res.json(rows)
     } catch (error) {
         console.log(err);
