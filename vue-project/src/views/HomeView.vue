@@ -26,7 +26,7 @@ onMounted(movieStore.fetchSeries);
     </div> -->
     <!-- <h1>{{ movieStore.dbanime }}</h1> -->
   <Banner class="py-6"></Banner>
-  <MessText message="Review"></MessText>
+  <router-link to="/reviewsview"><MessText message="Review"></MessText></router-link>
   <MiniReviewCard></MiniReviewCard>
   <Recommend></Recommend>
 

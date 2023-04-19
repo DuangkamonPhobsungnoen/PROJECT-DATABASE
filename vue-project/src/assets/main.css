@@ -182,3 +182,27 @@ a:hover {
     width: 100%;
     height: 100%;
 }
+
+.linemax {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+
+  .linemax1 {
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  }
+
+  .card:hover{ 
+    transform: scale(1.1) perspective(0px) ;
+    transition: all .2s ease-in-out;
+    box-shadow: 4px 4px 4px rgba(60, 60, 93, 0.33)
+ }
+
+ a:hover {
+    color: rgb(192 38 211);
+  }
