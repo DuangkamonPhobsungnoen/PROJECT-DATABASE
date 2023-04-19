@@ -60,58 +60,65 @@ const swapPage = ref(false)
       </div>
     </div>
     <div class="columns pt-6">
-      <div class="column p-5 is-2 is-offset-1">
+      <div class="column p-5 is-10 is-offset-1">
         <div class="subtitle is-4 has-text-white">
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Title</label>
+            <input class="input" type="text" name="title" id="title" v-model="filmadd.title" placeholder="title" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Trailer</label>
+            <input class="input" type="text" name="trailer" id="trailer" v-model="filmadd.trailer"
+              placeholder="trailer" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Director firstname</label>
+            <input class="input" type="text" name="director" id="director" v-model="filmadd.dir_fname"
+              placeholder="director firstname" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Director lastname</label>
+            <input class="input" type="text" name="director" id="director" v-model="filmadd.dir_lname"
+              placeholder="director lastname" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Year</label>
+            <input class="input" type="text" name="year" id="year" v-model="filmadd.year" placeholder="year" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Time</label>
+            <input class="input" type="text" name="time" id="time" v-model="filmadd.time" placeholder="time" />
           </div>
           <div class="ml-3" style="margin-bottom: 40px">
             <label for="">Story</label>
+            <textarea name="story" id="story" class="textarea" rows="3" v-model="filmadd.story"
+                placeholder="story"></textarea>
           </div>
         </div>
       </div>
       <div class="column is-8 m-3">
         <div class="">
           <div>
-            <input class="mb-5 input" type="text" name="title" id="title" v-model="filmadd.title" placeholder="title" />
+            
           </div>
           <div>
-            <input class="mb-5 input" type="text" name="trailer" id="trailer" v-model="filmadd.trailer"
-              placeholder="trailer" />
+            
           </div>
           <div>
-            <input class="mb-5 input" type="text" name="director" id="director" v-model="filmadd.dir_fname"
-              placeholder="director firstname" />
+            
           </div>
           <div>
-            <input class="mb-5 input" type="text" name="director" id="director" v-model="filmadd.dir_lname"
-              placeholder="director lastname" />
+            
           </div>
           <div>
-            <input class="mb-5 input" type="text" name="year" id="year" v-model="filmadd.year" placeholder="year" />
+            
           </div>
           <div>
-            <input class="mb-5 input" type="text" name="time" id="time" v-model="filmadd.time" placeholder="time" />
+            
           </div>
           <div>
             <div>
-              <textarea name="story" id="story" class="textarea" rows="3" v-model="filmadd.story"
-                placeholder="story"></textarea>
+              
             </div>
           </div>
         </div>
