@@ -25,7 +25,12 @@ defineProps({
 
       <div class="columns">
         <div class="column is-6">⭐️ {{item.rev_rate}}</div>
-        <div class=" column has-text-right"><button @click="reviewStore.addLike(item)"><i class='fa fa-heart' style="color: #e81717;"></i> {{item.rev_like}} </button> </div>
+
+        <div class="column has-text-right">
+          <div @click="reviewStore.addLike(item)" class="is-clickable">
+            <i class='fa fa-heart' style="color: #e81717;"></i> 
+            {{item.rev_like}} </div> 
+        </div>
       </div>
     </div>
   </div>
