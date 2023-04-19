@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { computed, ref, reactive, onMounted } from "vue";
 import axios from 'axios';
 export const useReviewStore = defineStore('review', () => {
-
+    
     const rev_Movie = ref([])
     // rev_text, rev_rate, u_id, mov_id
     const revData = reactive({
@@ -11,6 +11,7 @@ export const useReviewStore = defineStore('review', () => {
         // rev_rate: 5
     })
     const revShow = ref([])
+    const revProfile = ref([])
     const UserRating = ref(0)
     
     function convertTime(time){
@@ -33,6 +34,19 @@ export const useReviewStore = defineStore('review', () => {
         revShow.value = fetchingData.data
 
      }
+     const reviewProfile = async (u_id) => {
+        // console.log(u_id, mov_id);
+        return (await axios.get(`http://localhost:3000/rev/profile/${u_id}`)).data
+        // const fetchingData = await axios.get(`http://localhost:3000/watch/${u_id}`)
+        // console.log(fetchingData.data);
+        // arrWatch.value = fetchingData.data
+     }
+    // const reviewProfile = async (u_id) => {
+    //     const fetchingData = await axios.get(`http://localhost:3000/rev/profile/${u_id}`)
+    //     // console.log(fetchingData.data);
+    //     revProfile.value = fetchingData.data
+
+    //  }
 
 
 
@@ -79,7 +93,11 @@ export const useReviewStore = defineStore('review', () => {
         addLike,
         convertTime,
         reviewShow,
-        revShow
+        revShow,
+        reviewProfile,
+        revProfile
+
+        
         // setRating
 
 
