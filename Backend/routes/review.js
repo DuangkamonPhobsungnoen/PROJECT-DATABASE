@@ -54,8 +54,15 @@ router.put('/rev/addlike/:revId', async function(req, res, next){
     [req.params.revId, user]);
 
     if(rows0.length == 0){
-      const [rows, fields] = await pool.query("UPDATE review SET rev_like = (SELECT rev_like FROM review WHERE rev_id = ?)+1 WHERE rev_id = ?",
-       [req.params.revId, req.params.revId]);
+       const [rows, fields] = await pool.query("SELECT rev_like FROM review WHERE rev_id = ?",
+       [req.params.revId]);
+       console.log(rows)
+       let [{rev_like}] = rows
+       rev_like +=1
+       const [rows3, fields3] = await pool.query("UPDATE review SET rev_like = ? WHERE rev_id = ?",
+       [rev_like, req.params.revId]);
+      // const [rows, fields] = await pool.query("UPDATE review SET rev_like = (SELECT rev_like FROM review WHERE rev_id = ?)+1 WHERE rev_id = ?",
+      //  [req.params.revId, req.params.revId]);
       // add like_review
        const [rows2, fields2] = await pool.query("insert into like_review(u_id, rev_id) values(?,?)",
        [user, req.params.revId]);
@@ -68,9 +75,13 @@ router.put('/rev/addlike/:revId', async function(req, res, next){
       });
       // console.log('wanggg pao')
     }else{
-
-      const [rows, fields] = await pool.query("UPDATE review SET rev_like = (SELECT rev_like FROM review WHERE rev_id = ?)-1 WHERE rev_id = ?",
-       [req.params.revId, req.params.revId]);
+      const [rows, fields] = await pool.query("SELECT rev_like FROM review WHERE rev_id = ?",
+      [req.params.revId]);
+      console.log(rows)
+      let [{rev_like}] = rows
+      rev_like -=1
+      const [rows3, fields3] = await pool.query("UPDATE review SET rev_like = ? WHERE rev_id = ?",
+      [rev_like, req.params.revId]);
 
        const [rows2, fields2] = await pool.query("delete from like_review where u_id = ? and rev_id = ?",
        [user, req.params.revId]);
