@@ -6,7 +6,7 @@ import Footer from './components/Footer.vue';
 
 <template>
 <NavbarVue></NavbarVue>
-  <div class="container column is-10">
+  <div class="container column is-10 hero is-fullheight">
   <RouterView />
   </div>
 <Footer></Footer>
