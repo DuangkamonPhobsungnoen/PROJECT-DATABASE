@@ -6,7 +6,7 @@ router = express.Router();
 // add
 router.post("/movie/add", async function (req, res, next) {
   const { title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname } = req.body
-  console.log(title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname)
+  // console.log(title, story, year, time, poster, trailer, type, parseInt(genres) + 100, dir_fname, dir_lname)
   const conn = await pool.getConnection()
   // Begin transaction
   await conn.beginTransaction();
@@ -20,7 +20,7 @@ router.post("/movie/add", async function (req, res, next) {
 
     //add genres
     const [rows1, fields1] = await conn.query("INSERT INTO movie_genres (mov_id, gen_id) value(?, ?)",
-      [movId, genres]);
+      [movId, parseInt(genres)]);
 
     // director
     const [dir_rows, dir_fields] = await conn.query("SELECT * FROM director where dir_fname = ? and dir_lname = ?",

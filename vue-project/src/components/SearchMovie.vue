@@ -6,7 +6,7 @@ const movieStore = useMovieStore()
 </script>
 
 <template>
-  <h1>{{ movieStore.selectTrend }}</h1>
+  <!-- <h1>{{ movieStore.selectTrend }}</h1> -->
   <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns">
         <div class="column has-text-centered pt-4 is-size-5">

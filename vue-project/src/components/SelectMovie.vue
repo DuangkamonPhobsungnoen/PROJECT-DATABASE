@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  {{ message }}
+  <!-- {{ message }} -->
   <!-- <h1>{{ movieStore.dbanime }}</h1> -->
       <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns">

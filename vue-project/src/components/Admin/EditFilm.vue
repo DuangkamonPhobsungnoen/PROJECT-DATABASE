@@ -14,7 +14,7 @@ const filmadd = ref({
   // actor: "",
   story: "",
   type: "",
-  genres: "",
+  genres: 0,
   time: "",
 })
 
@@ -41,6 +41,7 @@ const swapPage = ref(false)
           </select>
         </div>
       </div>
+      
       <div class="column">
         <div class="select" style="width: 85%">
           <select name="genres" id="" style="width: 100%" class="" v-model="filmadd.genres" required>
