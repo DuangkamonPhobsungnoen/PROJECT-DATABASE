@@ -7,6 +7,7 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
     const actorAdd = ref([])
     const test = 'hi'
     const allmov = ref([])
+    // all movie
     const fetchAll = async () => {
         const fetchingData = await axios.get('http://localhost:3000/all')
         allmov.value = fetchingData.data;

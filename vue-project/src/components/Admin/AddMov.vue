@@ -1,4 +1,5 @@
 <template>
+  <!-- <h1> {{ crudMovStore.allmov }}</h1> -->
   <div>
     <div class="columns p-5">
       <div class="column is-1"></div>
@@ -15,7 +16,7 @@
       </div>
       <div class="column is-1"></div>
     </div>
-    <div v-for="(item, index) in movie">
+    <div v-for="(item, index) in crudMovStore.allmov">
       <div class="columns p-3">
         <div class="column is-1"></div>
         <div class="column is-10">
@@ -24,9 +25,9 @@
             style="background-color: rgba(255, 255, 255, 0.1); color: white"
           >
             <div class="columns">
-              <div class="column is-4">{{ item.title }}</div>
+              <div class="column is-4">{{ item.mov_title }}</div>
               <div class="column is-4 has-text-centered">
-                {{ item.years }}
+                {{ item.mov_year }}
               </div>
               <div class="column is-4 has-text-right">
                 <!-- <router-link to="/editfilm"> -->
@@ -84,8 +85,17 @@
     </div>
   </div>
 </template>
-  
+<script setup>
+import { usecrudMovieStore } from "@/stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
+const crudMovStore = usecrudMovieStore();
+onMounted(crudMovStore.fetchAll);
+</script>  
+
   <script>
+  
+
+
 
 export default {
   name: "addmov",
@@ -93,6 +103,7 @@ export default {
     return {
       show_modal_del: false,
       wantdel: 0,
+      // crudMovStore: usecrudMovieStore()
     };
   },
 
@@ -114,6 +125,7 @@ export default {
   props: [
     "movie"
   ]
+ 
 };
 </script>
   
