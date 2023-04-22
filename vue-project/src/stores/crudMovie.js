@@ -44,7 +44,10 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
         fetchAll()
     }
 
-
+    const updateMovie = async (id) => {
+        console.log(id)
+       
+    }
 
     return {
         fetchAll,
@@ -55,6 +58,7 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
         // actor,
         addActor,
         movId,
+        updateMovie,
         actorAdd
 
     }
