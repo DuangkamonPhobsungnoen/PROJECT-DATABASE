@@ -74,9 +74,13 @@ router.delete("/movie/delete/:movId", async function (req, res, next) {
 
 router.put("/movie/edit/:movId", async function (req, res, next) {
   // Your code here
-  const { title, summary, year, time, type } = req.body
+  const { title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname  } = req.body
   // console.log(post_title, post_desc, tag_id);
   try {
+    const [rows1, fields1] = await pool.query("select * from movie WHERE mov_id = ?",
+      [req.params.movId]);
+      
+
     const [rows, fields] = await pool.query("UPDATE movie SET mov_title=?,mov_summary=?,mov_year=?, mov_time=?, mov_type=?  WHERE mov_id = ?",
       [title, summary, year, time, type, req.params.movId]);
 

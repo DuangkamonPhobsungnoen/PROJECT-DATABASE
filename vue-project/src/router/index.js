@@ -87,6 +87,12 @@ const router = createRouter({
             component: () =>
                 import ('../views/MovieAddView.vue')
         },
+        {
+            path: '/updateMovie',
+            name: 'updateMovie',
+            component: () =>
+                import ('../components/Admin/updateMovie.vue')
+        },
 
     ]
 })

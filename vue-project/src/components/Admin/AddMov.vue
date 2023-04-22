@@ -31,10 +31,13 @@
               </div>
               <div class="column is-4 has-text-right">
                 <!-- <router-link to="/editfilm"> -->
-                  <button class="button has-text-white nonebackbutton" @click="movformshow()">
-                    <div class="fa fa-pencil is-size-2"></div>
+                  <button class="button has-text-white nonebackbutton" >
+                  <!-- update movie -->
+                  <router-link to="/updateMovie">
+                    <div class="fa fa-pencil is-size-2" @click="crudMovStore.updateMovie(item.mov_id)"></div>
+                    </router-link>
                   </button>
-                <!-- </router-link> -->
+                
                 <button
                   class="button has-text-white nonebackbutton"
                   @click="(show_modal_del = !show_modal_del), (wantdel = index)"
@@ -118,10 +121,10 @@ export default {
     // removeMovie(index) {
     //   this.movie.splice(index, 1);
     // },
-    movformshow(){
-      this.$emit('show1', [true, 'film']);
+    // movformshow(){
+    //   this.$emit('show1', [true, 'film']);
       // this.$emit('type1', 'film')
-    },
+    // },
   },
   props: [
     "movie"
