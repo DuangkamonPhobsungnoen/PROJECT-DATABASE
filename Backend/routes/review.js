@@ -153,6 +153,21 @@ router.get("/rev/:movId", async function (req, res, next) {
   }
 });
 
+router.get("/rev/profile/:userId", async function (req, res, next) {
+  // Your code here
+  try {
+
+    const [rows, fields] = await pool.query("Select mov_pic, mov_title, rev_like, rev_text, rev_rate, u_user_name From movie Natural join review Natural join user Where u_id = ?",
+      [req.params.userId]);
+
+    return res.json(rows);
+
+  } catch (err) {
+    console.log(err)
+    return next(err);
+  }
+});
+
 
 
 

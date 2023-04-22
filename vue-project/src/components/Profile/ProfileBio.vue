@@ -28,7 +28,7 @@
             
         </div>
         <div style="position:relative; left:120px; bottom:48px;">
-            <label>2 <i class="fa fa-solid fa-comment"></i></label>
+            <label>{{ revLength }} <i class="fa fa-solid fa-comment"></i></label>
             <!-- <img style="max-width:30px; position:relative; top:10px;" class="" src="https://cdn.discordapp.com/attachments/986617972544139337/1089986748387434677/Pngtreeheart_8bit_icon_3986608.png" alt=""> -->
             <p>Comment</p>
             
@@ -41,7 +41,9 @@
 <script setup>
 import Edit from "../Profile/ProfileUser.vue";
 defineProps({
-    user: Object
+    user: Object,
+    revLength: Number
+
 })
 
 </script>

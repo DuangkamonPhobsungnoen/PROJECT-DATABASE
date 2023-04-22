@@ -4,19 +4,26 @@ import Review from "../components/Profile/Reviews.vue";
 import Watchlist from "../components/Profile/Watchlist.vue";
 import { useSignInStore } from "../stores/signin";
 import { useDetailMovieStore } from "../stores/detailMovie";
+import { useReviewStore } from "../stores/review";
 import { onMounted, } from "vue";
 const signInStore = useSignInStore()
 const detailStore = useDetailMovieStore()
+const reviewStore = useReviewStore()
 onMounted(async () => {
   detailStore.arrWatch = await detailStore.getWatchList(signInStore.logingUser.u_id)
+  reviewStore.revProfile = await reviewStore.reviewProfile(signInStore.logingUser.u_id)
 
 })
 </script>
 
 <template>
+  <h1>{{ reviewStore.revProfile }}</h1>
   <!-- <h1>{{ signInStore.logingUser }}</h1>
   <h1>{{ detailStore.arrWatch }}</h1> -->
-  <Bioview :user="signInStore.logingUser" />
+  <Bioview :user="signInStore.logingUser"
+            :revLength="reviewStore.revProfile.length"
+  
+  />
   <div v-show="is_form == false">
     <div class="has-text-centered">
 
@@ -50,9 +57,7 @@ onMounted(async () => {
     <div style="border-bottom: 5px solid gold" class="mb-6"></div>
 
     <div v-show="is_how == 'review'">
-      <Review
-        
-      />
+      <Review  :list="reviewStore.revProfile"/>
     </div>
     <div v-show="is_how == 'watchlist'">
       <Watchlist
