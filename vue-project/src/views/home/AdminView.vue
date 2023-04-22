@@ -1,4 +1,6 @@
 <template>
+
+  
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
   <div v-show="is_form == false">
     <SearchA />
@@ -30,19 +32,20 @@
     </div>
     <div style="border-bottom: 5px solid gold"></div>
     <div v-show="is_how == 'film'">
-      <AddMov @show1="is_form = $event[0], editselect = $event[1]" :movie="movie1" />
+      <AddMov  />
     </div>
     <div v-show="is_how == 'people'">
-      <AddPeople @show2="is_form = $event[0], editselect = $event[1]" :people="people1" />
+      <AddPeople  />
     </div>
   </div>
   <div v-show="is_form == true">
     <div v-show="editselect == 'film'">
       <!-- <router-link to="/movie/add"> Add + </router-link> -->
-      <EditFilm @save1="insertmov" />
+      <EditFilm  />
     </div>
     <div v-show="editselect == 'people'">
-      <EditPeople @save2="insertpeople" />
+      <EditPeople  />
+      <!-- <test></test> -->
     </div>
   </div>
   
@@ -58,6 +61,7 @@ import AddMov from "../../components/Admin/AddMov.vue";
 import AddPeople from "../../components/Admin/AddPeople.vue";
 import EditPeople from "../../components/Admin/EditPeople.vue";
 import EditFilm from "../../components/Admin/EditFilm.vue";
+import test from "../../components/Admin/test.vue";
 export default {
   data() {
     return {
@@ -72,17 +76,18 @@ export default {
     AddMov,
     AddPeople,
     EditPeople,
-    EditFilm
+    EditFilm,
+    test
   },
   methods:{
-    insertmov(data){
-      this.movie1.push(data[0])
-      this.is_form = false
-    },
-    insertpeople(data){
-      this.people1.push(data[0])
-      this.is_form = false
-    }
+    // insertmov(data){
+    //   this.movie1.push(data[0])
+    //   this.is_form = false
+    // },
+    // insertpeople(data){
+    //   this.people1.push(data[0])
+    //   this.is_form = false
+    // }
   }
 };
 </script>

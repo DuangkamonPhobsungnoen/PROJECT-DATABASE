@@ -1,4 +1,7 @@
 <template>
+  <button @click="crudMovStore.fetchSingleActor(5)">
+    test
+  </button>
   <!-- <h1> {{ crudMovStore.allmov }}</h1> -->
   <div>
     <div class="columns p-5">
@@ -33,14 +36,14 @@
                 <!-- <router-link to="/editfilm"> -->
                   <button class="button has-text-white nonebackbutton" >
                   <!-- update movie -->
-                  <router-link to="/updateMovie">
-                    <div class="fa fa-pencil is-size-2" @click="crudMovStore.updateMovie(item.mov_id)"></div>
+                  <router-link :to="{ name: 'updateMovie', params: { id: parseInt(item.mov_id) } }">
+                    <div class="fa fa-pencil is-size-2"></div>
                     </router-link>
                   </button>
                 
                 <button
                   class="button has-text-white nonebackbutton"
-                  @click="(show_modal_del = !show_modal_del), (wantdel = index)"
+                  
                 >
                 <!-- delete real -->
                   <span><div class="fa fa-trash is-size-2" @click="crudMovStore.removeMovie(item.mov_id)"></div></span>
@@ -121,10 +124,10 @@ export default {
     // removeMovie(index) {
     //   this.movie.splice(index, 1);
     // },
-    // movformshow(){
-    //   this.$emit('show1', [true, 'film']);
-      // this.$emit('type1', 'film')
-    // },
+    movformshow(){
+      this.$emit('show1', [true, 'film']);
+      this.$emit('type1', 'film')
+    },
   },
   props: [
     "movie"

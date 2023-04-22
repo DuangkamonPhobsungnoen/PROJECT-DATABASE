@@ -39,7 +39,43 @@ router = express.Router();
   });
 
 
-
+  router.get("/actor", async function (req, res, next) {
+    try {  
+      const [rows, fields] = await pool.query("SELECT * FROM actor");  
+      return res.json(rows);
   
+    } catch (err) {
+      console.log(err)
+      return next(err);
+    }
+  });
+
+  router.get("/actor/:actId", async function (req, res, next) {
+    try {  
+      const [rows, fields] = await pool.query("SELECT * FROM actor where act_id = ?",
+      [req.params.actId]);  
+      
+      return res.json(rows);
+  
+    } catch (err) {
+      console.log(err)
+      return next(err);
+    }
+  });
+  
+  router.put("/actor/edit/:actId", async function (req, res, next) {
+    const {fname, lname, gender} = req.body
+    console.log(fname, lname, gender, req.params.actId)
+    // try {  
+    //   const [rows, fields] = await pool.query("UPDATE actor SET act_fname=? act_lname=? act_gender=? where act_id = ?",
+    //   [req.params.actId]);  
+      
+    //   return res.json(rows);
+  
+    // } catch (err) {
+    //   console.log(err)
+    //   return next(err);
+    // }
+  });
 
 exports.router = router;

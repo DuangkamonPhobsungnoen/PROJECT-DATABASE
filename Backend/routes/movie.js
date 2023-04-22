@@ -71,23 +71,44 @@ router.delete("/movie/delete/:movId", async function (req, res, next) {
   }
 });
 
-
-router.put("/movie/edit/:movId", async function (req, res, next) {
+router.get("/movie/edit/:movId", async function (req, res, next) {
   // Your code here
-  const { title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname  } = req.body
-  // console.log(post_title, post_desc, tag_id);
   try {
-    const [rows1, fields1] = await pool.query("select * from movie WHERE mov_id = ?",
-      [req.params.movId]);
-      
+    const [rows1, fields1] = await pool.query("select * from movie join movie_director using(mov_id) join director using(dir_id) join movie_genres using(mov_id) join genres using(gen_id) WHERE mov_id = ?",
+    [req.params.movId]);
 
-    const [rows, fields] = await pool.query("UPDATE movie SET mov_title=?,mov_summary=?,mov_year=?, mov_time=?, mov_type=?  WHERE mov_id = ?",
-      [title, summary, year, time, type, req.params.movId]);
+    return res.json(rows1)
+  
+  } catch (err) {
+    console.log(err)
+    return next(err);
+  }
+});
 
-    //  const [rows1, fields1] = await pool.query("SELECT * FROM post p JOIN tag t ON (p.tag_id = t.tag_id) JOIN member m ON (m.mem_id = p.mem_id) WHERE post_id = ?",
-    //  [req.params.postId]);
 
-    return res.json(rows);
+// update movie
+router.put("/movie/edit/:movId", async function (req, res, next) {
+  const { title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname  } = req.body
+  // console.log(title, story, year, time, poster, trailer, type, genres, dir_fname, dir_lname, req.params.movId);
+  try {
+   
+    // update movie
+    const [rows, fields] = await pool.query("UPDATE movie SET mov_title=?,mov_summary=?,mov_year=?, mov_time=?, mov_type=?, mov_pic=?, mov_trailer=?  WHERE mov_id = ?",
+      [title, story, year, time, type, poster,trailer, req.params.movId]);
+    
+    // update movie_genres
+    const [rows1, fields1] = await pool.query("UPDATE movie_genres SET gen_id = ?  WHERE mov_id = ?",
+      [genres, req.params.movId]);
+
+     const [rows2, fields2] = await pool.query("SELECT dir_id FROM movie_director  WHERE mov_id = ?",
+     [req.params.movId]);
+
+      const dir_id = rows2[0].dir_id
+
+      const [rows3, fields3] = await pool.query("UPDATE director SET dir_fname = ?, dir_lname = ? WHERE dir_id = ?",
+      [dir_fname, dir_lname, dir_id]);
+      // console.log(rows2);
+    // return res.json(rows2);
 
   } catch (err) {
     console.log(err)

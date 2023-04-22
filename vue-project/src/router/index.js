@@ -63,12 +63,12 @@ const router = createRouter({
             component: () =>
                 import ('../views/DetailView.vue')
         },
-        {
-            path: '/editpeople',
-            name: 'editpeople',
-            component: () =>
-                import ('../views/EditPeopleView.vue')
-        },
+        // {
+        //     path: '/editpeople',
+        //     name: 'editpeople',
+        //     component: () =>
+        //         import ('../views/EditPeopleView.vue')
+        // },
         {
             path: '/editfilm',
             name: 'editfilm',
@@ -88,10 +88,16 @@ const router = createRouter({
                 import ('../views/MovieAddView.vue')
         },
         {
-            path: '/updateMovie',
+            path: '/updateMovie/:id',
             name: 'updateMovie',
             component: () =>
                 import ('../components/Admin/updateMovie.vue')
+        },
+        {
+            path: '/updateActor/:id',
+            name: 'updateActor',
+            component: () =>
+                import ('../components/Admin/EditPeople.vue')
         },
 
     ]

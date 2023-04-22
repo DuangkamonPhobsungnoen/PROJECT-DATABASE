@@ -1,52 +1,9 @@
+
 <template>
+  <!-- <p>{{ crudMovStore.allActor }}</p> -->
   <div>
-    <div class="columns p-5">
-      <div class="column is-1"></div>
-      <div class="column is-10">
-        <div class="columns has-text-centered p-3">
-          <div class="column">
-            <div class="select">
-              <select class="editselect">
-                <option>All</option>
-                <option>Action</option>
-                <option>Comedy</option>
-                <option>Horror</option>
-              </select>
-            </div>
-          </div>
-          <div class="column">
-            <div class="select">
-              <select class="editselect">
-                <option>Genres</option>
-                <option>Action</option>
-                <option>Comedy</option>
-                <option>Horror</option>
-              </select>
-            </div>
-          </div>
-          <div class="column">
-            <div class="select">
-              <select class="editselect">
-                <option>Sort</option>
-                <option>Action</option>
-                <option>Comedy</option>
-                <option>Horror</option>
-              </select>
-            </div>
-          </div>
-        </div>
-          <button
-            class="button is-medium is-fullwidth"
-            style="background-color: rgba(255, 255, 255, 0.1); color: white"
-            @click="peopleformshow()"
-          >
-            Add +
-          </button>
-        
-      </div>
-      <div class="column is-1"></div>
-    </div>
-    <div v-for="(item, index) in people">
+    
+    <div v-for="(item, index) in crudMovStore.allActor">
       <div class="columns p-3">
         <div class="column is-1"></div>
         <div class="column is-10">
@@ -56,17 +13,19 @@
           >
             <div class="columns">
               <div class="column is-4 has-text-left">
-                {{ item.fname }} {{ item.lname }}
+                {{ item.act_fname }} {{ item.act_lname }}
               </div>
               <div class="column has-text-right">
 
-                  <button class="button has-text-white nonebackbutton" @click="peopleformshow()">
+                  <button class="button has-text-white nonebackbutton">
+                    <router-link :to="{ name: 'updateActor', params: { id: parseInt(item.act_id) } }">
                     <div class="fa fa-pencil is-size-2"></div>
+                    </router-link>
                   </button>
 
                 <button
                   class="button has-text-white js-modal-trigger nonebackbutton"
-                  @click="(show_modal_del = !show_modal_del), (wantdel = index)"
+                  @click=""
                 >
                   <span><div class="fa fa-trash is-size-2"></div></span>
                 </button>
@@ -115,6 +74,16 @@
   </div>
 </template>
 
+<script setup>
+import { usecrudMovieStore } from "@/stores/crudMovie";
+import { computed, ref, reactive, onMounted } from "vue";
+const crudMovStore = usecrudMovieStore();
+onMounted(crudMovStore.fetchActor);
+
+
+</script>
+
+
 <script>
 export default {
   name: "addpeo",
@@ -128,19 +97,8 @@ export default {
     };
   },
   methods: {
-    // addPeople: function () {
-    //   this.people.push({
-    //     fname: this.fname,
-    //     lname: this.lname,
-    //   });
-    // },
-    removePeople(index) {
-      this.people.splice(index, 1);
-    },
-    peopleformshow(){
-      this.$emit('show2', [true, 'people']);
-      // this.$emit('type1', 'film')
-    },
+
+   
   },
   props: [
     "people"
