@@ -13,6 +13,7 @@ const movieRouter = require('./routes/movie')
 const reviewRouter = require('./routes/review')
 const watch_listRouter = require('./routes/watch_list')
 const actorRouter = require('./routes/actor')
+const userRouter = require('./routes/user')
 // const commentRouter = require('./routes/comment')
 
 app.use(indexRouter.router)
@@ -21,6 +22,7 @@ app.use(movieRouter.router)
 app.use(reviewRouter.router)
 app.use(watch_listRouter.router)
 app.use(actorRouter.router)
+app.use(userRouter.router)
 
 app.listen(3000, () => {
   console.log(`Example app listening at http://localhost:3000`)

@@ -16,26 +16,26 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
 
     const editActorFname = ref("")
     const fetchSingleActor1 = async (id) => {
-        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_fname; 
+        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_fname;
     }
     const editActorLname = ref("")
     const fetchSingleActor2 = async (id) => {
-        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_lname; 
+        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_lname;
     }
     const editActorGender = ref("")
     const fetchSingleActor3 = async (id) => {
-        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_gender; 
+        return (await axios.get(`http://localhost:3000/actor/${id}`)).data[0]?.act_gender;
     }
 
-    
+
     const updatePeople = async (id) => {
         const fetchingData = await axios.put(`http://localhost:3000/actor/edit/${id}`, {
-            fname: editActor.value.act_fname, 
-            lname: editActor.value.act_lname, 
-            gender: editActor.value.act_gender
+            fname: editActorFname.value,
+            lname: editActorLname.value,
+            gender: editActorGender.value
+
+
         })
-        console.log(id)
-        
     }
 
     // all movie
@@ -97,6 +97,7 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
             dir_lname: editData.value.dir_lname
         })
     }
+
 
     return {
         fetchAll,

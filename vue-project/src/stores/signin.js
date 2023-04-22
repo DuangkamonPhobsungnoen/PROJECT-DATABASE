@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useLocalStorage } from "@vueuse/core";
 export const useSignInStore = defineStore('signin', () => {
 
+    
+
     const logingUser = useLocalStorage('loggingUser', {})
     const loginData = reactive({
         username:'',
@@ -68,6 +70,23 @@ export const useSignInStore = defineStore('signin', () => {
     window.location.href = '/'
   }
 
+
+const updateProfile =  async (fname, lname, username) => {
+    const fetchingData = await axios.put(`http://localhost:3000/user/edit/${logingUser.value.u_id}`, 
+    {
+        u_fname: fname,
+        u_lname: lname,
+        u_user_name: username
+    })
+    if(fetchingData.data.status == 'error'){
+        alert(fetchingData.data.message)
+    }else{
+        logingUser.value = fetchingData.data
+    }
+    // logingUser.value = null
+    
+}
+
   return {
     login,
     loginData,
@@ -76,7 +95,8 @@ export const useSignInStore = defineStore('signin', () => {
     validatePassw,
     cusname,
     logingUser,
-    logout
+    logout,
+    updateProfile
 
   }
 })

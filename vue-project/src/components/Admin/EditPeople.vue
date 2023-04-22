@@ -56,12 +56,12 @@ onMounted(async () => {
 
               <div class="select">
                 <select class="editselect" v-model="crudMovStore.editActorGender">
-                  <option value="female">Female</option>
-                  <option value="male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
                 </select>
               </div>
             </div>
-
+<!-- <h1>{{ crudMovStore.editActorGender }}</h1> -->
           </div>
         </form>
       </div>
@@ -72,7 +72,7 @@ onMounted(async () => {
       </div>
 
       <div class="column has-text-centered">
-        <button type="submit" style="width:90%;" class="button subtitle is-5 is-primary is-outlined">CONFIRM</button>
+        <button type="submit" style="width:90%;" class="button subtitle is-5 is-primary is-outlined" @click="crudMovStore.updatePeople(id)">CONFIRM</button>
       </div>
     </div>
   </div>

@@ -32,10 +32,10 @@
     </div>
     <div style="border-bottom: 5px solid gold"></div>
     <div v-show="is_how == 'film'">
-      <AddMov  />
+      <AddMov @show1="is_form = $event[0], editselect = $event[1]" :movie="movie1" />
     </div>
     <div v-show="is_how == 'people'">
-      <AddPeople  />
+      <AddPeople @show2="is_form = $event[0], editselect = $event[1]" :people="people1" />
     </div>
   </div>
   <div v-show="is_form == true">
