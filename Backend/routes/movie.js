@@ -116,15 +116,30 @@ router.put("/movie/edit/:movId", async function (req, res, next) {
   }
 });
 
+
 // detail
 router.get("/movie/:movId", async function (req, res, next) {
-  // Your code here
   try {
 
-    const [rows, fields] = await pool.query("SELECT * FROM movie  where mov_id = ? ",
+    const [rows, fields] = await pool.query("SELECT * FROM movie join movie_director using(mov_id) join director using(dir_id)  where mov_id = ? ",
       [req.params.movId]);
 
+      // const [rows1, fields1] = await pool.query("SELECT act_lname, act_fname FROM movie join movie_cast using(mov_id) join actor using(act_id) where mov_id = ? ",
+      // [req.params.movId]);
     return res.json(rows);
+
+  } catch (err) {
+    console.log(err)
+    return next(err);
+  }
+});
+
+router.get("/movie/actor/:movId", async function (req, res, next) {
+  try {
+
+      const [rows1, fields1] = await pool.query("SELECT act_lname, act_fname FROM movie join movie_cast using(mov_id) join actor using(act_id) where mov_id = ? ",
+      [req.params.movId]);
+    return res.json(rows1);
 
   } catch (err) {
     console.log(err)
