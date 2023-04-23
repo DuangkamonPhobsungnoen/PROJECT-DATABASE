@@ -99,6 +99,12 @@ const router = createRouter({
             component: () =>
                 import ('../components/Admin/EditPeople.vue')
         },
+        {
+            path: '/filterMovie/',
+            name: 'filterMovie',
+            component: () =>
+                import ('../components/Search/FilterMovie.vue')
+        },
 
     ]
 })

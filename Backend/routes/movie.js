@@ -147,4 +147,35 @@ router.get("/movie/actor/:movId", async function (req, res, next) {
   }
 });
 
+
+router.get("/search", async function (req, res, next) {
+  const searchInput = req.query.searchInput
+  // console.log(searchInput);
+  try {
+
+    const [rows1, fields1] = await pool.query("SELECT mov_title, mov_pic, mov_rate  FROM movie WHERE mov_title LIKE ?",
+    [`%${searchInput}%`]);
+
+      const [rows2, fields2] = await pool.query("SELECT * from actor where concat(act_fname, ' ', act_lname) like ?",
+      [`%${searchInput}%`]);
+
+      const [rows3, fields3] = await pool.query("SELECT * from director where concat(dir_fname, ' ', dir_lname) like ?",
+      [`%${searchInput}%`]);
+      return res.json(
+        {
+          movie: rows1,
+          actor: rows2,
+          dir: rows3
+        });
+
+  } catch (err) {
+    console.log(err)
+    return next(err);
+  }
+});
+
+
+
+
+
 exports.router = router;

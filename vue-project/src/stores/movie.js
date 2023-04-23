@@ -2,14 +2,38 @@
 import { defineStore } from 'pinia'
 import { computed, ref, reactive, onMounted } from "vue";
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 export const useMovieStore = defineStore('movie', () => {
 
+    const router = useRouter();
+    const searchInput = ref("")
     const singleMovie = ref({})
     // const rev_Movie = ref([])
 
     const dbanime = ref([])
     const dbmovie = ref([])
     const dbseries = ref([])
+
+    const testSearch = ref([])
+    const toSearch = () => {
+      router.push({ name: 'filterMovie', query: { search: searchInput.value } });
+      test555()
+      
+    }
+ 
+    const test555 = async() =>{
+      const fetchingData = await axios.get('http://localhost:3000/search',
+      {
+        params: {
+          searchInput: searchInput.value
+        }
+      }
+      )
+      // console.log(fetchingData.data);
+      testSearch.value = fetchingData.data
+    }
+
+
 
     const allTrending = ref([])
     const fetchTrending = async () => {
@@ -151,7 +175,11 @@ export const useMovieStore = defineStore('movie', () => {
     filterseries,
     refresh,
     fetchSingleMovieActor,
-    fetchSingleActor
+    fetchSingleActor,
+    searchInput,
+    toSearch,
+    testSearch,
+    test555
 
 }
 })

@@ -1,6 +1,9 @@
 <script setup>
   import { useSignInStore } from "../stores/signin";
+  import { useMovieStore } from "../stores/movie";
+  
   const signInStore  = useSignInStore()
+  const movieStore  = useMovieStore()
 
 </script>
 
@@ -21,11 +24,14 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
+
         <div class="navbar-item px-4">
           <div class="control ">
-            <input class="input input-search" type="text" placeholder="Search">
+            <input @keyup.enter="movieStore.toSearch" class="input input-search" type="text" placeholder="Search" v-model="movieStore.searchInput">
           </div>
         </div>
+
+
         <div class="navbar-item">
           <router-link to="/animesview">Animes</router-link>
         </div>
@@ -54,13 +60,7 @@
           <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser?.u_id) } }">Profile</router-link>
         </div>
 
-        <!-- ใช้แค่ดูตอนทำสักพักก็ลบเลย -->
-        <!-- <div class="navbar-item">
-          <router-link to="/EditPeople">ProFile</router-link>
-        </div>
-        <div class="navbar-item">
-          <router-link to="/EditFilm">หนัง</router-link>
-        </div> -->
+       
 
       </div>
       <div class="navbar-end">

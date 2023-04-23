@@ -65,7 +65,7 @@
         </div>
         <div class="column has-text-right">
           <button class="buttom nonebackbutton">
-            <a class="is-size-4" @click="reviewStore.updateRev(val_rev_id, val),show_edit = !show_edit">Done {{ val_rev_id }}</a>
+            <a class="is-size-4" @click="reviewStore.updateRev(val_rev_id, val),show_edit = !show_edit">Done</a>
           </button>
         </div>
       </div>
