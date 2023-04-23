@@ -61,6 +61,11 @@ export const useMovieStore = defineStore('movie', () => {
         return (await axios.get(`http://localhost:3000/movie/${id}`)).data[0]
        }
 
+       const fetchSingleActor = ref([])
+      const fetchSingleMovieActor = async (id) => {
+        return (await axios.get(`http://localhost:3000/movie/actor/${id}`)).data
+       }
+
       // async function fetchSingleMovieData(id){
       //   singleMovie.value = await fetchSingleMovie(id)
       // }
@@ -144,7 +149,9 @@ export const useMovieStore = defineStore('movie', () => {
     filseries,
     filtermovie,
     filterseries,
-    refresh
+    refresh,
+    fetchSingleMovieActor,
+    fetchSingleActor
 
 }
 })
