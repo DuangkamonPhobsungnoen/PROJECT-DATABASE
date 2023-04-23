@@ -106,7 +106,7 @@ router.put('/rev/addlike/:revId', async function(req, res, next){
 
 // delete
 router.delete("/rev/delete/:revId", async function (req, res, next) {
-  // Your code here
+  // console.log(req.params.revId);
   try {
     // console.log(req.params.movId);
     const [rows, fields] = await pool.query("DELETE FROM review WHERE rev_id = ?",
@@ -123,13 +123,18 @@ router.delete("/rev/delete/:revId", async function (req, res, next) {
 
 // update
 router.put("/rev/edit/:revId", async function (req, res, next) {
-  // Your code here
   const { rev_text } = req.body
   try {
     const [rows, fields] = await pool.query("UPDATE review SET rev_text = ? where rev_id = ? ",
       [rev_text, req.params.revId]);
 
-    return res.json(rows);
+    const [rows1, fields1] = await pool.query("select rev_text from review where rev_id = ? ",
+      [req.params.revId]);
+
+
+    return res.json({
+      rev_text: rows1[0]
+    });
 
   } catch (err) {
     console.log(err)
@@ -157,7 +162,7 @@ router.get("/rev/profile/:userId", async function (req, res, next) {
   // Your code here
   try {
 
-    const [rows, fields] = await pool.query("Select mov_pic, mov_title, rev_like, rev_text, rev_rate, u_user_name From movie Natural join review Natural join user Where u_id = ?",
+    const [rows, fields] = await pool.query("Select mov_pic, mov_title, rev_like, rev_text, rev_rate, u_user_name, rev_id From movie Natural join review Natural join user Where u_id = ?",
       [req.params.userId]);
 
     return res.json(rows);

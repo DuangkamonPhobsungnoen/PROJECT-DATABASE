@@ -1,29 +1,27 @@
-// import { ref, computed } from 'vue'
+
 import { defineStore } from 'pinia'
 import { computed, ref, reactive, onMounted } from "vue";
 import axios from 'axios';
 export const useReviewStore = defineStore('review', () => {
-    
+
     const rev_Movie = ref([])
-    // rev_text, rev_rate, u_id, mov_id
     const revData = reactive({
         rev_text: '',
-        // rev_rate: 5
     })
     const revShow = ref([])
     const revProfile = ref([])
     const UserRating = ref(0)
-    
-    function convertTime(time){
+
+    function convertTime(time) {
         const dateObj = new Date(time);
 
-        const options = { 
-            month: 'short', 
-            day: '2-digit', 
-            year: 'numeric', 
-            hour: 'numeric', 
-            minute: '2-digit', 
-            hour12: true 
+        const options = {
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
         };
         return dateObj.toLocaleString('en-US', options);
     }
@@ -33,33 +31,23 @@ export const useReviewStore = defineStore('review', () => {
         const fetchingData = await axios.get(`http://localhost:3000/rev/show`)
         revShow.value = fetchingData.data
 
-     }
-     const reviewProfile = async (u_id) => {
-        // console.log(u_id, mov_id);
+    }
+    const reviewProfile = async (u_id) => {
         return (await axios.get(`http://localhost:3000/rev/profile/${u_id}`)).data
-        // const fetchingData = await axios.get(`http://localhost:3000/watch/${u_id}`)
-        // console.log(fetchingData.data);
-        // arrWatch.value = fetchingData.data
-     }
-    // const reviewProfile = async (u_id) => {
-    //     const fetchingData = await axios.get(`http://localhost:3000/rev/profile/${u_id}`)
-    //     // console.log(fetchingData.data);
-    //     revProfile.value = fetchingData.data
-
-    //  }
+        
+    }
+    
 
 
 
 
     const addLike = async (item) => {
-        // console.log(item);
         const fetchingData = await axios.put(`http://localhost:3000/rev/addLike/${item.rev_id}`,
-        {
-            user: item.u_id
-        })
+            {
+                user: item.u_id
+            })
         item.rev_like = fetchingData.data.likeNum
-
-     }
+    }
 
     const fetchReview = async (id) => {
         return (await axios.get(`http://localhost:3000/rev/${id}`)).data
@@ -72,17 +60,36 @@ export const useReviewStore = defineStore('review', () => {
             u_id: user_id,
             mov_id: movie_id
         })
-        if(fetchData.data.status == 'error'){
+        if (fetchData.data.status == 'error') {
             alert(fetchData.data.message)
             revData.rev_text = ''
             UserRating.value = 0
-        }else{
+        } else {
             rev_Movie.value = await fetchReview(movie_id)
             revData.rev_text = ''
             UserRating.value = 0
         }
-        
-        
+
+
+    }
+    const revdelete = async (id) => {
+        console.log(id)
+        const fetchingData = await axios.delete(`http://localhost:3000/rev/delete/${id}`)
+        revProfile.value = revProfile.value.filter((rev) =>{
+            return rev.rev_id != id
+        })
+    }
+
+    const updateRev = async (rev_id, rev_text) => {
+        const fetchingData = await axios.put(`http://localhost:3000/rev/edit/${rev_id}`,
+            {
+                rev_text: rev_text
+            })
+        revProfile.value.map((rev) => {
+            if (rev.rev_id == rev_id) {
+                rev.rev_text = fetchingData.data.rev_text.rev_text
+            }
+        })
     }
     return {
         fetchReview,
@@ -95,10 +102,9 @@ export const useReviewStore = defineStore('review', () => {
         reviewShow,
         revShow,
         reviewProfile,
-        revProfile
-
-        
-        // setRating
+        revProfile,
+        revdelete,
+        updateRev
 
 
     }

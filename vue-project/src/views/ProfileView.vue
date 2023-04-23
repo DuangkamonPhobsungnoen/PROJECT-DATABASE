@@ -17,7 +17,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>{{ reviewStore.revProfile }}</h1>
+  <!-- <h1>{{ reviewStore.revProfile }}</h1> -->
   <!-- <h1>{{ signInStore.logingUser }}</h1>
   <h1>{{ detailStore.arrWatch }}</h1> -->
   <Bioview :user="signInStore.logingUser"
@@ -57,7 +57,7 @@ onMounted(async () => {
     <div style="border-bottom: 5px solid gold" class="mb-6"></div>
 
     <div v-show="is_how == 'review'">
-      <Review  :list="reviewStore.revProfile"/>
+      <Review  />
     </div>
     <div v-show="is_how == 'watchlist'">
       <Watchlist
