@@ -34,7 +34,7 @@
         <div class="columns p-6">
           <div class="column has-text-centered">
             <figure class="image is-128x128 is-inline-block">
-              <img style="" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+              <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
             </figure>
             <div>
               <div class="column has-text-centered">
