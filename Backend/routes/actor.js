@@ -78,4 +78,19 @@ router = express.Router();
     }
   });
 
+  router.delete("/actor/delete/:actId", async function (req, res, next) {
+    // const {fname, lname, gender} = req.body
+    // console.log(fname, lname, gender, req.params.actId)
+    try {  
+      const [rows, fields] = await pool.query("delete from actor where act_id = ?",
+      [req.params.actId]);
+      
+      return res.json(rows);
+  
+    } catch (err) {
+      console.log(err)
+      return next(err);
+    }
+  });
+
 exports.router = router;

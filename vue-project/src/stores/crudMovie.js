@@ -73,6 +73,17 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
         console.log(id)
         const fetchingData = await axios.delete(`http://localhost:3000/movie/delete/${id}`)
         fetchAll()
+        // fetchActor()
+    }
+
+    const removePeople =  async (act_id) => {
+        // console.log(act_id)
+        const fetchingData = await axios.delete(`http://localhost:3000/actor/delete/${act_id}`)
+        allActor.value = allActor.value.filter((val) =>{
+            return val.act_id != act_id
+          
+        })
+        
     }
 
     const editData = ref({})
@@ -120,7 +131,8 @@ export const usecrudMovieStore = defineStore('crudmovie', () => {
         editActorLname,
         fetchSingleActor2,
         editActorGender,
-        fetchSingleActor3
+        fetchSingleActor3,
+        removePeople
 
     }
 })
