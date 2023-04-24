@@ -1,5 +1,5 @@
 <template>
-  <!-- {{ user }} -->
+  {{ signInStore.logingUser }}
   <div class="columns">
     <div class="column is-3"></div>
     <div class="column is-3 m-5">
@@ -8,7 +8,7 @@
           <div class="media">
             <div class="image media-left">
                 <div style="border:5px solid; border-radius:50%;width:200px;" class="">
-                    <img style="" src="https://cdn.discordapp.com/attachments/1087447051387813909/1087617962984357918/Ellipse_7.png" alt="">
+                    <img style="" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
                 </div>
             </div>
           </div>
@@ -18,7 +18,7 @@
     <div class="column is-5 mt-6">
       
         <div class="pt-6">
-            <label class="title has-text-white">{{user.u_user_name}}</label> 
+            <label class="title has-text-white">{{signInStore.logingUser.u_user_name}}</label> 
             <Edit :editUser="user"/>
         </div>
         <div class="pt-5">
@@ -39,7 +39,9 @@
 </template>
 
 <script setup>
+import { useSignInStore } from "@/stores/signin";
 import Edit from "../Profile/ProfileUser.vue";
+const signInStore = useSignInStore()
 defineProps({
     user: Object,
     revLength: Number

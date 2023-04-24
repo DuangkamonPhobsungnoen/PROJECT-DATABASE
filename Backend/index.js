@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const app = express();
 
+app.use(express.static('static'))
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cors())
