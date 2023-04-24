@@ -23,7 +23,6 @@ defineProps({
 </script>
 
 <template>
-  <h1>5555</h1>
   <!-- <h1>{{ movieStore.singleMovie }} </h1>
   <h1>{{ movieStore.singleMov?.actor }} </h1> -->
 
