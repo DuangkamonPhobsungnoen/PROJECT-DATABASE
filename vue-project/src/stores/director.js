@@ -8,8 +8,20 @@ export const useDirectorStore = defineStore('director', () => {
     const movPerActor = ref([])
     const fetchActor = async(id) =>{
         console.log(id);
-        console.log((await axios.get(`http://localhost:3000/actor/mov/${parseInt(id)}`)).data)
         // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
+        return ((await axios.get(`http://localhost:3000/actor/mov/${id}`)).data)
+        // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
+        // console.log(fetchingData.data);
+        
+    }
+
+    const movPerDir = ref([])
+    const fetchDir = async(id) =>{
+        console.log(id);
+        // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
+        return ((await axios.get(`http://localhost:3000/actor/mov/${id}`)).data)
+        // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
+        // console.log(fetchingData.data);
         
     }
     
@@ -18,8 +30,12 @@ export const useDirectorStore = defineStore('director', () => {
 
 
   return { 
+    movPerDir,
     fetchActor,
-    movPerActor
+    movPerActor,
+    fetchDir
+    
+
 
 }
 })
