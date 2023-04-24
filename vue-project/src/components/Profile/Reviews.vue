@@ -1,6 +1,6 @@
 <template>
   <!-- <h1>{{ reviewStore.revProfile }}</h1> -->
-   <div class="p-3" v-for="item,index in reviewStore.revProfile" :key="item.rev_id">
+  <div class="p-3" v-for="item, index in reviewStore.revProfile" :key="item.rev_id">
     <div class="card has-text-white color-background-purple-2 column is-10 is-offset-1"
       style="border-radius: 25px; border: 1px solid white">
       <div class="p-3">
@@ -25,9 +25,17 @@
               <div>
                 {{ item.rev_text }}
                 <p class="text_img_center pt-5">
-                  <span>{{ item.u_user_name }}</span>
+                <div class="media">
+                  <div class="image media-left" style="">
+                    <div style="border-radius: 50%; max-width: 20%;" class="">
+                      <img style="border-radius: 50%; width: 20%;"
+                        :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                    </div>
+                  </div>
+                </div>
+                <span>{{ item.u_user_name }}</span>
                 </p>
-                <div class="has-text-right"> 
+                <div class="has-text-right">
                   <span class="icon" style="max-width:200px;">
                     <!-- pencill -->
                     <a @click="modal_show(index)">
@@ -50,62 +58,61 @@
     </div>
 
     <div id="modal-rusure" class="modal" v-bind:class="{ 'is-active': show_edit }">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-    <div class="box proeditbackground p-6">
-      <div class="columns" style="background-color: transparent; border-bottom: 3px solid white">
-        <div class="column has-text-left">
-          <button class="buttom nonebackbutton">
-            <a class="is-size-4" @click="show_edit = !show_edit">Cancel</a>
-          </button>
-        </div>
-        
-        <div class="column has-text-centered">
-          <p class="is-size-3 has-text-white">Edit Review</p>
-        </div>
-        <div class="column has-text-right">
-          <button class="buttom nonebackbutton">
-            <a class="is-size-4" @click="reviewStore.updateRev(val_rev_id, val),show_edit = !show_edit">Done</a>
-          </button>
-        </div>
-      </div>
-      <div class="columns p-6">
-        <div class="column has-text-centered">
-        </div>
-        <div class="column">
-          <div class="field">
-            <div class="control">
-              <textarea class="input" type="text" placeholder="review"  rows="3" v-model="val"></textarea>
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box proeditbackground p-6">
+          <div class="columns" style="background-color: transparent; border-bottom: 3px solid white">
+            <div class="column has-text-left">
+              <button class="buttom nonebackbutton">
+                <a class="is-size-4" @click="show_edit = !show_edit">Cancel</a>
+              </button>
+            </div>
+
+            <div class="column has-text-centered">
+              <p class="is-size-3 has-text-white">Edit Review</p>
+            </div>
+            <div class="column has-text-right">
+              <button class="buttom nonebackbutton">
+                <a class="is-size-4" @click="reviewStore.updateRev(val_rev_id, val), show_edit = !show_edit">Done</a>
+              </button>
+            </div>
+          </div>
+          <div class="columns p-6">
+            <div class="column has-text-centered">
+            </div>
+            <div class="column">
+              <div class="field">
+                <div class="control">
+                  <textarea class="input" type="text" placeholder="review" rows="3" v-model="val"></textarea>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
   </div>
-
-  
-  
 </template>
 
 <script setup>
+import { useSignInStore } from "@/stores/signin";
 import { useReviewStore } from "@/stores/review";
 import { ref } from 'vue';
 import axios from 'axios';
 import { useRoute } from "vue-router";
 const reviewStore = useReviewStore()
+const signInStore = useSignInStore()
 const show_edit = ref(false)
 
 const route = useRoute()
-const {id} = route.params
+const { id } = route.params
 
 
 // let val_index
 let val = ref(null)
 let val_rev_id = ref(null)
-const modal_show = (index) =>{
+const modal_show = (index) => {
   show_edit.value = !show_edit.value
   val.value = reviewStore.revProfile[index].rev_text
   val_rev_id.value = reviewStore.revProfile[index].rev_id

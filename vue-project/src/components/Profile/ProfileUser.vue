@@ -34,7 +34,7 @@
         <div class="columns p-6">
           <div class="column has-text-centered">
             <figure class="image is-128x128 is-inline-block">
-              <img style="" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+              <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
             </figure>
             <div>
               <div class="column has-text-centered">
@@ -136,13 +136,20 @@ export default {
               'Content-Type': 'multipart/form-data'
               }
           })
-          const test = fetchingData.data.replace(/\\/g, "/");
-          console.log(test);
-          console.log(fetchingData.data);
-          console.log(signInStore.logingUser.u_pic);
+          const test = fetchingData.data.pic.replace(/\\/g, "/");
+          // console.log(test);
+          // console.log(fetchingData.data);
+          // console.log(signInStore.logingUser.u_pic);
           // signInStore.logingUser = null
           // this.for_pic = fetchingData.data
           signInStore.logingUser.u_pic = test
+          signInStore.logingUser.u_fname = fetchingData.data.fname
+          signInStore.logingUser.u_lname = fetchingData.data.lname
+          signInStore.logingUser.u_user_name = fetchingData.data.u_user_name
+          // console.log(test);
+          // console.log(fetchingData.data.fname);
+          // console.log(fetchingData.data.lname);
+          // console.log(fetchingData.data.u_user_name);
           // this.editUser = fetchingData.data
           // localStorage.getItem('loggingUser')
           

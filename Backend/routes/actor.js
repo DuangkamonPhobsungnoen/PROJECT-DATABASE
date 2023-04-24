@@ -77,6 +77,7 @@ router = express.Router();
       return next(err);
     }
   });
+
 // get movie of actor
   router.get("/actor/mov/:actId", async function (req, res, next) {
     console.log(req.params.actId)
@@ -98,6 +99,15 @@ router = express.Router();
       const [rows, fields] = await pool.query("SELECT mov_title, mov_rate, mov_pic FROM movie join movie_director using(mov_id) join director using(dir_id) where dir_id = ?",
       [req.params.dirId]);
       // console.log(rows);
+
+
+  router.delete("/actor/delete/:actId", async function (req, res, next) {
+    // const {fname, lname, gender} = req.body
+    // console.log(fname, lname, gender, req.params.actId)
+    try {  
+      const [rows, fields] = await pool.query("delete from actor where act_id = ?",
+      [req.params.actId]);
+      
       return res.json(rows);
   
     } catch (err) {
@@ -105,4 +115,5 @@ router = express.Router();
       return next(err);
     }
   });
+  
 exports.router = router;

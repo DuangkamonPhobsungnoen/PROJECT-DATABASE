@@ -8,7 +8,7 @@
           <div class="media">
             <div class="image media-left">
                 <div style="border:5px solid; border-radius:50%;width:200px;" class="">
-                    <img style="" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                    <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
                 </div>
             </div>
           </div>
