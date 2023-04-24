@@ -162,10 +162,11 @@ const swapPage = ref(false)
                 <td>
                   <div class="select">
                     <select v-model="actor.gender">
-                      <option>Male</option>
-                      <option>Female</option>
+                      <option>male</option>
+                      <option>female</option>
                     </select>
                   </div>
+                  <!-- {{ actor.gender }} -->
                 </td>
                 <td>
                   <div class="has-text-centered">

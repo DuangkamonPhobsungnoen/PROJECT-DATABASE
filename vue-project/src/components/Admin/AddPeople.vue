@@ -25,9 +25,11 @@
 
                 <button
                   class="button has-text-white js-modal-trigger nonebackbutton"
-                  @click=""
+                  
                 >
-                  <span><div class="fa fa-trash is-size-2"></div></span>
+                  <span>
+                    <div @click="crudMovStore.removePeople(item.act_id)" class="fa fa-trash is-size-2"></div>
+                  </span>
                 </button>
               </div>
             </div>
@@ -38,7 +40,7 @@
     </div>
   </div>
 
-  <div
+  <!-- <div
     id="modal-rusure"
     class="modal"
     v-bind:class="{ 'is-active': show_modal_del }"
@@ -71,7 +73,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>

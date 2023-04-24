@@ -24,15 +24,15 @@ router.put("/user/edit/:userId", upload.single('u_picture'), async function  (re
         try {
             const {fname, lname, username} = req.body
             const file = req.file;
-            // console.log(fname, lname, username, req.params.userId, file.path.substr(6));
+            console.log(fname, lname, username, req.params.userId, file.path.substr(6));
             // if (!file) {
             
             // }
 
 
-            const [rows1, fields1] = await pool.query('select u_user_name from user where u_user_name = ?',
-            [username])
-            // console.log(rows1.length);
+            const [rows1, fields1] = await pool.query('select u_user_name from user where u_user_name = ? and u_id != ?',
+            [username, req.params.userId])
+            // console.log(rows1);
             if(rows1.length == 0){
                 
                 const [rows, fields] = await pool.query('UPDATE user SET u_fname=?, u_lname=?, u_user_name=? where u_id = ?',
@@ -44,9 +44,19 @@ router.put("/user/edit/:userId", upload.single('u_picture'), async function  (re
                 const [rows1, fields1] = await pool.query('select u_pic from user where u_id=?',
                 [req.params.userId])
 
+                const [rows3, fields3] = await pool.query('select u_fname, u_lname, u_user_name from user where u_id=?',
+                [req.params.userId])
+
                 
 
-                return res.json(rows1[0].u_pic)
+                return res.json(
+                    {
+                        pic:rows1[0].u_pic,
+                        fname: rows3[0].u_fname,
+                        lname: rows3[0].u_lname,
+                        u_user_name: rows3[0].u_user_name
+
+                    })
             }
             else{
                 return res.json({message: "Username use pai laew", status:'error'})

@@ -56,12 +56,12 @@ onMounted(async () => {
 
               <div class="select">
                 <select class="editselect" v-model="crudMovStore.editActorGender">
-                  <option value="Female">Female</option>
-                  <option value="Male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
                 </select>
               </div>
             </div>
-<!-- <h1>{{ crudMovStore.editActorGender }}</h1> -->
+<h1>{{ crudMovStore.editActorGender }}</h1>
           </div>
         </form>
       </div>
