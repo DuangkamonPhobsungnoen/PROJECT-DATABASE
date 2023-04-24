@@ -77,5 +77,18 @@ router = express.Router();
       return next(err);
     }
   });
-
+// get movie of actor
+  router.get("/actor/mov/:actId", async function (req, res, next) {
+    console.log(req.params.actId)
+    try {  
+      const [rows, fields] = await pool.query("SELECT mov_title, mov_rate, mov_pic FROM movie join movie_cast using(mov_id) join actor using(act_id) where act_id = ?",
+      [req.params.actId]);
+      
+      return res.json(rows);
+  
+    } catch (err) {
+      console.log(err)
+      return next(err);
+    }
+  });
 exports.router = router;
