@@ -25,15 +25,11 @@
               <div>
                 {{ item.rev_text }}
                 <p class="text_img_center pt-5">
-                <div class="media">
-                  <div class="image media-left" style="">
-                    <div style="border-radius: 50%; max-width: 20%;" class="">
-                      <img style="border-radius: 50%; width: 20%;"
+                    <div style="border-radius: 50%; max-width: 40px;" class="">
+                      <img style="border-radius: 50%;"
                         :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
                     </div>
-                  </div>
-                </div>
-                <span>{{ item.u_user_name }}</span>
+                  <span class="ml-4">{{ item.u_user_name }}</span>
                 </p>
                 <div class="has-text-right">
                   <span class="icon" style="max-width:200px;">

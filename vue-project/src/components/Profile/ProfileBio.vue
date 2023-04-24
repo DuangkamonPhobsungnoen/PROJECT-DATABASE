@@ -5,7 +5,7 @@
     <div class="column is-3 m-5">
       <div class="mt-5">
         <div class="card-content">
-          <div class="media">
+          <div class="media mt-5">
             <div class="image media-left">
                 <div style="border:5px solid; border-radius:50%;width:200px;" class="">
                     <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
