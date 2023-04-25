@@ -52,16 +52,6 @@
           <router-link to="/reviewsview">Reviews</router-link>
         </div>
 
-        <div v-if="signInStore.logingUser?.role == 'admin'" class="navbar-item">
-          <router-link to="/adminview">Admin</router-link>
-        </div>
-
-        <div v-if="JSON.stringify(signInStore.logingUser) !== '{}' && signInStore.logingUser?.role != 'admin'"  class="navbar-item">
-          <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser?.u_id) } }">Profile</router-link>
-        </div>
-
-       
-
       </div>
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable has-text-centered ">
@@ -74,16 +64,31 @@
                 <strong>Sign in</strong>
               </div>
             </router-link>
+
             <router-link v-if="JSON.stringify(signInStore.logingUser) == '{}'" to="/signupview">
               <div class="navbar-item">
                 <strong>Sign up</strong>
               </div>
             </router-link>
+
             <router-link to="/">
-              <div v-if="JSON.stringify(signInStore.logingUser) != '{}'" @click="signInStore.logout" class="navbar-item">
+              <div v-if="JSON.stringify(signInStore.logingUser) != '{}'" @click="signInStore.logout" class="navbar-item text-purple">
                 <strong>Logout</strong>
               </div>
             </router-link>
+
+        <router-link :to="{ name: 'profile', params: { id: parseInt(signInStore.logingUser?.u_id) } }">
+            <div v-if="JSON.stringify(signInStore.logingUser) !== '{}' && signInStore.logingUser?.role != 'admin'"  class="navbar-item text-purple">
+                <strong>Profile</strong>
+            </div>
+        </router-link>
+
+        <router-link to="/adminview">
+          <div v-if="signInStore.logingUser?.role == 'admin'" class="navbar-item text-purple">
+            <strong>Admin</strong>
+          </div>
+            </router-link>
+
             <!-- <div @click="signInStore.logout" class="navbar-item button">
               <small>Log Out</small>
             </div> -->

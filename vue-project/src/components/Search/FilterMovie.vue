@@ -3,6 +3,7 @@
     Search "{{ movieStore.searchInput }}"
   </h1>
   <MessText message="TITLE"></MessText>
+
   <div class="task-container columns is-multiline px-6 py-6">
     <MovieCard
       v-for="item in movieStore.testSearch.movie"
@@ -25,7 +26,7 @@
     ></DirectorSearch>
      </div>
 
-  <h1>{{ movieStore.testSearch }}</h1>
+  <!-- <h1>{{ movieStore.testSearch }}</h1> -->
 </template>
 
 <script setup>
