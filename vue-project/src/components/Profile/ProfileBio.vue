@@ -1,5 +1,5 @@
 <template>
-  {{ signInStore.logingUser }}
+  <!-- {{ signInStore.logingUser }} -->
   <div class="columns">
     <div class="column is-3"></div>
     <div class="column is-3 m-5">
@@ -8,7 +8,9 @@
           <div class="media">
             <div class="image media-left">
                 <div style="border:5px solid; border-radius:50%;width:200px;" class="">
-                    <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                    <div class="image is-square">
+                    <img class="is-rounded" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                </div>
                 </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 <template>
   <!-- กดปุ่ม edit แล้วเด่ง popup edit -->
-  <h1>{{ for_pic?.u_pic }}999</h1>
-  <h1>{{ signInStore.logingUser.u_pic }}</h1>
+  <!-- <h1>{{ for_pic?.u_pic }}999</h1> -->
+  <!-- <h1>{{ signInStore.logingUser.u_pic }}</h1> -->
   <a class="ml-2" @click="show_edit = !show_edit">
     <img src="https://cdn.discordapp.com/attachments/986617972544139337/1090308577790546100/pngwing.com.png" class=""
       style="max-width:30px;" alt="edit">
@@ -31,17 +31,14 @@
             </button>
           </div>
         </div>
-        <div class="columns p-6">
-          <div class="column has-text-centered">
+        <div class="columns mt-5">
+          <div class="column has-text-centered mt-5">
             <figure class="image is-128x128 is-inline-block">
-              <img style="border-radius: 50%;" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+              <div class="image is-square">
+                    <img class="is-rounded" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                </div>
             </figure>
             <div>
-              <div class="column has-text-centered">
-                <button class="buttom nonebackbutton">
-                  <a class="is-size-4 has-text-white" @click="">Edit Picture</a>
-                </button>
-              </div>
             </div>
           </div>
           <div class="column">
@@ -71,21 +68,6 @@
                 <input class="file" name="u_picture" type="file" id="file" ref="file" @change="handleFileUpload()" placeholder="picture user" />
               </div>
             </div>
-
-            <!-- <div class="field">
-              <div class="control">
-                <input
-                  class="input"
-                  type="text"
-                  placeholder="picture"
-                  v-model="pic"
-                  
-                />
-              </div>
-            </div> -->
-
-
-              <!-- <h1>{{ signInStore.logingUser.u_id }}</h1> -->
           </div>
         </div>
       </div>

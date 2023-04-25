@@ -1,7 +1,7 @@
 <template>
-  <button @click="crudMovStore.fetchSingleActor(5)">
+  <!-- <button @click="crudMovStore.fetchSingleActor(5)">
     test
-  </button>
+  </button> -->
   <!-- <h1> {{ crudMovStore.allmov }}</h1> -->
   <div>
     <div class="columns p-5">
