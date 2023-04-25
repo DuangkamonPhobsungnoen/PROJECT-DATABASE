@@ -82,7 +82,7 @@ router = express.Router();
   router.get("/actor/mov/:actId", async function (req, res, next) {
     console.log(req.params.actId)
     try {  
-      const [rows, fields] = await pool.query("SELECT mov_title, mov_rate, mov_pic FROM movie join movie_cast using(mov_id) join actor using(act_id) where act_id = ?",
+      const [rows, fields] = await pool.query("SELECT act_fname, act_lname, mov_title, mov_rate, mov_pic FROM movie join movie_cast using(mov_id) join actor using(act_id) where act_id = ?",
       [req.params.actId]);
       // console.log(rows);
       return res.json(rows);
@@ -92,11 +92,11 @@ router = express.Router();
       return next(err);
     }
   });
-// get movie of actor
+// get movie of director
   router.get("/dir/mov/:dirId", async function (req, res, next) {
     console.log(req.params.dirId)
     try {  
-      const [rows, fields] = await pool.query("SELECT mov_title, mov_rate, mov_pic FROM movie join movie_director using(mov_id) join director using(dir_id) where dir_id = ?",
+      const [rows, fields] = await pool.query("SELECT dir_fname, dir_lname, mov_title, mov_rate, mov_pic FROM movie join movie_director using(mov_id) join director using(dir_id) where dir_id = ?",
       [req.params.dirId]);
       // console.log(rows);
       return res.json(rows);
