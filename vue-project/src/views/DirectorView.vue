@@ -1,12 +1,14 @@
 <template>
   <h1>{{ dirStore.movPerDir }}</h1>
-  <!-- <Profile/>
-  card รอข้อมูลจาก DB
-  <MovieCard ></MovieCard> -->
+
+  <!-- <h1 class="is-size-4 has-text-weight-bold has-text-centered">{{ dirStore.movPerDir[0].dir_fname }} {{ dirStore.movPerDir[0].dir_lname }}</h1> -->
+  
+  <div class="task-container columns is-multiline px-6 py-6">
+    <MovieCard v-for="item in dirStore.movPerDir" :item="item" ></MovieCard>
+  </div>
 </template>
 
 <script setup>
-import Profile from "@/components/Actor/directorprofile.vue"
 import MovieCard from '@/components/MovieCard.vue';
 import { computed, ref, reactive, onMounted } from "vue";
 import { useDirectorStore } from "@/stores/director"
