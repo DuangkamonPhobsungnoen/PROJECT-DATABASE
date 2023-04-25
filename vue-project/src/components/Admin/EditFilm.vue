@@ -34,7 +34,6 @@ const swapPage = ref(false)
       <div class="column is-offset-1">
         <div class="select" style="width: 85%">
           <select name="type" id="" style="width: 100%" class="" v-model="type" required>
-            <option value="000">All</option>
             <option value="movie">movie</option>
             <option value="anime">anime</option>
             <option value="series">series</option>
@@ -176,7 +175,7 @@ const swapPage = ref(false)
                   </div>
                 </td>
               </tr>
-              <tr v-for="actor, index in crudMovStore.actorAdd" :key="3">
+              <tr v-for="actor, index in crudMovStore.actorAdd" >
                 <td>
                   <p>{{ index + 1 }}. {{ actor.act_fname }}</p>
                 </td>
@@ -197,11 +196,11 @@ const swapPage = ref(false)
     </div>
     <div class="columns">
       <div class="column has-text-centered">
-        <router-link to="/">
-          <button style="width: 100%" class="button subtitle is-5" type="cancel">
+        <!-- <router-link to="/adminview"> -->
+          <button @click="back()" style="width: 100%" class="button subtitle is-5" type="cancel">
             DONE
           </button>
-        </router-link>
+        <!-- </router-link> -->
       </div>
       <div class="column has-text-centered">
 
@@ -235,6 +234,9 @@ const swapPage = ref(false)
       }
     },
     methods: {
+      back(){
+        location.reload();
+      }
       // checkingsubmit(){
       //   if(this.title != "" || this.trailer == "" || this.dir_fname == "" || this.dir_lname == "" || isNaN(this.year) || this.poster == "" || this.story == "" || this.type == "" || this.genres == "" || isNaN(this.time)){
       //     return check = true

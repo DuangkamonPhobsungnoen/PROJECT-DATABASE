@@ -3,7 +3,7 @@ import { useMovieStore } from "@/stores/movie";
 import { computed, ref, reactive, onMounted } from "vue";
 const movieStore = useMovieStore();
 
-const genId = ref('')
+const genId = ref('Genres')
 defineProps({
     message: String
 })
@@ -33,7 +33,7 @@ defineProps({
           </select>
         </div>
       </div>
-      <div class="column">
+      <!-- <div class="column">
         <div class="select">
           <select class="editselect">
             <option>Sort</option>
@@ -42,7 +42,7 @@ defineProps({
             <option>Rating</option>
           </select>
         </div>
-      </div>
+      </div> -->
       <div class="column">
         <button v-if="message == 'Animes'" class="button color-background-purple-3 has-text-white" @click="movieStore.filteranime(genId)">
           CHECK {{ message }}

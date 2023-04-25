@@ -41,7 +41,7 @@ export const useMovieStore = defineStore('movie', () => {
       allTrending.value = fetchingData.data
     }
 
-    const selectTrend = ref("")
+    const selectTrend = ref("All")
     const fetchSelectTrend = async () => {
       // console.log(selectTrend.value);
       if(selectTrend.value == "All"){

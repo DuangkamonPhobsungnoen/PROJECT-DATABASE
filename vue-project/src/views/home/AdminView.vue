@@ -45,7 +45,6 @@
     </div>
     <div v-show="editselect == 'people'">
       <EditPeople  />
-      <!-- <test></test> -->
     </div>
   </div>
   
@@ -61,7 +60,6 @@ import AddMov from "../../components/Admin/AddMov.vue";
 import AddPeople from "../../components/Admin/AddPeople.vue";
 import EditPeople from "../../components/Admin/EditPeople.vue";
 import EditFilm from "../../components/Admin/EditFilm.vue";
-import test from "../../components/Admin/test.vue";
 export default {
   data() {
     return {
@@ -76,8 +74,7 @@ export default {
     AddMov,
     AddPeople,
     EditPeople,
-    EditFilm,
-    test
+    EditFilm
   },
   methods:{
     // insertmov(data){
