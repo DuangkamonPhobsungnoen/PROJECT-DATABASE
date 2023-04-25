@@ -13,7 +13,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  {{ crudMovStore.editData }}
+  <!-- {{ crudMovStore.editData }} -->
   <div class="p-2">
     <h1 class="has-text-centered is-size-1 pb-6 pt-4">Edit Movie</h1>
     <div class="columns">
@@ -84,7 +84,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="columns m-3">
-      <div class="column is-2 is-offset-1">
+      <div class="column is-1 is-offset-1">
         <p class="subtitle is-4 has-text-white">Poster</p>
       </div>
       <div class="column is-9">

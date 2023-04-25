@@ -25,15 +25,14 @@
               <div>
                 {{ item.rev_text }}
                 <p class="text_img_center pt-5">
-                <div class="media">
-                  <div class="image media-left" style="">
-                    <div style="border-radius: 50%; max-width: 20%;" class="">
-                      <img style="border-radius: 50%; width: 20%;"
-                        :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                  <div class="image" style="">
+                    <div style="width:25px;">
+                      <div class="image is-square">
+                        <img class="is-rounded" :src="`http://localhost:3000/${signInStore.logingUser.u_pic}`" alt="">
+                      </div>
                     </div>
                   </div>
-                </div>
-                <span>{{ item.u_user_name }}</span>
+                  <div><span>&nbsp&nbsp{{ item.u_user_name }}</span></div>
                 </p>
                 <div class="has-text-right">
                   <span class="icon" style="max-width:200px;">
