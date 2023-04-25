@@ -153,7 +153,7 @@ router.get("/search", async function (req, res, next) {
   // console.log(searchInput);
   try {
 
-    const [rows1, fields1] = await pool.query("SELECT mov_title, mov_pic, mov_rate  FROM movie WHERE mov_title LIKE ?",
+    const [rows1, fields1] = await pool.query("SELECT *  FROM movie WHERE mov_title LIKE ?",
     [`%${searchInput}%`]);
 
       const [rows2, fields2] = await pool.query("SELECT * from actor where concat(act_fname, ' ', act_lname) like ?",
