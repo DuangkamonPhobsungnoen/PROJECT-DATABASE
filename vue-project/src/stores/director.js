@@ -19,7 +19,7 @@ export const useDirectorStore = defineStore('director', () => {
     const fetchDir = async(id) =>{
         console.log(id);
         // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
-        return ((await axios.get(`http://localhost:3000/actor/mov/${id}`)).data)
+        return ((await axios.get(`http://localhost:3000/dir/mov/${id}`)).data)
         // const fetchingData = await axios.get(`http://localhost:3000/actor/mov/${id}`)
         // console.log(fetchingData.data);
         
