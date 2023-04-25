@@ -99,7 +99,13 @@ router = express.Router();
       const [rows, fields] = await pool.query("SELECT mov_title, mov_rate, mov_pic FROM movie join movie_director using(mov_id) join director using(dir_id) where dir_id = ?",
       [req.params.dirId]);
       // console.log(rows);
-
+      return res.json(rows);
+  
+    } catch (err) {
+      console.log(err)
+      return next(err);
+    }
+  });
 
   router.delete("/actor/delete/:actId", async function (req, res, next) {
     // const {fname, lname, gender} = req.body
@@ -115,5 +121,4 @@ router = express.Router();
       return next(err);
     }
   });
-  
 exports.router = router;
